@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:data": "node scripts/build-today-json.mjs",
+    "build:mvp1": "npm run build:data && npm run build"
   },
   "dependencies": {
     "react": "^19.2.0",

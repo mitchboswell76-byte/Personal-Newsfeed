@@ -1,0 +1,228 @@
+{
+  "date": "2026-02-10",
+  "generated_at": "2026-02-10T06:43:37.873Z",
+  "clusters": [
+    {
+      "cluster_id": "rss-1",
+      "rank_score": 1,
+      "priority": "top",
+      "title": "Reuters sample: Elections commission announces audit timeline",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.reuters.com/world/sample-election-audit",
+        "source_domain": "reuters.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from Reuters World News because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.reuters.com/world/sample-election-audit",
+          "title": "Reuters sample: Elections commission announces audit timeline",
+          "source_domain": "reuters.com",
+          "timestamp": "2026-02-10T05:00:00.000Z",
+          "snippet": "Sample Reuters item used when live RSS is unavailable.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-2",
+      "rank_score": 0.833,
+      "priority": "top",
+      "title": "AP sample: Lawmakers debate transport funding extension",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://apnews.com/article/sample-transport-funding",
+        "source_domain": "apnews.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from AP Top News because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://apnews.com/article/sample-transport-funding",
+          "title": "AP sample: Lawmakers debate transport funding extension",
+          "source_domain": "apnews.com",
+          "timestamp": "2026-02-10T04:35:00.000Z",
+          "snippet": "Congressional leaders are negotiating a short-term package.",
+          "labels": {
+            "reliability": "High",
+            "region": "US",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-3",
+      "rank_score": 0.667,
+      "priority": "scan",
+      "title": "BBC sample: Trade ministers plan emergency consultation",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/world-sample-trade-ministers",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/world-sample-trade-ministers",
+          "title": "BBC sample: Trade ministers plan emergency consultation",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-10T04:05:00.000Z",
+          "snippet": "Ministers said they want to avoid immediate tariff escalation.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-4",
+      "rank_score": 0.5,
+      "priority": "scan",
+      "title": "Reuters sample: Regional summit agrees climate financing framework",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.reuters.com/world/sample-climate-finance",
+        "source_domain": "reuters.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from Reuters World News because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.reuters.com/world/sample-climate-finance",
+          "title": "Reuters sample: Regional summit agrees climate financing framework",
+          "source_domain": "reuters.com",
+          "timestamp": "2026-02-10T03:45:00.000Z",
+          "snippet": "Leaders agreed on a phased reporting and funding schedule.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-5",
+      "rank_score": 0.333,
+      "priority": "low",
+      "title": "AP sample: State health agency publishes winter advisory",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://apnews.com/article/sample-health-advisory",
+        "source_domain": "apnews.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from AP Top News because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://apnews.com/article/sample-health-advisory",
+          "title": "AP sample: State health agency publishes winter advisory",
+          "source_domain": "apnews.com",
+          "timestamp": "2026-02-10T02:25:00.000Z",
+          "snippet": "Officials encouraged vulnerable residents to take precautions.",
+          "labels": {
+            "reliability": "High",
+            "region": "US",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-6",
+      "rank_score": 0.167,
+      "priority": "low",
+      "title": "BBC sample: Arctic research mission reports sea-ice shift",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/world-sample-arctic-research",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/world-sample-arctic-research",
+          "title": "BBC sample: Arctic research mission reports sea-ice shift",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-10T01:55:00.000Z",
+          "snippet": "Scientists observed faster-than-expected movement in one corridor.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    }
+  ]
+}
