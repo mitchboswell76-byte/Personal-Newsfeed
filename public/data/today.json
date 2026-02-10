@@ -1,35 +1,35 @@
 {
   "date": "2026-02-10",
-  "generated_at": "2026-02-10T06:43:37.873Z",
+  "generated_at": "2026-02-10T07:02:39.643Z",
   "clusters": [
     {
       "cluster_id": "rss-1",
       "rank_score": 1,
       "priority": "top",
-      "title": "Reuters sample: Elections commission announces audit timeline",
+      "title": "Philippine top court says same-sex couples can co-own property",
       "topic_tags": [
         "general"
       ],
       "updated_at": "just now",
       "coverage_breadth": "Narrow",
       "best_article": {
-        "url": "https://www.reuters.com/world/sample-election-audit",
-        "source_domain": "reuters.com",
+        "url": "https://www.bbc.com/news/articles/c70nwz7z7r1o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
         "image_url": "",
         "labels": {
           "reliability": "High",
           "paywall": "No",
           "bias_label": "Center"
         },
-        "trace_summary": "Picked from Reuters World News because it is the highest-ranked available article in this single-item cluster."
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
       },
       "articles": [
         {
-          "url": "https://www.reuters.com/world/sample-election-audit",
-          "title": "Reuters sample: Elections commission announces audit timeline",
-          "source_domain": "reuters.com",
-          "timestamp": "2026-02-10T05:00:00.000Z",
-          "snippet": "Sample Reuters item used when live RSS is unavailable.",
+          "url": "https://www.bbc.com/news/articles/c70nwz7z7r1o?at_medium=RSS&at_campaign=rss",
+          "title": "Philippine top court says same-sex couples can co-own property",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-10T06:31:12.000Z",
+          "snippet": "The landmark decision said \"legitimate intimate relationships\" must not be \"legally invisible\".",
           "labels": {
             "reliability": "High",
             "region": "Global",
@@ -41,53 +41,16 @@
     },
     {
       "cluster_id": "rss-2",
-      "rank_score": 0.833,
+      "rank_score": 0.973,
       "priority": "top",
-      "title": "AP sample: Lawmakers debate transport funding extension",
+      "title": "Australia police defend actions after violence at protest over Israeli president visit",
       "topic_tags": [
         "general"
       ],
       "updated_at": "just now",
       "coverage_breadth": "Narrow",
       "best_article": {
-        "url": "https://apnews.com/article/sample-transport-funding",
-        "source_domain": "apnews.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "High",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked from AP Top News because it is the highest-ranked available article in this single-item cluster."
-      },
-      "articles": [
-        {
-          "url": "https://apnews.com/article/sample-transport-funding",
-          "title": "AP sample: Lawmakers debate transport funding extension",
-          "source_domain": "apnews.com",
-          "timestamp": "2026-02-10T04:35:00.000Z",
-          "snippet": "Congressional leaders are negotiating a short-term package.",
-          "labels": {
-            "reliability": "High",
-            "region": "US",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ]
-    },
-    {
-      "cluster_id": "rss-3",
-      "rank_score": 0.667,
-      "priority": "scan",
-      "title": "BBC sample: Trade ministers plan emergency consultation",
-      "topic_tags": [
-        "general"
-      ],
-      "updated_at": "just now",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://www.bbc.com/news/world-sample-trade-ministers",
+        "url": "https://www.bbc.com/news/articles/cn0zed0dekgo?at_medium=RSS&at_campaign=rss",
         "source_domain": "bbc.com",
         "image_url": "",
         "labels": {
@@ -99,11 +62,48 @@
       },
       "articles": [
         {
-          "url": "https://www.bbc.com/news/world-sample-trade-ministers",
-          "title": "BBC sample: Trade ministers plan emergency consultation",
+          "url": "https://www.bbc.com/news/articles/cn0zed0dekgo?at_medium=RSS&at_campaign=rss",
+          "title": "Australia police defend actions after violence at protest over Israeli president visit",
           "source_domain": "bbc.com",
-          "timestamp": "2026-02-10T04:05:00.000Z",
-          "snippet": "Ministers said they want to avoid immediate tariff escalation.",
+          "timestamp": "2026-02-10T04:19:50.000Z",
+          "snippet": "Videos from the rally appear to show officers punching protesters and dragging praying men away.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-3",
+      "rank_score": 0.946,
+      "priority": "top",
+      "title": "US to exempt some Bangladeshi clothes from tariffs",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/c626r78g122o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/c626r78g122o?at_medium=RSS&at_campaign=rss",
+          "title": "US to exempt some Bangladeshi clothes from tariffs",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-10T03:26:05.000Z",
+          "snippet": "The White House agreed to carve out exemptions for US-produced cotton from Bangladesh.",
           "labels": {
             "reliability": "High",
             "region": "Global",
@@ -115,90 +115,16 @@
     },
     {
       "cluster_id": "rss-4",
-      "rank_score": 0.5,
-      "priority": "scan",
-      "title": "Reuters sample: Regional summit agrees climate financing framework",
+      "rank_score": 0.919,
+      "priority": "top",
+      "title": "Trump threatens to block opening of US-Canada bridge",
       "topic_tags": [
         "general"
       ],
       "updated_at": "just now",
       "coverage_breadth": "Narrow",
       "best_article": {
-        "url": "https://www.reuters.com/world/sample-climate-finance",
-        "source_domain": "reuters.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "High",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked from Reuters World News because it is the highest-ranked available article in this single-item cluster."
-      },
-      "articles": [
-        {
-          "url": "https://www.reuters.com/world/sample-climate-finance",
-          "title": "Reuters sample: Regional summit agrees climate financing framework",
-          "source_domain": "reuters.com",
-          "timestamp": "2026-02-10T03:45:00.000Z",
-          "snippet": "Leaders agreed on a phased reporting and funding schedule.",
-          "labels": {
-            "reliability": "High",
-            "region": "Global",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ]
-    },
-    {
-      "cluster_id": "rss-5",
-      "rank_score": 0.333,
-      "priority": "low",
-      "title": "AP sample: State health agency publishes winter advisory",
-      "topic_tags": [
-        "general"
-      ],
-      "updated_at": "just now",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://apnews.com/article/sample-health-advisory",
-        "source_domain": "apnews.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "High",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked from AP Top News because it is the highest-ranked available article in this single-item cluster."
-      },
-      "articles": [
-        {
-          "url": "https://apnews.com/article/sample-health-advisory",
-          "title": "AP sample: State health agency publishes winter advisory",
-          "source_domain": "apnews.com",
-          "timestamp": "2026-02-10T02:25:00.000Z",
-          "snippet": "Officials encouraged vulnerable residents to take precautions.",
-          "labels": {
-            "reliability": "High",
-            "region": "US",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ]
-    },
-    {
-      "cluster_id": "rss-6",
-      "rank_score": 0.167,
-      "priority": "low",
-      "title": "BBC sample: Arctic research mission reports sea-ice shift",
-      "topic_tags": [
-        "general"
-      ],
-      "updated_at": "just now",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://www.bbc.com/news/world-sample-arctic-research",
+        "url": "https://www.bbc.com/news/articles/cpw052pkvl0o?at_medium=RSS&at_campaign=rss",
         "source_domain": "bbc.com",
         "image_url": "",
         "labels": {
@@ -210,11 +136,1232 @@
       },
       "articles": [
         {
-          "url": "https://www.bbc.com/news/world-sample-arctic-research",
-          "title": "BBC sample: Arctic research mission reports sea-ice shift",
+          "url": "https://www.bbc.com/news/articles/cpw052pkvl0o?at_medium=RSS&at_campaign=rss",
+          "title": "Trump threatens to block opening of US-Canada bridge",
           "source_domain": "bbc.com",
-          "timestamp": "2026-02-10T01:55:00.000Z",
-          "snippet": "Scientists observed faster-than-expected movement in one corridor.",
+          "timestamp": "2026-02-10T02:03:45.000Z",
+          "snippet": "The Gordie Howe International Bridge, which connects Michigan to Ontario, is set to open this year.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-5",
+      "rank_score": 0.892,
+      "priority": "top",
+      "title": "Catherine O'Hara's cause of death confirmed as blood clot",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/ckg19nql0w8o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/ckg19nql0w8o?at_medium=RSS&at_campaign=rss",
+          "title": "Catherine O'Hara's cause of death confirmed as blood clot",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-10T01:26:32.000Z",
+          "snippet": "The Schitt's Creek and Home Alone actress died last month in a US hospital, at the age of 71.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-6",
+      "rank_score": 0.865,
+      "priority": "top",
+      "title": "Savannah Guthrie pleads for help finding missing mother as purported ransom deadline passes",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/c4geqzqd8qeo?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/c4geqzqd8qeo?at_medium=RSS&at_campaign=rss",
+          "title": "Savannah Guthrie pleads for help finding missing mother as purported ransom deadline passes",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-10T01:25:01.000Z",
+          "snippet": "The video appeal came hours before a reported deadline to pay the people believed to be holding the TV hosts's mum.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-7",
+      "rank_score": 0.838,
+      "priority": "top",
+      "title": "Maxwell refuses to answer questions about Epstein in congressional hearing",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/cvgv5yre39zo?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/cvgv5yre39zo?at_medium=RSS&at_campaign=rss",
+          "title": "Maxwell refuses to answer questions about Epstein in congressional hearing",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-10T01:09:11.000Z",
+          "snippet": "A video released by members of Congress shows Maxwell, the jailed associate of Jeffrey Epstein, refusing to answer questions about the late sex offender.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-8",
+      "rank_score": 0.811,
+      "priority": "top",
+      "title": "New video game sees Africans fantasise about taking back looted treasures",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/clyg4lgm1d2o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/clyg4lgm1d2o?at_medium=RSS&at_campaign=rss",
+          "title": "New video game sees Africans fantasise about taking back looted treasures",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-10T00:47:00.000Z",
+          "snippet": "Imagine it is 2099 and a historic treaty to return African artefacts is falling apart.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-9",
+      "rank_score": 0.784,
+      "priority": "top",
+      "title": "Instagram and YouTube owners built 'addiction machines', trial hears",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/c3wlpqpe2z4o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/c3wlpqpe2z4o?at_medium=RSS&at_campaign=rss",
+          "title": "Instagram and YouTube owners built 'addiction machines', trial hears",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-10T00:36:23.000Z",
+          "snippet": "The tech giants are under scrutiny over social media addiction in a landmark jury trial in Los Angeles",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-10",
+      "rank_score": 0.757,
+      "priority": "top",
+      "title": "Thailand election: The result the polls never saw coming",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/c5y6534y3y5o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/c5y6534y3y5o?at_medium=RSS&at_campaign=rss",
+          "title": "Thailand election: The result the polls never saw coming",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T23:58:04.000Z",
+          "snippet": "Why did a youthful, progressive party do so poorly compared to a transactional, old-style party?",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-11",
+      "rank_score": 0.73,
+      "priority": "top",
+      "title": "Japan has given Takaichi a landslide win - but can she bring back the economy?",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/cddn7qed35eo?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/cddn7qed35eo?at_medium=RSS&at_campaign=rss",
+          "title": "Japan has given Takaichi a landslide win - but can she bring back the economy?",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T23:02:34.000Z",
+          "snippet": "Japan has been battling sluggish growth, mounting public debt and a rapidly ageing workforce.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-12",
+      "rank_score": 0.703,
+      "priority": "top",
+      "title": "Extreme cold in New York City leaves 18 dead",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/cd9g8nxdexko?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/cd9g8nxdexko?at_medium=RSS&at_campaign=rss",
+          "title": "Extreme cold in New York City leaves 18 dead",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T22:45:11.000Z",
+          "snippet": "Homeless shelter capacity has been increased following a period of freezing temperatures in the city.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-13",
+      "rank_score": 0.676,
+      "priority": "scan",
+      "title": "Palestinians say new Israeli measures in West Bank amount to de facto annexation",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/cvg5x2l3v0qo?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/cvg5x2l3v0qo?at_medium=RSS&at_campaign=rss",
+          "title": "Palestinians say new Israeli measures in West Bank amount to de facto annexation",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T21:20:54.000Z",
+          "snippet": "The measures aim to increase Israeli control over the occupied West Bank in terms of property law, planning, licensing and enforcement.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-14",
+      "rank_score": 0.649,
+      "priority": "scan",
+      "title": "Canadian mining firm says its abducted workers found dead in Mexico",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/cly0zz7yd3go?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/cly0zz7yd3go?at_medium=RSS&at_campaign=rss",
+          "title": "Canadian mining firm says its abducted workers found dead in Mexico",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T21:15:26.000Z",
+          "snippet": "Vizsla Silver Corp says that family members of some of the kidnapped workers have informed the company that their relatives were found dead.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-15",
+      "rank_score": 0.622,
+      "priority": "scan",
+      "title": "Norway police investigate diplomat over Epstein links",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/c5yg8yrypejo?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/c5yg8yrypejo?at_medium=RSS&at_campaign=rss",
+          "title": "Norway police investigate diplomat over Epstein links",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T21:12:09.000Z",
+          "snippet": "Mona Juul and her husband Terje Rød-Larsen - who played a vital role in the Oslo Accords - are being investigated for \"aggravated corruption\".",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-16",
+      "rank_score": 0.595,
+      "priority": "scan",
+      "title": "Machine guns to machetes: Weapons that massacred thousands in Iran",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/c0mgndkklvmo?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/c0mgndkklvmo?at_medium=RSS&at_campaign=rss",
+          "title": "Machine guns to machetes: Weapons that massacred thousands in Iran",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T17:03:49.000Z",
+          "snippet": "BBC News Persian Forensic has been able to confirm the security forces' deployment of a wide array of lethal and non-lethal weaponry.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-17",
+      "rank_score": 0.568,
+      "priority": "scan",
+      "title": "Venezuela's opposition says party leader kidnapped hours after being freed",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/c9wnjqzrv48o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/c9wnjqzrv48o?at_medium=RSS&at_campaign=rss",
+          "title": "Venezuela's opposition says party leader kidnapped hours after being freed",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T16:22:20.000Z",
+          "snippet": "Nobel Peace Prize winner María Corina Machado says political leader Juan Pablo Guanipa was taken by force in Caracas.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-18",
+      "rank_score": 0.541,
+      "priority": "scan",
+      "title": "Celebrity appearances, controversial ads and other Super Bowl takeaways",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/cg5n8lg2jrdo?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/cg5n8lg2jrdo?at_medium=RSS&at_campaign=rss",
+          "title": "Celebrity appearances, controversial ads and other Super Bowl takeaways",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T14:58:58.000Z",
+          "snippet": "Celebrities including Lady Gaga, Cardi B and Jessica Alba joined Bad Bunny's Super Bowl half time show.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-19",
+      "rank_score": 0.514,
+      "priority": "scan",
+      "title": "Migrant boat capsizes off Libya leaving 53 dead",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/cy9ge3844q0o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/cy9ge3844q0o?at_medium=RSS&at_campaign=rss",
+          "title": "Migrant boat capsizes off Libya leaving 53 dead",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T14:45:08.000Z",
+          "snippet": "The IOM says that almost 500 people have been reported dead or missing off Libya so far this year.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-20",
+      "rank_score": 0.486,
+      "priority": "scan",
+      "title": "Fifteen killed in latest Lebanon building collapse, as warnings of neglect grow",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/c4gedxvqpz4o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/c4gedxvqpz4o?at_medium=RSS&at_campaign=rss",
+          "title": "Fifteen killed in latest Lebanon building collapse, as warnings of neglect grow",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T13:12:44.000Z",
+          "snippet": "Two blocks fall down in what is the fifth such disaster this winter, as warnings of neglect grow.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-21",
+      "rank_score": 0.459,
+      "priority": "scan",
+      "title": "Epstein survivors call for full release of files in video",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/clyz9pvwlw9o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/clyz9pvwlw9o?at_medium=RSS&at_campaign=rss",
+          "title": "Epstein survivors call for full release of files in video",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T13:11:21.000Z",
+          "snippet": "Millions of files relating to the late sex offender Jeffrey Epstein have been released by the DOJ but many have redactions.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-22",
+      "rank_score": 0.432,
+      "priority": "scan",
+      "title": "Police pepper spray protesters as Israeli president visits Sydney",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/c62grw02gpjo?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/c62grw02gpjo?at_medium=RSS&at_campaign=rss",
+          "title": "Police pepper spray protesters as Israeli president visits Sydney",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T12:16:04.000Z",
+          "snippet": "Isaac Herzog is on a four-day visit to Australia following the December mass shooting at Bondi Beach.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-23",
+      "rank_score": 0.405,
+      "priority": "scan",
+      "title": "Hong Kong court jails media tycoon and British citizen Jimmy Lai for 20 years",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/c8d5pl34vv0o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/c8d5pl34vv0o?at_medium=RSS&at_campaign=rss",
+          "title": "Hong Kong court jails media tycoon and British citizen Jimmy Lai for 20 years",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T12:11:43.000Z",
+          "snippet": "Lai's supporters say this amounts to a death sentence, but authorities say it demonstrates the rule of law.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-24",
+      "rank_score": 0.378,
+      "priority": "scan",
+      "title": "Revealing names and faces of the victims of Iran's protest crackdown",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/c62v248xkl5o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/c62v248xkl5o?at_medium=RSS&at_campaign=rss",
+          "title": "Revealing names and faces of the victims of Iran's protest crackdown",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T10:47:00.000Z",
+          "snippet": "BBC News Persian uncovers the identities of the thousands of people killed during the recent crackdown on protests in Iran.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-25",
+      "rank_score": 0.351,
+      "priority": "scan",
+      "title": "Eritrea accuses Ethiopia of fabricating report its troops had crossed the border",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/cn87lzrj1l7o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/cn87lzrj1l7o?at_medium=RSS&at_campaign=rss",
+          "title": "Eritrea accuses Ethiopia of fabricating report its troops had crossed the border",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T10:35:34.000Z",
+          "snippet": "Ethiopia had alleged that Eritrean soldiers were on its territory and supporting rebels in the north.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-26",
+      "rank_score": 0.324,
+      "priority": "low",
+      "title": "Outrage as South Korean official suggests 'importing' foreign women to boost birth rate",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/c20z4254524o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/c20z4254524o?at_medium=RSS&at_campaign=rss",
+          "title": "Outrage as South Korean official suggests 'importing' foreign women to boost birth rate",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T09:45:29.000Z",
+          "snippet": "Jindo county head Kim Hee-soo had suggested \"importing young women from Vietnam or Sri Lanka\" for young rural men.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-27",
+      "rank_score": 0.297,
+      "priority": "low",
+      "title": "Bad Bunny makes history as Trump criticises 'terrible' Super Bowl show",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/c394g7nnzmzo?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/c394g7nnzmzo?at_medium=RSS&at_campaign=rss",
+          "title": "Bad Bunny makes history as Trump criticises 'terrible' Super Bowl show",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T09:36:38.000Z",
+          "snippet": "Puerto Rican artist Bad Bunny makes history with his entirely Spanish set on the sporting world's biggest stage.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-28",
+      "rank_score": 0.27,
+      "priority": "low",
+      "title": "'Super exciting!' - Seahawks fans celebrate Super Bowl win",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/videos/c30934lqv68o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/videos/c30934lqv68o?at_medium=RSS&at_campaign=rss",
+          "title": "'Super exciting!' - Seahawks fans celebrate Super Bowl win",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T08:53:42.000Z",
+          "snippet": "The Seattle team produced a devastating defensive display to beat the New England Patriots.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-29",
+      "rank_score": 0.243,
+      "priority": "low",
+      "title": "Are Bangladesh's youth turning against India?",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/cjdjj44xxr5o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/cjdjj44xxr5o?at_medium=RSS&at_campaign=rss",
+          "title": "Are Bangladesh's youth turning against India?",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T07:00:48.000Z",
+          "snippet": "Anti-Indianism is rising in Bangladesh as ties between the South Asian neighbours sink to a new low.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-30",
+      "rank_score": 0.216,
+      "priority": "low",
+      "title": "BBC reports from outside court after Jimmy Lai sentencing",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/videos/cdxzl7n9w0vo?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/videos/cdxzl7n9w0vo?at_medium=RSS&at_campaign=rss",
+          "title": "BBC reports from outside court after Jimmy Lai sentencing",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T06:59:31.000Z",
+          "snippet": "The pro-democracy media tycoon was sentenced to 20 years in jail by the Hong Kong High Court.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-31",
+      "rank_score": 0.189,
+      "priority": "low",
+      "title": "This billionaire tested China's limits. It cost him his freedom",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/c5yqr485d84o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/c5yqr485d84o?at_medium=RSS&at_campaign=rss",
+          "title": "This billionaire tested China's limits. It cost him his freedom",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T02:59:50.000Z",
+          "snippet": "Jimmy Lai, who has been jailed for 20 years, always said he owed Hong Kong, a city that had given him \"everything\".",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-32",
+      "rank_score": 0.162,
+      "priority": "low",
+      "title": "The shadowy world of abandoned oil tankers",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/cddg885344do?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/cddg885344do?at_medium=RSS&at_campaign=rss",
+          "title": "The shadowy world of abandoned oil tankers",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T00:09:30.000Z",
+          "snippet": "A growing number of tankers and other commercial vessels are being ditched by their owners.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-33",
+      "rank_score": 0.135,
+      "priority": "low",
+      "title": "How off-the-shelf drones are changing jihadist warfare in West Africa",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/cew8vldpzdyo?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/cew8vldpzdyo?at_medium=RSS&at_campaign=rss",
+          "title": "How off-the-shelf drones are changing jihadist warfare in West Africa",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-09T00:09:18.000Z",
+          "snippet": "Insurgents have carried out a wave of drone strikes on military positions in the region.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-34",
+      "rank_score": 0.108,
+      "priority": "low",
+      "title": "Plane makers chase Asia's super-rich with luxe new private jets",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/cm24j1dpexvo?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/cm24j1dpexvo?at_medium=RSS&at_campaign=rss",
+          "title": "Plane makers chase Asia's super-rich with luxe new private jets",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-08T23:01:52.000Z",
+          "snippet": "Parts of the aviation industry are shifting towards wealthy customers and selling a more luxurious type of international travel.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-35",
+      "rank_score": 0.081,
+      "priority": "low",
+      "title": "Aerial footage shows flooded cities as storms hit Spain",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/videos/c93wpxy1qk6o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/videos/c93wpxy1qk6o?at_medium=RSS&at_campaign=rss",
+          "title": "Aerial footage shows flooded cities as storms hit Spain",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-08T20:35:05.000Z",
+          "snippet": "Storms Marta and Leonardo have caused widespread flooding in Spain as thousands have been displaced.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-36",
+      "rank_score": 0.054,
+      "priority": "low",
+      "title": "ICE protester says she was 'disgusted' after fake arrest image shared by White House",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/videos/c86v6p1djvqo?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/videos/c86v6p1djvqo?at_medium=RSS&at_campaign=rss",
+          "title": "ICE protester says she was 'disgusted' after fake arrest image shared by White House",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-07T23:59:43.000Z",
+          "snippet": "The White House posted an edited image of Nekima Levy Armstrong after she was arrested for organising a protest in a church.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "rss-37",
+      "rank_score": 0.027,
+      "priority": "low",
+      "title": "At the scene of deadly Pakistan mosque explosion",
+      "topic_tags": [
+        "general"
+      ],
+      "updated_at": "just now",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/videos/cj4l415y4dno?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/videos/cj4l415y4dno?at_medium=RSS&at_campaign=rss",
+          "title": "At the scene of deadly Pakistan mosque explosion",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-07T03:23:10.000Z",
+          "snippet": "At least 31 people have been killed after a suicide bomber detonated a device at a Shia mosque, according to police.",
           "labels": {
             "reliability": "High",
             "region": "Global",
