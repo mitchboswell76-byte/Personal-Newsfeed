@@ -3,6 +3,7 @@ import "./App.css";
 
 type Priority = "top" | "scan" | "low";
 type TabKey = "brief" | "sources" | "archive" | "settings";
+type StoryDetailTab = "coverage" | "why" | "assessment";
 
 type Labels = {
   reliability: "High" | "Med" | "Low";
@@ -31,6 +32,7 @@ type Cluster = {
   best_article: {
     url: string;
     source_domain: string;
+    image_url?: string;
     labels: Labels;
     trace_summary: string;
   };
@@ -50,18 +52,51 @@ const TAB_LABELS: Record<TabKey, string> = {
   settings: "Settings",
 };
 
+const DETAIL_TAB_LABELS: Record<StoryDetailTab, string> = {
+  coverage: "Coverage",
+  why: "Why this link",
+  assessment: "Assessment",
+};
+
 const PRIORITY_SECTIONS: Array<{ key: Priority; title: string }> = [
   { key: "top", title: "Top priority" },
   { key: "scan", title: "Worth scanning" },
   { key: "low", title: "Low priority" },
 ];
 
+const READ_IDS_KEY = "pnf.readIds";
+const BOOKMARK_IDS_KEY = "pnf.bookmarkedIds";
+
+function readIdsFromStorage(key: string): string[] {
+  if (typeof window === "undefined") {
+    return [];
+  }
+
+  try {
+    const value = window.localStorage.getItem(key);
+    const parsed: unknown = value ? JSON.parse(value) : [];
+    return Array.isArray(parsed) ? parsed.filter((item): item is string => typeof item === "string") : [];
+  } catch {
+    return [];
+  }
+}
+
+function formatTimestamp(timestamp: string): string {
+  return new Date(timestamp).toLocaleString();
+}
+
+function faviconUrl(domain: string): string {
+  return `https://www.google.com/s2/favicons?sz=64&domain_url=https://${domain}`;
+}
+
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabKey>("brief");
+  const [activeDetailTab, setActiveDetailTab] = useState<StoryDetailTab>("coverage");
+  const [selectedClusterId, setSelectedClusterId] = useState<string | null>(null);
   const [data, setData] = useState<Today | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [readIds, setReadIds] = useState<string[]>([]);
-  const [bookmarkedIds, setBookmarkedIds] = useState<string[]>([]);
+  const [readIds, setReadIds] = useState<string[]>(() => readIdsFromStorage(READ_IDS_KEY));
+  const [bookmarkedIds, setBookmarkedIds] = useState<string[]>(() => readIdsFromStorage(BOOKMARK_IDS_KEY));
 
   useEffect(() => {
     fetch("/data/today.json")
@@ -75,6 +110,22 @@ export default function App() {
       .catch((err) => setError(String(err?.message ?? err)));
   }, []);
 
+  useEffect(() => {
+    window.localStorage.setItem(READ_IDS_KEY, JSON.stringify(readIds));
+  }, [readIds]);
+
+  useEffect(() => {
+    window.localStorage.setItem(BOOKMARK_IDS_KEY, JSON.stringify(bookmarkedIds));
+  }, [bookmarkedIds]);
+
+  const selectedCluster = useMemo(() => {
+    if (!data || !selectedClusterId) {
+      return null;
+    }
+
+    return data.clusters.find((cluster) => cluster.cluster_id === selectedClusterId) ?? null;
+  }, [data, selectedClusterId]);
+
   const progress = useMemo(() => {
     if (!data || data.clusters.length === 0) {
       return { read: 0, total: 0, done: false };
@@ -87,6 +138,16 @@ export default function App() {
       done: read === data.clusters.length,
     };
   }, [data, readIds]);
+
+  const openDetails = (clusterId: string, tab: StoryDetailTab) => {
+    setSelectedClusterId(clusterId);
+    setActiveDetailTab(tab);
+  };
+
+  const closeDetails = () => {
+    setSelectedClusterId(null);
+    setActiveDetailTab("coverage");
+  };
 
   const toggleRead = (clusterId: string) => {
     setReadIds((current) =>
@@ -107,9 +168,9 @@ export default function App() {
   return (
     <main className="app-shell">
       <header className="app-header">
-        <p className="eyebrow">BriefBoard · MVP-0</p>
+        <p className="eyebrow">BriefBoard · MVP-0.1</p>
         <h1>Personal News Feed</h1>
-        <p className="subtitle">Mock JSON + UI skeleton before RSS integration.</p>
+        <p className="subtitle">Story details, persisted read state, and source icons.</p>
       </header>
 
       <nav className="tab-nav" aria-label="Main sections">
@@ -162,7 +223,15 @@ export default function App() {
 
                           return (
                             <article key={cluster.cluster_id} className={`story-card ${isRead ? "is-read" : ""}`}>
-                              <h3>{cluster.title}</h3>
+                              <div className="story-heading">
+                                <img
+                                  className="story-thumb"
+                                  src={cluster.best_article.image_url || faviconUrl(cluster.best_article.source_domain)}
+                                  alt={`${cluster.best_article.source_domain} source icon`}
+                                  loading="lazy"
+                                />
+                                <h3>{cluster.title}</h3>
+                              </div>
 
                               <a href={cluster.best_article.url} target="_blank" rel="noreferrer">
                                 Best Source: {cluster.best_article.source_domain}
@@ -178,9 +247,15 @@ export default function App() {
                               <p className="trace">Why this link: {cluster.best_article.trace_summary}</p>
 
                               <div className="actions">
-                                <button type="button">Coverage</button>
-                                <button type="button">Why this link</button>
-                                <button type="button">Assessment</button>
+                                <button type="button" onClick={() => openDetails(cluster.cluster_id, "coverage")}>
+                                  Coverage
+                                </button>
+                                <button type="button" onClick={() => openDetails(cluster.cluster_id, "why")}>
+                                  Why this link
+                                </button>
+                                <button type="button" onClick={() => openDetails(cluster.cluster_id, "assessment")}>
+                                  Assessment
+                                </button>
                                 <button type="button" onClick={() => toggleRead(cluster.cluster_id)}>
                                   {isRead ? "Mark unread" : "Mark read"}
                                 </button>
@@ -196,6 +271,74 @@ export default function App() {
                   </section>
                 );
               })}
+
+              {selectedCluster ? (
+                <section className="detail-panel" aria-live="polite">
+                  <div className="detail-header">
+                    <h2>Story details</h2>
+                    <button type="button" onClick={closeDetails}>
+                      Close
+                    </button>
+                  </div>
+
+                  <p className="detail-title">{selectedCluster.title}</p>
+
+                  <div className="detail-tabs" role="tablist" aria-label="Story details tabs">
+                    {(Object.keys(DETAIL_TAB_LABELS) as StoryDetailTab[]).map((tab) => (
+                      <button
+                        key={tab}
+                        type="button"
+                        role="tab"
+                        aria-selected={activeDetailTab === tab}
+                        className={`detail-tab ${activeDetailTab === tab ? "active" : ""}`}
+                        onClick={() => setActiveDetailTab(tab)}
+                      >
+                        {DETAIL_TAB_LABELS[tab]}
+                      </button>
+                    ))}
+                  </div>
+
+                  {activeDetailTab === "coverage" ? (
+                    <div className="detail-content">
+                      {selectedCluster.articles.map((article) => (
+                        <article key={article.url} className="coverage-item">
+                          <h3>{article.title}</h3>
+                          <p>
+                            <strong>Source:</strong> {article.source_domain}
+                          </p>
+                          <p>
+                            <strong>Timestamp:</strong> {formatTimestamp(article.timestamp)}
+                          </p>
+                          <p>{article.snippet}</p>
+                          <a href={article.url} target="_blank" rel="noreferrer">
+                            Open article
+                          </a>
+                        </article>
+                      ))}
+                    </div>
+                  ) : null}
+
+                  {activeDetailTab === "why" ? (
+                    <div className="detail-content">
+                      <p>{selectedCluster.best_article.trace_summary}</p>
+                      <ul>
+                        <li>Reliability: {selectedCluster.best_article.labels.reliability}</li>
+                        <li>Bias label: {selectedCluster.best_article.labels.bias_label ?? "Not set"}</li>
+                        <li>Paywall: {selectedCluster.best_article.labels.paywall}</li>
+                      </ul>
+                    </div>
+                  ) : null}
+
+                  {activeDetailTab === "assessment" ? (
+                    <div className="detail-content">
+                      <p>
+                        Assessment is a placeholder in MVP-0.1. Structured context (what happened, why it matters,
+                        what to watch next, stakeholders, and open questions) will be added in a later milestone.
+                      </p>
+                    </div>
+                  ) : null}
+                </section>
+              ) : null}
             </>
           ) : null}
 
