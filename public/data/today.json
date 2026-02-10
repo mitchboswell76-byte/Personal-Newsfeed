@@ -1,0 +1,146 @@
+{
+  "date": "2026-02-10",
+  "generated_at": "2026-02-10T06:30:00Z",
+  "clusters": [
+    {
+      "cluster_id": "c1",
+      "rank_score": 0.96,
+      "priority": "top",
+      "title": "Senate advances short-term funding plan ahead of deadline",
+      "topic_tags": [
+        "us-politics",
+        "budget"
+      ],
+      "updated_at": "2h ago",
+      "coverage_breadth": "Broad",
+      "best_article": {
+        "url": "https://www.reuters.com/world/us/senate-advances-funding-bill-2026-02-10/",
+        "source_domain": "reuters.com",
+        "labels": {
+          "reliability": "High",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Passed reliability threshold, neutral framing, and strong recency score.",
+        "image_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=128&q=60"
+      },
+      "articles": [
+        {
+          "url": "https://www.reuters.com/world/us/senate-advances-funding-bill-2026-02-10/",
+          "title": "Senate advances short-term funding plan ahead of deadline",
+          "source_domain": "reuters.com",
+          "timestamp": "2026-02-10T05:10:00Z",
+          "snippet": "Leaders agreed to a temporary measure while negotiations continue.",
+          "labels": {
+            "reliability": "High",
+            "region": "US",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        },
+        {
+          "url": "https://apnews.com/article/senate-funding-deadline",
+          "title": "Senate moves stopgap bill as shutdown concerns rise",
+          "source_domain": "apnews.com",
+          "timestamp": "2026-02-10T04:55:00Z",
+          "snippet": "The proposal keeps agencies funded through next month.",
+          "labels": {
+            "reliability": "High",
+            "region": "US",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "c2",
+      "rank_score": 0.78,
+      "priority": "scan",
+      "title": "European regulators draft AI model transparency standard",
+      "topic_tags": [
+        "technology",
+        "eu"
+      ],
+      "updated_at": "4h ago",
+      "coverage_breadth": "Medium",
+      "best_article": {
+        "url": "https://www.ft.com/content/eu-ai-standard",
+        "source_domain": "ft.com",
+        "labels": {
+          "reliability": "High",
+          "paywall": "Yes",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Highest reliability among available sources; paywall allowed in current settings.",
+        "image_url": ""
+      },
+      "articles": [
+        {
+          "url": "https://www.ft.com/content/eu-ai-standard",
+          "title": "EU officials draft model cards and audit requirements for advanced AI",
+          "source_domain": "ft.com",
+          "timestamp": "2026-02-10T03:00:00Z",
+          "snippet": "Draft rules would force disclosure of training provenance and risk controls.",
+          "labels": {
+            "reliability": "High",
+            "region": "Europe",
+            "paywall": "Yes",
+            "bias_label": "Center"
+          }
+        },
+        {
+          "url": "https://www.dw.com/en/eu-ai-transparency-rules/a-12345678",
+          "title": "EU weighs new transparency obligations for frontier AI",
+          "source_domain": "dw.com",
+          "timestamp": "2026-02-10T02:15:00Z",
+          "snippet": "Member states remain split on enforcement scope.",
+          "labels": {
+            "reliability": "High",
+            "region": "Europe",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    },
+    {
+      "cluster_id": "c3",
+      "rank_score": 0.62,
+      "priority": "low",
+      "title": "Major rail operators test dynamic pricing in three corridors",
+      "topic_tags": [
+        "transport",
+        "business"
+      ],
+      "updated_at": "7h ago",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bloomberg.com/news/articles/rail-dynamic-pricing-trial",
+        "source_domain": "bloomberg.com",
+        "labels": {
+          "reliability": "High",
+          "paywall": "Yes",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Fallback pick: highest reliability among limited coverage set.",
+        "image_url": ""
+      },
+      "articles": [
+        {
+          "url": "https://www.bloomberg.com/news/articles/rail-dynamic-pricing-trial",
+          "title": "Rail operators launch dynamic pricing pilot on busy routes",
+          "source_domain": "bloomberg.com",
+          "timestamp": "2026-02-09T23:40:00Z",
+          "snippet": "Operators say the trial is meant to smooth crowding peaks.",
+          "labels": {
+            "reliability": "High",
+            "region": "US",
+            "paywall": "Yes",
+            "bias_label": "Center"
+          }
+        }
+      ]
+    }
+  ]
+}
