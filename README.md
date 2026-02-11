@@ -1,73 +1,46 @@
-# React + TypeScript + Vite
+# BriefBoard (Personal News Feed)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repo is a Vite + React + TypeScript app for a personal daily brief.
 
-Currently, two official plugins are available:
+## What MVP-1 adds
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+MVP-1 introduces **RSS ingestion and daily data generation**:
 
-## React Compiler
+- A feed list in `config/rss-feeds.json`
+- A source metadata file in `config/sources.json` (reliability, region, tags)
+- A Node build script in `scripts/build-today-json.mjs`
+- A generated output file at `public/data/today.json`
+- A GitHub Actions workflow (`.github/workflows/deploy.yml`) that:
+  - runs on a daily schedule,
+  - rebuilds `today.json` from RSS,
+  - builds the app,
+  - deploys to GitHub Pages.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+No extra npm libraries were added for RSS parsing. The script uses basic XML parsing logic with native Node APIs.
 
-## Expanding the ESLint configuration
+## Local development
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Build commands
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# Build data file from RSS feeds only
+npm run build:data
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Build frontend app only
+npm run build
+
+# MVP-1 full build: data + app
+npm run build:mvp1
 ```
+
+## Notes
+
+- `public/data/today.json` is what the UI reads.
+- If one feed fails, the script logs the feed and continues with the others.
+- If all feeds fail, the build script exits with an error.
+- Output is validated before write and fails fast with readable messages if required fields are missing.
