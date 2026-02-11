@@ -1,9 +1,10 @@
 import { readFile, writeFile } from "node:fs/promises";
 
-const FEEDS_PATH = new URL("../config/rss-feeds.json", import.meta.url);
+const FEEDS_PATH = new URL(process.env.RSS_FEEDS_PATH ?? "../config/rss-feeds.json", import.meta.url);
 const OUTPUT_PATH = new URL("../public/data/today.json", import.meta.url);
 const MAX_STORIES = Number(process.env.MAX_STORIES ?? "40");
 const USE_MOCK_RSS = process.env.USE_MOCK_RSS === "1";
+const FETCH_TIMEOUT_MS = Number(process.env.RSS_TIMEOUT_MS ?? "12000");
 
 function decodeHtml(value = "") {
   return value
@@ -65,12 +66,11 @@ function parseRssItem(rawItem, feed) {
     /<summary[^>]*>([\s\S]*?)<\/summary>/i,
     /<content[^>]*>([\s\S]*?)<\/content>/i,
   ]);
-  const publishedAt =
-    firstMatch(rawItem, [
-      /<pubDate[^>]*>([\s\S]*?)<\/pubDate>/i,
-      /<published[^>]*>([\s\S]*?)<\/published>/i,
-      /<updated[^>]*>([\s\S]*?)<\/updated>/i,
-    ]) || new Date().toISOString();
+  const publishedAt = firstMatch(rawItem, [
+    /<pubDate[^>]*>([\s\S]*?)<\/pubDate>/i,
+    /<published[^>]*>([\s\S]*?)<\/published>/i,
+    /<updated[^>]*>([\s\S]*?)<\/updated>/i,
+  ]);
 
   if (!url || !title) return null;
 
@@ -82,11 +82,13 @@ function parseRssItem(rawItem, feed) {
     sourceDomain = "unknown";
   }
 
+  const normalizedTimestamp = new Date(publishedAt || Date.now()).toISOString();
+
   return {
     url: cleanedUrl,
     title,
     source_domain: sourceDomain,
-    timestamp: new Date(publishedAt).toISOString(),
+    timestamp: normalizedTimestamp,
     snippet: snippet || `${feed.name} coverage`,
     labels: {
       reliability: feed.reliability,
@@ -98,25 +100,37 @@ function parseRssItem(rawItem, feed) {
   };
 }
 
-async function fetchFromNetwork(feed) {
-  const response = await fetch(feed.url, {
-    headers: {
-      "User-Agent": "BriefBoard-MVP1/1.0 (+https://github.com)",
-      Accept: "application/rss+xml, application/xml, text/xml;q=0.9, */*;q=0.8",
-    },
-  });
-  if (!response.ok) throw new Error(`${feed.name} failed (${response.status})`);
-  return response.text();
+async function fetchXmlFromNetwork(feed) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+
+  try {
+    const response = await fetch(feed.url, {
+      signal: controller.signal,
+      headers: {
+        "User-Agent": "BriefBoard-MVP1.1/1.0 (+https://github.com)",
+        Accept: "application/rss+xml, application/xml, text/xml;q=0.9, */*;q=0.8",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+    return await response.text();
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
-async function fetchFromMock(feed) {
+async function fetchXmlFromMock(feed) {
   const fileName = feed.name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
   const path = new URL(`../scripts/mock-feeds/${fileName}.xml`, import.meta.url);
   return readFile(path, "utf8");
 }
 
-async function fetchFeed(feed) {
-  const xml = USE_MOCK_RSS ? await fetchFromMock(feed) : await fetchFromNetwork(feed);
+async function fetchFeedItems(feed) {
+  const xml = USE_MOCK_RSS ? await fetchXmlFromMock(feed) : await fetchXmlFromNetwork(feed);
   return parseItems(xml)
     .map((item) => parseRssItem(item, feed))
     .filter(Boolean);
@@ -128,88 +142,117 @@ function toTodayJson(items) {
     .slice(0, MAX_STORIES);
 
   const total = deduped.length;
+  const clusters = deduped.map((item, index) => ({
+    cluster_id: `rss-${index + 1}`,
+    rank_score: Number((1 - index / Math.max(total, 1)).toFixed(3)),
+    priority: scoreToPriority(index, total),
+    title: item.title,
+    topic_tags: ["general"],
+    updated_at: item.timestamp,
+    coverage_breadth: "Narrow",
+    best_article: {
+      url: item.url,
+      source_domain: item.source_domain,
+      image_url:
+        index === 0
+          ? "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=128&q=60"
+          : "",
+      labels: {
+        reliability: item.labels.reliability,
+        paywall: "No",
+        bias_label: item.labels.bias_label,
+        region: item.labels.region,
+      },
+      trace_summary: `Picked from ${item.feedName} because it is the highest-ranked available article in this single-item cluster.`,
+    },
+    articles: [
+      {
+        url: item.url,
+        title: item.title,
+        source_domain: item.source_domain,
+        timestamp: item.timestamp,
+        snippet: item.snippet,
+        labels: item.labels,
+      },
+    ],
+  }));
+
+  clusters.sort((a, b) => {
+    if (b.rank_score !== a.rank_score) {
+      return b.rank_score - a.rank_score;
+    }
+
+    const updatedDelta = new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime();
+    if (updatedDelta !== 0) {
+      return updatedDelta;
+    }
+
+    return a.title.localeCompare(b.title);
+  });
 
   return {
     date: new Date().toISOString().slice(0, 10),
     generated_at: new Date().toISOString(),
-    clusters: deduped.map((item, index) => ({
-      cluster_id: `rss-${index + 1}`,
-      rank_score: Number((1 - index / Math.max(total, 1)).toFixed(3)),
-      priority: scoreToPriority(index, total),
-      title: item.title,
-      topic_tags: ["general"],
-      updated_at: "just now",
-      coverage_breadth: "Narrow",
-      best_article: {
-        url: item.url,
-        source_domain: item.source_domain,
-        image_url: "",
-        labels: {
-          reliability: item.labels.reliability,
-          paywall: "No",
-          bias_label: item.labels.bias_label,
-        },
-        trace_summary: `Picked from ${item.feedName} because it is the highest-ranked available article in this single-item cluster.`,
-      },
-      articles: [
-        {
-          url: item.url,
-          title: item.title,
-          source_domain: item.source_domain,
-          timestamp: item.timestamp,
-          snippet: item.snippet,
-          labels: item.labels,
-        },
-      ],
-    })),
+    clusters,
   };
 }
 
-async function buildTodayJson() {
-  const feeds = JSON.parse(await readFile(FEEDS_PATH, "utf8"));
-  const results = await Promise.allSettled(feeds.map((feed) => fetchFeed(feed)));
-  const items = results.filter((r) => r.status === "fulfilled").flatMap((r) => r.value);
-  const failures = results.filter((r) => r.status === "rejected").map((r) => r.reason?.message ?? String(r.reason));
-  return { items, failures };
+function validateTodayJson(payload) {
+  if (!payload || typeof payload !== "object") throw new Error("today.json must be an object.");
+  if (typeof payload.date !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(payload.date)) {
+    throw new Error("today.json date is missing or not in YYYY-MM-DD format.");
+  }
+  if (typeof payload.generated_at !== "string" || Number.isNaN(Date.parse(payload.generated_at))) {
+    throw new Error("today.json generated_at is missing or not a valid ISO date string.");
+  }
+  if (!Array.isArray(payload.clusters)) {
+    throw new Error("today.json clusters must be an array.");
+  }
+
+  payload.clusters.forEach((cluster, index) => {
+    if (!cluster?.cluster_id) throw new Error(`clusters[${index}].cluster_id is required.`);
+    if (!Array.isArray(cluster.articles)) throw new Error(`clusters[${index}].articles must be an array.`);
+    if (!cluster?.best_article?.url) throw new Error(`clusters[${index}].best_article.url is required.`);
+    cluster.articles.forEach((article, articleIndex) => {
+      if (!article?.url) throw new Error(`clusters[${index}].articles[${articleIndex}].url is required.`);
+      if (!article?.title) throw new Error(`clusters[${index}].articles[${articleIndex}].title is required.`);
+    });
+  });
 }
 
 async function main() {
-  let { items, failures } = await buildTodayJson();
+  const feeds = JSON.parse(await readFile(FEEDS_PATH, "utf8"));
+  const successes = [];
+  const failures = [];
 
-  if (items.length === 0 && !USE_MOCK_RSS) {
-    console.warn("Live RSS fetch failed for all feeds. Retrying with local mock feeds for development.");
-    process.env.USE_MOCK_RSS = "1";
-    ({ items, failures } = await (async () => {
-      const feeds = JSON.parse(await readFile(FEEDS_PATH, "utf8"));
-      const mockResults = await Promise.allSettled(
-        feeds.map(async (feed) => {
-          const xml = await fetchFromMock(feed);
-          return parseItems(xml)
-            .map((item) => parseRssItem(item, feed))
-            .filter(Boolean);
-        }),
-      );
-      return {
-        items: mockResults.filter((r) => r.status === "fulfilled").flatMap((r) => r.value),
-        failures: mockResults.filter((r) => r.status === "rejected").map((r) => r.reason?.message ?? String(r.reason)),
-      };
-    })());
+  for (const feed of feeds) {
+    try {
+      const items = await fetchFeedItems(feed);
+      successes.push(...items);
+      console.log(`Fetched ${items.length} items from ${feed.name}`);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      failures.push(`${feed.name} (${feed.url}): ${message}`);
+      console.warn(`Feed failed: ${feed.name} (${feed.url}) -> ${message}`);
+    }
   }
 
-  if (items.length === 0) {
-    throw new Error(`No feed items fetched. Failures: ${failures.join(" | ")}`);
+  if (successes.length === 0) {
+    throw new Error(`All feeds failed. ${failures.join(" | ")}`);
   }
 
-  const payload = toTodayJson(items);
+  const payload = toTodayJson(successes);
+  validateTodayJson(payload);
+
   await writeFile(OUTPUT_PATH, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
   console.log(`Wrote ${payload.clusters.length} clusters to public/data/today.json`);
 
-  if (failures.length) {
-    console.warn(`Some feeds failed but build continued: ${failures.join(" | ")}`);
+  if (failures.length > 0) {
+    console.warn(`Build continued with partial feed failures: ${failures.join(" | ")}`);
   }
 }
 
 main().catch((error) => {
-  console.error(error);
+  console.error(error instanceof Error ? error.message : error);
   process.exit(1);
 });

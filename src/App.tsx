@@ -66,19 +66,35 @@ const PRIORITY_SECTIONS: Array<{ key: Priority; title: string }> = [
 
 const READ_IDS_KEY = "pnf.readIds";
 const BOOKMARK_IDS_KEY = "pnf.bookmarkedIds";
+const ACTIVE_TAB_KEY = "pnf.activeTab";
+const DETAIL_TAB_KEY = "pnf.detailTab";
+const DETAIL_STORY_KEY = "pnf.detailStoryId";
 
-function readIdsFromStorage(key: string): string[] {
+function readFromStorage<T>(key: string, fallback: T): T {
   if (typeof window === "undefined") {
-    return [];
+    return fallback;
   }
 
   try {
     const value = window.localStorage.getItem(key);
-    const parsed: unknown = value ? JSON.parse(value) : [];
-    return Array.isArray(parsed) ? parsed.filter((item): item is string => typeof item === "string") : [];
+    if (value === null) {
+      return fallback;
+    }
+
+    return JSON.parse(value) as T;
   } catch {
-    return [];
+    return fallback;
   }
+}
+
+function readIdArray(key: string): string[] {
+  const value = readFromStorage<unknown>(key, []);
+  return Array.isArray(value) ? value.filter((item): item is string => typeof item === "string") : [];
+}
+
+function readTab<T extends string>(key: string, validValues: T[], fallback: T): T {
+  const value = readFromStorage<unknown>(key, fallback);
+  return typeof value === "string" && validValues.includes(value as T) ? (value as T) : fallback;
 }
 
 function formatTimestamp(timestamp: string): string {
@@ -90,19 +106,25 @@ function faviconUrl(domain: string): string {
 }
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<TabKey>("brief");
-  const [activeDetailTab, setActiveDetailTab] = useState<StoryDetailTab>("coverage");
-  const [selectedClusterId, setSelectedClusterId] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<TabKey>(() =>
+    readTab<TabKey>(ACTIVE_TAB_KEY, ["brief", "sources", "archive", "settings"], "brief"),
+  );
+  const [activeDetailTab, setActiveDetailTab] = useState<StoryDetailTab>(() =>
+    readTab<StoryDetailTab>(DETAIL_TAB_KEY, ["coverage", "why", "assessment"], "coverage"),
+  );
+  const [selectedClusterId, setSelectedClusterId] = useState<string | null>(() =>
+    readFromStorage<string | null>(DETAIL_STORY_KEY, null),
+  );
   const [data, setData] = useState<Today | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [readIds, setReadIds] = useState<string[]>(() => readIdsFromStorage(READ_IDS_KEY));
-  const [bookmarkedIds, setBookmarkedIds] = useState<string[]>(() => readIdsFromStorage(BOOKMARK_IDS_KEY));
+  const [readIds, setReadIds] = useState<string[]>(() => readIdArray(READ_IDS_KEY));
+  const [bookmarkedIds, setBookmarkedIds] = useState<string[]>(() => readIdArray(BOOKMARK_IDS_KEY));
 
   useEffect(() => {
     fetch("/data/today.json")
       .then((response) => {
         if (!response.ok) {
-          throw new Error(`Failed to load today.json (${response.status})`);
+          throw new Error(`Could not load /data/today.json (${response.status}). You can still open the app shell, but story data is unavailable right now.`);
         }
         return response.json();
       })
@@ -117,6 +139,18 @@ export default function App() {
   useEffect(() => {
     window.localStorage.setItem(BOOKMARK_IDS_KEY, JSON.stringify(bookmarkedIds));
   }, [bookmarkedIds]);
+
+  useEffect(() => {
+    window.localStorage.setItem(ACTIVE_TAB_KEY, JSON.stringify(activeTab));
+  }, [activeTab]);
+
+  useEffect(() => {
+    window.localStorage.setItem(DETAIL_TAB_KEY, JSON.stringify(activeDetailTab));
+  }, [activeDetailTab]);
+
+  useEffect(() => {
+    window.localStorage.setItem(DETAIL_STORY_KEY, JSON.stringify(selectedClusterId));
+  }, [selectedClusterId]);
 
   const selectedCluster = useMemo(() => {
     if (!data || !selectedClusterId) {
@@ -146,7 +180,6 @@ export default function App() {
 
   const closeDetails = () => {
     setSelectedClusterId(null);
-    setActiveDetailTab("coverage");
   };
 
   const toggleRead = (clusterId: string) => {
@@ -168,9 +201,9 @@ export default function App() {
   return (
     <main className="app-shell">
       <header className="app-header">
-        <p className="eyebrow">BriefBoard · MVP-0.1</p>
+        <p className="eyebrow">BriefBoard · MVP-1.1</p>
         <h1>Personal News Feed</h1>
-        <p className="subtitle">Story details, persisted read state, and source icons.</p>
+        <p className="subtitle">Polished persistence, detail tabs, thumbnails, and stable data builds.</p>
       </header>
 
       <nav className="tab-nav" aria-label="Main sections">
@@ -186,7 +219,7 @@ export default function App() {
         ))}
       </nav>
 
-      {error ? <p className="error">Error: {error}</p> : null}
+      {error ? <p className="error">{error}</p> : null}
       {!error && !data ? <p className="loading">Loading Daily Brief…</p> : null}
 
       {!error && data ? (
@@ -241,26 +274,24 @@ export default function App() {
                                 <span>{cluster.best_article.labels.reliability} reliability</span>
                                 <span>{cluster.best_article.labels.bias_label ?? "No bias label"}</span>
                                 <span>{cluster.coverage_breadth} coverage</span>
-                                <span>{cluster.updated_at}</span>
+                                <span>{formatTimestamp(cluster.updated_at)}</span>
                               </div>
 
                               <p className="trace">Why this link: {cluster.best_article.trace_summary}</p>
 
                               <div className="actions">
-                                <button type="button" onClick={() => openDetails(cluster.cluster_id, "coverage")}>
-                                  Coverage
-                                </button>
-                                <button type="button" onClick={() => openDetails(cluster.cluster_id, "why")}>
-                                  Why this link
-                                </button>
-                                <button type="button" onClick={() => openDetails(cluster.cluster_id, "assessment")}>
-                                  Assessment
-                                </button>
+                                <button type="button" onClick={() => openDetails(cluster.cluster_id, "coverage")}>Coverage</button>
+                                <button type="button" onClick={() => openDetails(cluster.cluster_id, "why")}>Why this link</button>
+                                <button type="button" onClick={() => openDetails(cluster.cluster_id, "assessment")}>Assessment</button>
                                 <button type="button" onClick={() => toggleRead(cluster.cluster_id)}>
                                   {isRead ? "Mark unread" : "Mark read"}
                                 </button>
-                                <button type="button" onClick={() => toggleBookmark(cluster.cluster_id)}>
-                                  {isBookmarked ? "Remove bookmark" : "Bookmark"}
+                                <button
+                                  type="button"
+                                  className={isBookmarked ? "bookmarked" : ""}
+                                  onClick={() => toggleBookmark(cluster.cluster_id)}
+                                >
+                                  {isBookmarked ? "★ Bookmarked" : "☆ Bookmark"}
                                 </button>
                               </div>
                             </article>
@@ -276,9 +307,7 @@ export default function App() {
                 <section className="detail-panel" aria-live="polite">
                   <div className="detail-header">
                     <h2>Story details</h2>
-                    <button type="button" onClick={closeDetails}>
-                      Close
-                    </button>
+                    <button type="button" onClick={closeDetails}>Close</button>
                   </div>
 
                   <p className="detail-title">{selectedCluster.title}</p>
@@ -303,16 +332,10 @@ export default function App() {
                       {selectedCluster.articles.map((article) => (
                         <article key={article.url} className="coverage-item">
                           <h3>{article.title}</h3>
-                          <p>
-                            <strong>Source:</strong> {article.source_domain}
-                          </p>
-                          <p>
-                            <strong>Timestamp:</strong> {formatTimestamp(article.timestamp)}
-                          </p>
+                          <p><strong>Source:</strong> {article.source_domain}</p>
+                          <p><strong>Timestamp:</strong> {formatTimestamp(article.timestamp)}</p>
                           <p>{article.snippet}</p>
-                          <a href={article.url} target="_blank" rel="noreferrer">
-                            Open article
-                          </a>
+                          <a href={article.url} target="_blank" rel="noreferrer">Open article</a>
                         </article>
                       ))}
                     </div>
@@ -325,6 +348,7 @@ export default function App() {
                         <li>Reliability: {selectedCluster.best_article.labels.reliability}</li>
                         <li>Bias label: {selectedCluster.best_article.labels.bias_label ?? "Not set"}</li>
                         <li>Paywall: {selectedCluster.best_article.labels.paywall}</li>
+                        <li>Region: {selectedCluster.best_article.labels.region ?? "Not set"}</li>
                       </ul>
                     </div>
                   ) : null}
@@ -332,8 +356,7 @@ export default function App() {
                   {activeDetailTab === "assessment" ? (
                     <div className="detail-content">
                       <p>
-                        Assessment is a placeholder in MVP-0.1. Structured context (what happened, why it matters,
-                        what to watch next, stakeholders, and open questions) will be added in a later milestone.
+                        Assessment is intentionally placeholder-only for MVP-1.1. AI-generated context is out of scope for this PR.
                       </p>
                     </div>
                   ) : null}
@@ -345,7 +368,7 @@ export default function App() {
           {activeTab === "sources" ? (
             <div className="placeholder">
               <h2>Sources</h2>
-              <p>Outlet controls (hide / normal / boost), reliability threshold, and presets land in MVP-1+.</p>
+              <p>Outlet controls (hide / normal / boost), reliability threshold, and presets land in MVP-2+.</p>
             </div>
           ) : null}
 

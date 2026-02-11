@@ -214,3 +214,16 @@
 .empty-copy {
   color: #475569;
 }
+
+.actions button.bookmarked {
+  background: #fef3c7;
+  border-color: #f59e0b;
+  color: #92400e;
+}
+
+.error {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  padding: 0.75rem;
+  border-radius: 8px;
+}
