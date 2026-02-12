@@ -1,0 +1,29 @@
+[
+  {
+    "domain": "reuters.com",
+    "reliability_score": 92,
+    "region": "Global",
+    "tags": ["wire", "general"],
+    "bias_label": "Center",
+    "user_weight": "normal",
+    "max_links_per_day": 20
+  },
+  {
+    "domain": "apnews.com",
+    "reliability_score": 90,
+    "region": "US",
+    "tags": ["wire", "general"],
+    "bias_label": "Center",
+    "user_weight": "normal",
+    "max_links_per_day": 20
+  },
+  {
+    "domain": "bbc.com",
+    "reliability_score": 88,
+    "region": "Global",
+    "tags": ["broadcaster", "general"],
+    "bias_label": "Center",
+    "user_weight": "normal",
+    "max_links_per_day": 20
+  }
+]

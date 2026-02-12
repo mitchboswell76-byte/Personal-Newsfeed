@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Reuters World News",
+    "url": "https://feeds.reuters.com/Reuters/worldNews",
+    "region": "Global",
+    "reliability": "High",
+    "bias_label": "Center"
+  },
+  {
+    "name": "AP Top News",
+    "url": "https://feeds.apnews.com/apf-topnews",
+    "region": "US",
+    "reliability": "High",
+    "bias_label": "Center"
+  },
+  {
+    "name": "BBC World",
+    "url": "http://feeds.bbci.co.uk/news/world/rss.xml",
+    "region": "Global",
+    "reliability": "High",
+    "bias_label": "Center"
+  }
+]
