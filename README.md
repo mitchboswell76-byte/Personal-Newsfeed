@@ -1,22 +1,26 @@
 # BriefBoard (Personal News Feed)
 
+## Version
+- Current version: **MVP-2**
+- Last update: **Added settings-driven ranking and best-source selection, plus stronger MVP-1 data pipeline metadata/deduplication hardening.**
+
 This repo is a Vite + React + TypeScript app for a personal daily brief.
 
-## What MVP-1 adds
+## What MVP-2 adds
 
-MVP-1 introduces **RSS ingestion and daily data generation**:
+MVP-2 introduces settings-driven ranking and source selection on top of MVP-1 data generation:
 
-- A feed list in `config/rss-feeds.json`
-- A source metadata file in `config/sources.json` (reliability, region, tags)
-- A Node build script in `scripts/build-today-json.mjs`
-- A generated output file at `public/data/today.json`
-- A GitHub Actions workflow (`.github/workflows/deploy.yml`) that:
-  - runs on a daily schedule,
-  - rebuilds `today.json` from RSS,
-  - builds the app,
-  - deploys to GitHub Pages.
+- Feed ranking now reacts to settings like stories/day, top/scan split, keyword mutes, and topic boosts.
+- Best Source selection now reacts to settings like minimum reliability, paywall handling, and per-source hide/normal/boost.
+- Settings persist in localStorage so the feed stays personalized after refresh.
 
-No extra npm libraries were added for RSS parsing. The script uses basic XML parsing logic with native Node APIs.
+## MVP-1 data pipeline (still in place)
+
+- Feed list: `config/rss-feeds.json`
+- Source metadata: `config/sources.json` (reliability, region, tags)
+- Build script: `scripts/build-today-json.mjs`
+- Output: `public/data/today.json`
+- Daily CI deploy workflow: `.github/workflows/deploy.yml`
 
 ## Local development
 

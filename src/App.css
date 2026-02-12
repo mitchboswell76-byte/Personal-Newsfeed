@@ -65,18 +65,9 @@
   padding: 0.5rem 0.75rem;
 }
 
-.priority-section {
-  margin-top: 1.25rem;
-}
-
-.priority-section h2 {
-  margin-bottom: 0.75rem;
-}
-
-.cluster-grid {
-  display: grid;
-  gap: 0.85rem;
-}
+.priority-section { margin-top: 1.25rem; }
+.priority-section h2 { margin-bottom: 0.75rem; }
+.cluster-grid { display: grid; gap: 0.85rem; }
 
 .story-card {
   border: 1px solid #cbd5e1;
@@ -85,15 +76,9 @@
   background: #f8fafc;
 }
 
-.story-card.is-read {
-  opacity: 0.75;
-}
+.story-card.is-read { opacity: 0.75; }
 
-.story-heading {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
+.story-heading { display: flex; align-items: center; gap: 0.6rem; }
 
 .story-thumb {
   width: 2.2rem;
@@ -105,9 +90,7 @@
   flex: 0 0 auto;
 }
 
-.story-card h3 {
-  margin: 0;
-}
+.story-card h3 { margin: 0; }
 
 .label-row {
   margin-top: 0.65rem;
@@ -124,106 +107,60 @@
   background: #fff;
 }
 
-.trace {
-  margin: 0.65rem 0;
-  color: #334155;
-}
+.trace { margin: 0.65rem 0; color: #334155; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.actions button { border: 1px solid #cbd5e1; background: #fff; }
+.actions button.bookmarked { background: #fef3c7; border-color: #f59e0b; color: #92400e; }
 
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-}
+.detail-panel { margin-top: 1.25rem; border-top: 1px solid #e2e8f0; padding-top: 1rem; }
+.detail-header { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; }
+.detail-header h2 { margin: 0; }
+.detail-title { margin: 0.6rem 0; font-weight: 600; }
+.detail-tabs { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 0.65rem; }
+.detail-tab { border: 1px solid #cbd5e1; background: #fff; }
+.detail-tab.active { background: #1d4ed8; color: #fff; border-color: #1d4ed8; }
+.detail-content { border: 1px solid #e2e8f0; border-radius: 10px; background: #f8fafc; padding: 0.8rem; }
+.coverage-item + .coverage-item { margin-top: 0.75rem; border-top: 1px solid #cbd5e1; padding-top: 0.75rem; }
+.coverage-item h3 { margin: 0 0 0.35rem; font-size: 1rem; }
+.coverage-item p { margin: 0.2rem 0; }
 
-.actions button {
-  border: 1px solid #cbd5e1;
-  background: #fff;
-}
+.placeholder { min-height: 220px; }
 
-.detail-panel {
-  margin-top: 1.25rem;
-  border-top: 1px solid #e2e8f0;
-  padding-top: 1rem;
-}
-
-.detail-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.settings-grid {
+  display: grid;
   gap: 0.75rem;
-}
-
-.detail-header h2 {
-  margin: 0;
-}
-
-.detail-title {
-  margin: 0.6rem 0;
-  font-weight: 600;
-}
-
-.detail-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-bottom: 0.65rem;
-}
-
-.detail-tab {
-  border: 1px solid #cbd5e1;
-  background: #fff;
-}
-
-.detail-tab.active {
-  background: #1d4ed8;
-  color: #fff;
-  border-color: #1d4ed8;
-}
-
-.detail-content {
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  background: #f8fafc;
-  padding: 0.8rem;
-}
-
-.coverage-item + .coverage-item {
   margin-top: 0.75rem;
-  border-top: 1px solid #cbd5e1;
-  padding-top: 0.75rem;
 }
 
-.coverage-item h3 {
-  margin: 0 0 0.35rem;
-  font-size: 1rem;
+.settings-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.coverage-item p {
-  margin: 0.2rem 0;
+.settings-row input,
+.settings-row select,
+.chips-input input {
+  padding: 0.4rem 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
 }
 
-.placeholder {
-  min-height: 220px;
-}
+.chips-editor { margin-top: 1rem; }
+.chips-editor h3 { margin-bottom: 0.45rem; }
+.chips-input { display: flex; gap: 0.5rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.5rem; }
 
 .error {
   color: #991b1b;
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  padding: 0.75rem;
+  border-radius: 8px;
 }
 
 .loading,
 .empty-copy {
   color: #475569;
-}
-
-.actions button.bookmarked {
-  background: #fef3c7;
-  border-color: #f59e0b;
-  color: #92400e;
-}
-
-.error {
-  border: 1px solid #fecaca;
-  background: #fef2f2;
-  padding: 0.75rem;
-  border-radius: 8px;
 }
