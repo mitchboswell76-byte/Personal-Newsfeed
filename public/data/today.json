@@ -1,6 +1,6 @@
 {
-  "date": "2026-02-10",
-  "generated_at": "2026-02-10T07:23:01.532Z",
+  "date": "2026-02-11",
+  "generated_at": "2026-02-11T19:41:34.062Z",
   "clusters": [
     {
       "cluster_id": "rss-1",
@@ -22,7 +22,7 @@
           "bias_label": "Center",
           "region": "Global"
         },
-        "trace_summary": "Picked from Reuters World News because it is the highest-ranked available article in this single-item cluster."
+        "trace_summary": "Picked from Reuters World News after URL + near-duplicate filtering and recency ranking."
       },
       "articles": [
         {
@@ -60,7 +60,7 @@
           "bias_label": "Center",
           "region": "US"
         },
-        "trace_summary": "Picked from AP Top News because it is the highest-ranked available article in this single-item cluster."
+        "trace_summary": "Picked from AP Top News after URL + near-duplicate filtering and recency ranking."
       },
       "articles": [
         {
@@ -98,7 +98,7 @@
           "bias_label": "Center",
           "region": "Global"
         },
-        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+        "trace_summary": "Picked from BBC World after URL + near-duplicate filtering and recency ranking."
       },
       "articles": [
         {
@@ -136,7 +136,7 @@
           "bias_label": "Center",
           "region": "Global"
         },
-        "trace_summary": "Picked from Reuters World News because it is the highest-ranked available article in this single-item cluster."
+        "trace_summary": "Picked from Reuters World News after URL + near-duplicate filtering and recency ranking."
       },
       "articles": [
         {
@@ -174,7 +174,7 @@
           "bias_label": "Center",
           "region": "US"
         },
-        "trace_summary": "Picked from AP Top News because it is the highest-ranked available article in this single-item cluster."
+        "trace_summary": "Picked from AP Top News after URL + near-duplicate filtering and recency ranking."
       },
       "articles": [
         {
@@ -212,7 +212,7 @@
           "bias_label": "Center",
           "region": "Global"
         },
-        "trace_summary": "Picked from BBC World because it is the highest-ranked available article in this single-item cluster."
+        "trace_summary": "Picked from BBC World after URL + near-duplicate filtering and recency ranking."
       },
       "articles": [
         {

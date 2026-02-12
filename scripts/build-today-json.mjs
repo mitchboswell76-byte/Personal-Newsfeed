@@ -1,10 +1,12 @@
 import { readFile, writeFile } from "node:fs/promises";
 
 const FEEDS_PATH = new URL(process.env.RSS_FEEDS_PATH ?? "../config/rss-feeds.json", import.meta.url);
+const SOURCES_PATH = new URL("../config/sources.json", import.meta.url);
 const OUTPUT_PATH = new URL("../public/data/today.json", import.meta.url);
+
 const MAX_STORIES = Number(process.env.MAX_STORIES ?? "40");
-const USE_MOCK_RSS = process.env.USE_MOCK_RSS === "1";
 const FETCH_TIMEOUT_MS = Number(process.env.RSS_TIMEOUT_MS ?? "12000");
+const USE_MOCK_RSS = process.env.USE_MOCK_RSS === "1";
 
 function decodeHtml(value = "") {
   return value
@@ -40,6 +42,31 @@ function canonicalUrl(url) {
   }
 }
 
+function normalizeTitle(title) {
+  return title
+    .toLowerCase()
+    .replace(/[|–—-]\s*(reuters|associated press|ap|bbc|guardian|nytimes|cnn).*$/i, "")
+    .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function toDomain(url) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "").toLowerCase();
+  } catch {
+    return "unknown";
+  }
+}
+
+function toIsoDate(value) {
+  const date = new Date(value || Date.now());
+  if (Number.isNaN(date.getTime())) {
+    return new Date().toISOString();
+  }
+  return date.toISOString();
+}
+
 function scoreToPriority(index, total) {
   if (total === 0) return "low";
   const ratio = (index + 1) / total;
@@ -48,13 +75,19 @@ function scoreToPriority(index, total) {
   return "low";
 }
 
+function reliabilityBucket(score) {
+  if (score >= 80) return "High";
+  if (score >= 60) return "Med";
+  return "Low";
+}
+
 function parseItems(xml) {
   const items = xml.match(/<item\b[\s\S]*?<\/item>/gi);
   if (items?.length) return items;
   return xml.match(/<entry\b[\s\S]*?<\/entry>/gi) ?? [];
 }
 
-function parseRssItem(rawItem, feed) {
+function parseRssItem(rawItem, feed, sourceMetaByDomain) {
   const url = firstMatch(rawItem, [
     /<link[^>]*>([\s\S]*?)<\/link>/i,
     /<link[^>]*href=["']([^"']+)["'][^>]*\/?\s*>/i,
@@ -75,26 +108,23 @@ function parseRssItem(rawItem, feed) {
   if (!url || !title) return null;
 
   const cleanedUrl = canonicalUrl(url);
-  let sourceDomain = "unknown";
-  try {
-    sourceDomain = new URL(cleanedUrl).hostname.replace(/^www\./, "");
-  } catch {
-    sourceDomain = "unknown";
-  }
-
-  const normalizedTimestamp = new Date(publishedAt || Date.now()).toISOString();
+  const sourceDomain = toDomain(cleanedUrl);
+  const sourceMeta = sourceMetaByDomain.get(sourceDomain);
+  const reliabilityScore = sourceMeta?.reliability_score ?? 65;
 
   return {
     url: cleanedUrl,
     title,
+    normalized_title: normalizeTitle(title),
     source_domain: sourceDomain,
-    timestamp: normalizedTimestamp,
+    timestamp: toIsoDate(publishedAt),
     snippet: snippet || `${feed.name} coverage`,
     labels: {
-      reliability: feed.reliability,
-      region: feed.region,
+      reliability: reliabilityBucket(reliabilityScore),
+      reliability_score: reliabilityScore,
+      region: sourceMeta?.region ?? feed.region ?? "Global",
       paywall: "No",
-      bias_label: feed.bias_label,
+      bias_label: sourceMeta?.bias_label ?? feed.bias_label ?? "Center",
     },
     feedName: feed.name,
   };
@@ -129,15 +159,49 @@ async function fetchXmlFromMock(feed) {
   return readFile(path, "utf8");
 }
 
-async function fetchFeedItems(feed) {
+async function fetchFeedItems(feed, sourceMetaByDomain) {
   const xml = USE_MOCK_RSS ? await fetchXmlFromMock(feed) : await fetchXmlFromNetwork(feed);
   return parseItems(xml)
-    .map((item) => parseRssItem(item, feed))
+    .map((item) => parseRssItem(item, feed, sourceMetaByDomain))
     .filter(Boolean);
 }
 
+function dedupeItems(items) {
+  const byUrl = new Map();
+  for (const item of items) {
+    if (!byUrl.has(item.url)) {
+      byUrl.set(item.url, item);
+    }
+  }
+
+  const nearKeyMap = new Map();
+  for (const item of byUrl.values()) {
+    const hourBucket = item.timestamp.slice(0, 13);
+    const nearKey = `${item.normalized_title}|${hourBucket}`;
+    const existing = nearKeyMap.get(nearKey);
+
+    if (!existing) {
+      nearKeyMap.set(nearKey, item);
+      continue;
+    }
+
+    const existingScore = existing.labels.reliability_score;
+    const currentScore = item.labels.reliability_score;
+
+    const shouldReplace =
+      currentScore > existingScore ||
+      (currentScore === existingScore && new Date(item.timestamp).getTime() > new Date(existing.timestamp).getTime());
+
+    if (shouldReplace) {
+      nearKeyMap.set(nearKey, item);
+    }
+  }
+
+  return Array.from(nearKeyMap.values());
+}
+
 function toTodayJson(items) {
-  const deduped = Array.from(new Map(items.map((item) => [item.url, item])).values())
+  const deduped = dedupeItems(items)
     .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
     .slice(0, MAX_STORIES);
 
@@ -163,7 +227,7 @@ function toTodayJson(items) {
         bias_label: item.labels.bias_label,
         region: item.labels.region,
       },
-      trace_summary: `Picked from ${item.feedName} because it is the highest-ranked available article in this single-item cluster.`,
+      trace_summary: `Picked from ${item.feedName} after URL + near-duplicate filtering and recency ranking.`,
     },
     articles: [
       {
@@ -172,7 +236,12 @@ function toTodayJson(items) {
         source_domain: item.source_domain,
         timestamp: item.timestamp,
         snippet: item.snippet,
-        labels: item.labels,
+        labels: {
+          reliability: item.labels.reliability,
+          region: item.labels.region,
+          paywall: item.labels.paywall,
+          bias_label: item.labels.bias_label,
+        },
       },
     ],
   }));
@@ -203,7 +272,7 @@ function validateTodayJson(payload) {
     throw new Error("today.json date is missing or not in YYYY-MM-DD format.");
   }
   if (typeof payload.generated_at !== "string" || Number.isNaN(Date.parse(payload.generated_at))) {
-    throw new Error("today.json generated_at is missing or not a valid ISO date string.");
+    throw new Error("today.json generated_at is missing or invalid.");
   }
   if (!Array.isArray(payload.clusters)) {
     throw new Error("today.json clusters must be an array.");
@@ -211,8 +280,8 @@ function validateTodayJson(payload) {
 
   payload.clusters.forEach((cluster, index) => {
     if (!cluster?.cluster_id) throw new Error(`clusters[${index}].cluster_id is required.`);
-    if (!Array.isArray(cluster.articles)) throw new Error(`clusters[${index}].articles must be an array.`);
     if (!cluster?.best_article?.url) throw new Error(`clusters[${index}].best_article.url is required.`);
+    if (!Array.isArray(cluster.articles)) throw new Error(`clusters[${index}].articles must be an array.`);
     cluster.articles.forEach((article, articleIndex) => {
       if (!article?.url) throw new Error(`clusters[${index}].articles[${articleIndex}].url is required.`);
       if (!article?.title) throw new Error(`clusters[${index}].articles[${articleIndex}].title is required.`);
@@ -220,14 +289,31 @@ function validateTodayJson(payload) {
   });
 }
 
+function validateSourceMetadata(sources) {
+  if (!Array.isArray(sources)) {
+    throw new Error("config/sources.json must be an array.");
+  }
+
+  sources.forEach((source, index) => {
+    if (!source.domain) throw new Error(`sources[${index}].domain is required.`);
+    if (typeof source.reliability_score !== "number") {
+      throw new Error(`sources[${index}].reliability_score must be a number.`);
+    }
+  });
+}
+
 async function main() {
   const feeds = JSON.parse(await readFile(FEEDS_PATH, "utf8"));
+  const sources = JSON.parse(await readFile(SOURCES_PATH, "utf8"));
+  validateSourceMetadata(sources);
+  const sourceMetaByDomain = new Map(sources.map((source) => [source.domain, source]));
+
   const successes = [];
   const failures = [];
 
   for (const feed of feeds) {
     try {
-      const items = await fetchFeedItems(feed);
+      const items = await fetchFeedItems(feed, sourceMetaByDomain);
       successes.push(...items);
       console.log(`Fetched ${items.length} items from ${feed.name}`);
     } catch (error) {
@@ -243,10 +329,9 @@ async function main() {
 
   const payload = toTodayJson(successes);
   validateTodayJson(payload);
-
   await writeFile(OUTPUT_PATH, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
-  console.log(`Wrote ${payload.clusters.length} clusters to public/data/today.json`);
 
+  console.log(`Wrote ${payload.clusters.length} clusters to public/data/today.json`);
   if (failures.length > 0) {
     console.warn(`Build continued with partial feed failures: ${failures.join(" | ")}`);
   }
