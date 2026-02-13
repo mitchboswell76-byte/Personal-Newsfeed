@@ -1,13 +1,13 @@
 # BriefBoard (Personal News Feed)
 
 ## Version
-- Current version: **MVP-2 (complete pass)**
-- Last update: **Added full MVP-2 controls (ranking, source presets, archive browser, accessibility shortcuts), expanded source/feed metadata, stronger clustering/dedup build pipeline, archive/index generation, and daily workflow.**
+- Current version: **MVP-3**
+- Last update: **Completed MVP-3 story details and sources controls polish: richer Coverage/Why/Assessment tabs, grouped headline compare, blind spots, source max-links controls, and updated header/version labeling.**
 
 ## What the app does now (plain English)
 BriefBoard gives you one daily reading list of clustered stories, picks one recommended source per story based on your settings, and lets you audit coverage/headlines/selection logic.
 
-## What was completed up to MVP-2
+## What is completed up to MVP-3
 - Daily Brief with top/scan/low sections
 - Read + bookmark persistence
 - Story details tabs (Coverage, Why this link, Assessment placeholder)
