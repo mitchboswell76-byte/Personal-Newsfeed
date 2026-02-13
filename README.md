@@ -1,73 +1,55 @@
-# React + TypeScript + Vite
+# BriefBoard (Personal News Feed)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Version
+- Current version: **MVP-2 (complete pass)**
+- Last update: **Added full MVP-2 controls (ranking, source presets, archive browser, accessibility shortcuts), expanded source/feed metadata, stronger clustering/dedup build pipeline, archive/index generation, and daily workflow.**
 
-Currently, two official plugins are available:
+## What the app does now (plain English)
+BriefBoard gives you one daily reading list of clustered stories, picks one recommended source per story based on your settings, and lets you audit coverage/headlines/selection logic.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What was completed up to MVP-2
+- Daily Brief with top/scan/low sections
+- Read + bookmark persistence
+- Story details tabs (Coverage, Why this link, Assessment placeholder)
+- Source controls (hide/normal/boost)
+- Ranking controls (stories/day, split counts, reliability, paywall, keyword mutes, topic boosts, region weights)
+- Archive date browsing using generated `public/data/index.json`
+- Keyboard shortcuts: `B` Brief, `S` Sources, `A` Archive, `T` Settings, `Esc` closes story detail
+- Accessibility additions: skip link, clearer section indicator, improved responsive layout
 
-## React Compiler
+## Data pipeline (MVP-1 + MVP-2 hardening)
+- RSS feed list: `config/rss-feeds.json`
+- Source metadata: `config/sources.json`
+- Build script: `scripts/build-today-json.mjs`
+- Output files:
+  - `public/data/today.json`
+  - `public/data/<YYYY-MM-DD>/today.json` (archive)
+  - `public/data/index.json` (archive dates)
+  - `public/data/sources.json` (for Sources tab metadata)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Environment variables
+Create `.env` from `.env.example` if you want to override defaults.
 
-## Expanding the ESLint configuration
+- `RSS_FEEDS_PATH` (default `../config/rss-feeds.json`)
+- `SOURCES_PATH` (default `../config/sources.json`)
+- `RSS_TIMEOUT_MS` (default `12000`)
+- `MAX_STORIES` (default `40`)
+- `USE_MOCK_RSS` (`1` for mock XML mode, `0` for live RSS)
+- `MOCK_FEEDS_DIR` (default `../scripts/mock-feeds`)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Commands
+```bash
+npm install
+npm run dev
+npm run build:data
+npm run build
+npm run serve
+npm run lint
+npm run docs
+npm run test
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## CI/Deploy
+- Daily workflow: `.github/workflows/build-daily.yml` (8:00 UTC)
+- Existing deploy workflow: `.github/workflows/deploy.yml`
+- Both run the data build before front-end deploy.
