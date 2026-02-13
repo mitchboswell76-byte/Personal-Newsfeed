@@ -275,6 +275,157 @@ const PRESETS: Record<string, Partial<FeedSettings>> = {
   "challenge-me": { minReliability: "Med", paywallMode: "allow" },
 };
 
+const STORAGE_KEYS = {
+  read: "pnf.readIds",
+  bookmarks: "pnf.bookmarkedIds",
+  activeTab: "pnf.activeTab",
+  detailTab: "pnf.detailTab",
+  detailStory: "pnf.detailStoryId",
+  settings: "pnf.settings.v2",
+  archiveDate: "pnf.archiveDate",
+};
+
+function readStorage<T>(key: string, fallback: T): T {
+  if (typeof window === "undefined") return fallback;
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? (JSON.parse(raw) as T) : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function reliabilityValue(value: Labels["reliability"]) {
+  if (value === "High") return 3;
+  if (value === "Med") return 2;
+  return 1;
+}
+
+function sourceWeightValue(weight: SourceWeight) {
+  if (weight === "boost") return 1;
+  if (weight === "hide") return -3;
+  return 0;
+}
+
+function relativeTime(iso: string) {
+  const deltaMs = Date.now() - new Date(iso).getTime();
+  const mins = Math.max(1, Math.floor(deltaMs / 60000));
+  if (mins < 60) return `${mins}m ago`;
+  const hours = Math.floor(mins / 60);
+  if (hours < 48) return `${hours}h ago`;
+  return `${Math.floor(hours / 24)}d ago`;
+}
+
+function faviconUrl(domain: string) {
+  return `https://www.google.com/s2/favicons?sz=64&domain_url=https://${domain}`;
+}
+
+function sensationalismPenalty(title: string) {
+  let penalty = 0;
+  if (/\b(SHOCKING|EXPLOSIVE|STUNNING|BOMBSHELL|EXCLUSIVE)\b/i.test(title)) penalty += 0.3;
+  if ((title.match(/!/g) || []).length > 1) penalty += 0.2;
+  if (/^[A-Z\s]{18,}$/.test(title)) penalty += 0.3;
+  return penalty;
+}
+
+function chooseBestArticle(cluster: Cluster, settings: FeedSettings): { best: Article; trace: string; alternatives: Alternative[] } {
+  const scored = cluster.articles.map((article) => {
+    const sourceWeight = settings.sourceWeights[article.source_domain] ?? "normal";
+    const reliability = reliabilityValue(article.labels.reliability);
+    const freshness = Math.max(0, 48 - (Date.now() - new Date(article.timestamp).getTime()) / 3_600_000) / 24;
+    const sensational = sensationalismPenalty(article.title);
+    const paywallPenalty = settings.paywallMode === "hide" && article.labels.paywall === "Yes"
+      ? -100
+      : settings.paywallMode === "downrank" && article.labels.paywall === "Yes"
+        ? -1
+        : 0;
+
+    const blocked =
+      reliability < reliabilityValue(settings.minReliability) ||
+      sourceWeight === "hide" ||
+      (settings.paywallMode === "hide" && article.labels.paywall === "Yes");
+
+    const regionBoost = settings.regionWeights[article.labels.region ?? "Global"] ?? 1;
+
+    return {
+      article,
+      blocked,
+      score: reliability * 3 + sourceWeightValue(sourceWeight) + freshness + regionBoost - sensational + paywallPenalty,
+    };
+  }).sort((a, b) => b.score - a.score);
+
+  const bestEntry = scored.find((entry) => !entry.blocked) ?? scored[0];
+  const alternatives = scored
+    .filter((entry) => entry.article.url !== bestEntry.article.url)
+    .slice(0, 3)
+    .map((entry) => ({
+      article: entry.article,
+      reason: entry.blocked
+        ? "Blocked by current settings (reliability/paywall/source weight)."
+        : "Scored lower due to freshness, source preference, or headline quality.",
+    }));
+
+  const trace = bestEntry.blocked
+    ? "Fallback pick: nothing passed your settings, so highest available reliability was selected."
+    : `Best Source: ${bestEntry.article.source_domain} (reliability ${bestEntry.article.labels.reliability}, paywall ${bestEntry.article.labels.paywall}, paywall mode ${settings.paywallMode}).`;
+
+  return { best: bestEntry.article, trace, alternatives };
+}
+
+function deriveClusters(data: Today, settings: FeedSettings) {
+  const mutes = settings.keywordMutes.map((k) => k.toLowerCase());
+  const boosts = settings.topicBoosts.map((k) => k.toLowerCase());
+
+  return data.clusters
+    .map((cluster) => {
+      const { best, trace, alternatives } = chooseBestArticle(cluster, settings);
+      const recencyScore = Math.max(0, 72 - (Date.now() - new Date(cluster.updated_at).getTime()) / 3_600_000);
+      const outletCount = new Set(cluster.articles.map((a) => a.source_domain)).size;
+      const regionSet = new Set(cluster.articles.map((a) => a.labels.region ?? "Global"));
+      const regionBoost = Array.from(regionSet).reduce((sum, region) => sum + (settings.regionWeights[region] ?? 0.7), 0) / regionSet.size;
+      const topicBoost = cluster.topic_tags.some((tag) => boosts.includes(tag.toLowerCase())) ? 0.4 : 0;
+      const muted = mutes.some((word) => cluster.title.toLowerCase().includes(word));
+      const rank =
+        (recencyScore / 72) * 0.3 +
+        (outletCount * 0.2) * 0.25 +
+        regionBoost * 0.2 +
+        topicBoost * 0.15 +
+        (muted ? -0.8 : 0) * 0.1;
+
+      return {
+        ...cluster,
+        rank_score: Number(rank.toFixed(3)),
+        best_article: {
+          ...cluster.best_article,
+          url: best.url,
+          source_domain: best.source_domain,
+          labels: best.labels,
+          trace_summary: trace,
+        },
+        _alternatives: alternatives,
+      };
+    })
+    .sort((a, b) => b.rank_score - a.rank_score)
+    .slice(0, settings.storiesPerDay)
+    .map((cluster, index) => ({
+      ...cluster,
+      priority: index < settings.topCount ? "top" : index < settings.topCount + settings.scanCount ? "scan" : "low",
+    }));
+}
+
+function applyTheme(theme: ThemeMode) {
+  if (typeof window === "undefined") return;
+  const root = document.documentElement;
+  root.dataset.theme = theme;
+}
+
+const PRESETS: Record<string, Partial<FeedSettings>> = {
+  "neutral-first": { minReliability: "High", paywallMode: "downrank" },
+  "best-reporting": { minReliability: "High", paywallMode: "hide" },
+  "international-first": { regionWeights: { US: 0.8, Europe: 1.2, Asia: 1.2, Global: 1.3 } },
+  "challenge-me": { minReliability: "Med", paywallMode: "allow" },
+};
+
 function readStorage<T>(key: string, fallback: T): T {
   if (typeof window === "undefined") return fallback;
   try {
