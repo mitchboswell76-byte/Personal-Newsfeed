@@ -1,0 +1,134 @@
+[
+  {
+    "domain": "reuters.com",
+    "reliability_score": 92,
+    "region": "Global",
+    "tags": [
+      "wire",
+      "general"
+    ],
+    "bias_label": "Center",
+    "user_weight": "normal",
+    "max_links_per_day": 20
+  },
+  {
+    "domain": "apnews.com",
+    "reliability_score": 90,
+    "region": "US",
+    "tags": [
+      "wire",
+      "general"
+    ],
+    "bias_label": "Center",
+    "user_weight": "normal",
+    "max_links_per_day": 20
+  },
+  {
+    "domain": "bbc.com",
+    "reliability_score": 88,
+    "region": "Global",
+    "tags": [
+      "broadcaster",
+      "general"
+    ],
+    "bias_label": "Center",
+    "user_weight": "normal",
+    "max_links_per_day": 20
+  },
+  {
+    "domain": "npr.org",
+    "reliability_score": 86,
+    "region": "US",
+    "tags": [
+      "public-radio",
+      "analysis"
+    ],
+    "bias_label": "Center-Left",
+    "user_weight": "normal",
+    "max_links_per_day": 12
+  },
+  {
+    "domain": "theguardian.com",
+    "reliability_score": 84,
+    "region": "Europe",
+    "tags": [
+      "newspaper",
+      "analysis"
+    ],
+    "bias_label": "Center-Left",
+    "user_weight": "normal",
+    "max_links_per_day": 12
+  },
+  {
+    "domain": "nytimes.com",
+    "reliability_score": 87,
+    "region": "US",
+    "tags": [
+      "newspaper",
+      "paywall"
+    ],
+    "bias_label": "Center-Left",
+    "user_weight": "normal",
+    "max_links_per_day": 10
+  },
+  {
+    "domain": "wsj.com",
+    "reliability_score": 85,
+    "region": "US",
+    "tags": [
+      "newspaper",
+      "paywall"
+    ],
+    "bias_label": "Center-Right",
+    "user_weight": "normal",
+    "max_links_per_day": 8
+  },
+  {
+    "domain": "cnn.com",
+    "reliability_score": 78,
+    "region": "US",
+    "tags": [
+      "broadcast",
+      "general"
+    ],
+    "bias_label": "Left",
+    "user_weight": "normal",
+    "max_links_per_day": 10
+  },
+  {
+    "domain": "foxnews.com",
+    "reliability_score": 70,
+    "region": "US",
+    "tags": [
+      "broadcast",
+      "general"
+    ],
+    "bias_label": "Right",
+    "user_weight": "normal",
+    "max_links_per_day": 10
+  },
+  {
+    "domain": "msnbc.com",
+    "reliability_score": 72,
+    "region": "US",
+    "tags": [
+      "broadcast",
+      "general"
+    ],
+    "bias_label": "Left",
+    "user_weight": "normal",
+    "max_links_per_day": 8
+  },
+  {
+    "domain": "ft.com",
+    "reliability_score": 89,
+    "region": "Global",
+    "tags": [
+      "newspaper",
+      "paywall"
+    ],
+    "bias_label": "Center",
+    "user_weight": "normal",
+    "max_links_per_day": 8
+  }
+]
