@@ -265,16 +265,6 @@ const PRESETS: Record<string, Partial<FeedSettings>> = {
   "challenge-me": { minReliability: "Med", paywallMode: "allow" },
 };
 
-const STORAGE_KEYS = {
-  read: "pnf.readIds",
-  bookmarks: "pnf.bookmarkedIds",
-  activeTab: "pnf.activeTab",
-  detailTab: "pnf.detailTab",
-  detailStory: "pnf.detailStoryId",
-  settings: "pnf.settings.v2",
-  archiveDate: "pnf.archiveDate",
-};
-
 function readStorage<T>(key: string, fallback: T): T {
   if (typeof window === "undefined") return fallback;
   try {
