@@ -1,8 +1,12 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 
 const FEEDS_PATH = new URL(process.env.RSS_FEEDS_PATH ?? "../config/rss-feeds.json", import.meta.url);
-const SOURCES_PATH = new URL("../config/sources.json", import.meta.url);
+const SOURCES_PATH = new URL(process.env.SOURCES_PATH ?? "../config/sources.json", import.meta.url);
 const OUTPUT_PATH = new URL("../public/data/today.json", import.meta.url);
+const PUBLIC_DATA_DIR = new URL("../public/data/", import.meta.url);
+const SOURCES_OUTPUT_PATH = new URL("../public/data/sources.json", import.meta.url);
+const INDEX_OUTPUT_PATH = new URL("../public/data/index.json", import.meta.url);
+const MOCK_FEEDS_DIR = process.env.MOCK_FEEDS_DIR ?? "../scripts/mock-feeds";
 
 const MAX_STORIES = Number(process.env.MAX_STORIES ?? "40");
 const FETCH_TIMEOUT_MS = Number(process.env.RSS_TIMEOUT_MS ?? "12000");
@@ -21,21 +25,11 @@ function decodeHtml(value = "") {
     .trim();
 }
 
-function firstMatch(xml, patterns) {
-  for (const pattern of patterns) {
-    const match = xml.match(pattern);
-    if (match?.[1]) return decodeHtml(match[1]);
-  }
-  return "";
-}
-
 function canonicalUrl(url) {
   try {
     const parsed = new URL(url.trim());
     parsed.hash = "";
-    for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"]) {
-      parsed.searchParams.delete(key);
-    }
+    ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"].forEach((key) => parsed.searchParams.delete(key));
     return parsed.toString();
   } catch {
     return url.trim();
@@ -45,10 +39,43 @@ function canonicalUrl(url) {
 function normalizeTitle(title) {
   return title
     .toLowerCase()
-    .replace(/[|–—-]\s*(reuters|associated press|ap|bbc|guardian|nytimes|cnn).*$/i, "")
+    .replace(/[|–—-]\s*(reuters|associated press|ap|bbc|guardian|nytimes|cnn|fox|npr|wsj).*$/i, "")
     .replace(/[^a-z0-9\s]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+function keywordsFromTitle(title) {
+  return normalizeTitle(title)
+    .split(" ")
+    .filter((word) => word.length > 3)
+    .slice(0, 8);
+}
+
+function overlapScore(a, b) {
+  const setA = new Set(a);
+  const setB = new Set(b);
+  const intersection = [...setA].filter((item) => setB.has(item)).length;
+  const union = new Set([...setA, ...setB]).size;
+  return union === 0 ? 0 : intersection / union;
+}
+
+function parseItems(xml) {
+  return xml.match(/<item\b[\s\S]*?<\/item>/gi) ?? xml.match(/<entry\b[\s\S]*?<\/entry>/gi) ?? [];
+}
+
+function firstMatch(xml, patterns) {
+  for (const pattern of patterns) {
+    const match = xml.match(pattern);
+    if (match?.[1]) return decodeHtml(match[1]);
+  }
+  return "";
+}
+
+function reliabilityBucket(score) {
+  if (score >= 80) return "High";
+  if (score >= 60) return "Med";
+  return "Low";
 }
 
 function toDomain(url) {
@@ -59,263 +86,187 @@ function toDomain(url) {
   }
 }
 
-function toIsoDate(value) {
-  const date = new Date(value || Date.now());
-  if (Number.isNaN(date.getTime())) {
-    return new Date().toISOString();
-  }
-  return date.toISOString();
-}
-
-function scoreToPriority(index, total) {
-  if (total === 0) return "low";
-  const ratio = (index + 1) / total;
-  if (ratio <= 0.34) return "top";
-  if (ratio <= 0.7) return "scan";
-  return "low";
-}
-
-function reliabilityBucket(score) {
-  if (score >= 80) return "High";
-  if (score >= 60) return "Med";
-  return "Low";
-}
-
-function parseItems(xml) {
-  const items = xml.match(/<item\b[\s\S]*?<\/item>/gi);
-  if (items?.length) return items;
-  return xml.match(/<entry\b[\s\S]*?<\/entry>/gi) ?? [];
-}
-
-function parseRssItem(rawItem, feed, sourceMetaByDomain) {
-  const url = firstMatch(rawItem, [
-    /<link[^>]*>([\s\S]*?)<\/link>/i,
-    /<link[^>]*href=["']([^"']+)["'][^>]*\/?\s*>/i,
-    /<id[^>]*>([\s\S]*?)<\/id>/i,
-  ]);
+function parseRssItem(rawItem, feed, sourcesByDomain) {
+  const url = firstMatch(rawItem, [/<link[^>]*>([\s\S]*?)<\/link>/i, /<link[^>]*href=["']([^"']+)["'][^>]*\/?\s*>/i, /<id[^>]*>([\s\S]*?)<\/id>/i]);
   const title = firstMatch(rawItem, [/<title[^>]*>([\s\S]*?)<\/title>/i]);
-  const snippet = firstMatch(rawItem, [
-    /<description[^>]*>([\s\S]*?)<\/description>/i,
-    /<summary[^>]*>([\s\S]*?)<\/summary>/i,
-    /<content[^>]*>([\s\S]*?)<\/content>/i,
-  ]);
-  const publishedAt = firstMatch(rawItem, [
-    /<pubDate[^>]*>([\s\S]*?)<\/pubDate>/i,
-    /<published[^>]*>([\s\S]*?)<\/published>/i,
-    /<updated[^>]*>([\s\S]*?)<\/updated>/i,
-  ]);
-
+  const snippet = firstMatch(rawItem, [/<description[^>]*>([\s\S]*?)<\/description>/i, /<summary[^>]*>([\s\S]*?)<\/summary>/i]);
+  const publishedAt = firstMatch(rawItem, [/<pubDate[^>]*>([\s\S]*?)<\/pubDate>/i, /<published[^>]*>([\s\S]*?)<\/published>/i, /<updated[^>]*>([\s\S]*?)<\/updated>/i]);
   if (!url || !title) return null;
 
-  const cleanedUrl = canonicalUrl(url);
-  const sourceDomain = toDomain(cleanedUrl);
-  const sourceMeta = sourceMetaByDomain.get(sourceDomain);
-  const reliabilityScore = sourceMeta?.reliability_score ?? 65;
+  const canonical = canonicalUrl(url);
+  const domain = toDomain(canonical);
+  const source = sourcesByDomain.get(domain);
+  const reliabilityScore = source?.reliability_score ?? 65;
 
   return {
-    url: cleanedUrl,
+    url: canonical,
     title,
     normalized_title: normalizeTitle(title),
-    source_domain: sourceDomain,
-    timestamp: toIsoDate(publishedAt),
+    keywords: keywordsFromTitle(title),
+    source_domain: domain,
+    timestamp: new Date(publishedAt || Date.now()).toISOString(),
     snippet: snippet || `${feed.name} coverage`,
     labels: {
       reliability: reliabilityBucket(reliabilityScore),
-      reliability_score: reliabilityScore,
-      region: sourceMeta?.region ?? feed.region ?? "Global",
-      paywall: "No",
-      bias_label: sourceMeta?.bias_label ?? feed.bias_label ?? "Center",
+      region: source?.region ?? feed.region ?? "Global",
+      paywall: source?.tags?.includes("paywall") ? "Yes" : "No",
+      bias_label: source?.bias_label ?? feed.bias_label ?? "Center",
     },
-    feedName: feed.name,
+    feed_name: feed.name,
   };
 }
 
-async function fetchXmlFromNetwork(feed) {
+async function fetchXml(feed) {
+  if (USE_MOCK_RSS) {
+    const fileName = feed.name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    return readFile(new URL(`${MOCK_FEEDS_DIR}/${fileName}.xml`, import.meta.url), "utf8");
+  }
+
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
-
   try {
     const response = await fetch(feed.url, {
       signal: controller.signal,
       headers: {
-        "User-Agent": "BriefBoard-MVP1.1/1.0 (+https://github.com)",
+        "User-Agent": "BriefBoard-MVP2/1.0 (+https://github.com)",
         Accept: "application/rss+xml, application/xml, text/xml;q=0.9, */*;q=0.8",
       },
     });
-
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
-    }
-
-    return await response.text();
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return response.text();
   } finally {
     clearTimeout(timer);
   }
 }
 
-async function fetchXmlFromMock(feed) {
-  const fileName = feed.name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-  const path = new URL(`../scripts/mock-feeds/${fileName}.xml`, import.meta.url);
-  return readFile(path, "utf8");
+function dedupe(items) {
+  const urlMap = new Map(items.map((item) => [item.url, item]));
+  return [...urlMap.values()];
 }
 
-async function fetchFeedItems(feed, sourceMetaByDomain) {
-  const xml = USE_MOCK_RSS ? await fetchXmlFromMock(feed) : await fetchXmlFromNetwork(feed);
-  return parseItems(xml)
-    .map((item) => parseRssItem(item, feed, sourceMetaByDomain))
-    .filter(Boolean);
-}
-
-function dedupeItems(items) {
-  const byUrl = new Map();
+function clusterItems(items) {
+  const clusters = [];
   for (const item of items) {
-    if (!byUrl.has(item.url)) {
-      byUrl.set(item.url, item);
+    const found = clusters.find((cluster) => {
+      const withinDay = Math.abs(new Date(cluster.updated_at).getTime() - new Date(item.timestamp).getTime()) <= 24 * 3_600_000;
+      const similarity = overlapScore(cluster.keywords, item.keywords);
+      return withinDay && (similarity >= 0.45 || cluster.normalized_title === item.normalized_title);
+    });
+
+    if (found) {
+      found.articles.push(item);
+      found.keywords = [...new Set([...found.keywords, ...item.keywords])];
+      if (new Date(item.timestamp) > new Date(found.updated_at)) found.updated_at = item.timestamp;
+    } else {
+      clusters.push({
+        normalized_title: item.normalized_title,
+        title: item.title,
+        updated_at: item.timestamp,
+        keywords: item.keywords,
+        articles: [item],
+      });
     }
   }
 
-  const nearKeyMap = new Map();
-  for (const item of byUrl.values()) {
-    const hourBucket = item.timestamp.slice(0, 13);
-    const nearKey = `${item.normalized_title}|${hourBucket}`;
-    const existing = nearKeyMap.get(nearKey);
+  return clusters;
+}
 
-    if (!existing) {
-      nearKeyMap.set(nearKey, item);
-      continue;
-    }
-
-    const existingScore = existing.labels.reliability_score;
-    const currentScore = item.labels.reliability_score;
-
-    const shouldReplace =
-      currentScore > existingScore ||
-      (currentScore === existingScore && new Date(item.timestamp).getTime() > new Date(existing.timestamp).getTime());
-
-    if (shouldReplace) {
-      nearKeyMap.set(nearKey, item);
-    }
-  }
-
-  return Array.from(nearKeyMap.values());
+function toCoverageBreadth(count) {
+  if (count >= 6) return "Broad";
+  if (count >= 3) return "Medium";
+  return "Narrow";
 }
 
 function toTodayJson(items) {
-  const deduped = dedupeItems(items)
-    .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
-    .slice(0, MAX_STORIES);
-
-  const total = deduped.length;
-  const clusters = deduped.map((item, index) => ({
-    cluster_id: `rss-${index + 1}`,
-    rank_score: Number((1 - index / Math.max(total, 1)).toFixed(3)),
-    priority: scoreToPriority(index, total),
-    title: item.title,
-    topic_tags: ["general"],
-    updated_at: item.timestamp,
-    coverage_breadth: "Narrow",
-    best_article: {
-      url: item.url,
-      source_domain: item.source_domain,
-      image_url:
-        index === 0
-          ? "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=128&q=60"
-          : "",
-      labels: {
-        reliability: item.labels.reliability,
-        paywall: "No",
-        bias_label: item.labels.bias_label,
-        region: item.labels.region,
-      },
-      trace_summary: `Picked from ${item.feedName} after URL + near-duplicate filtering and recency ranking.`,
-    },
-    articles: [
-      {
-        url: item.url,
-        title: item.title,
-        source_domain: item.source_domain,
-        timestamp: item.timestamp,
-        snippet: item.snippet,
-        labels: {
-          reliability: item.labels.reliability,
-          region: item.labels.region,
-          paywall: item.labels.paywall,
-          bias_label: item.labels.bias_label,
+  const clustered = clusterItems(dedupe(items));
+  const ranked = clustered
+    .map((cluster) => {
+      const uniqueOutlets = new Set(cluster.articles.map((a) => a.source_domain)).size;
+      const recency = Math.max(0, 72 - (Date.now() - new Date(cluster.updated_at).getTime()) / 3_600_000);
+      const rank = (recency / 72) * 0.7 + uniqueOutlets * 0.3;
+      const best = [...cluster.articles].sort((a, b) => (b.labels.reliability > a.labels.reliability ? 1 : -1))[0];
+      return {
+        cluster_id: `cluster-${Math.random().toString(36).slice(2, 9)}`,
+        rank_score: Number(rank.toFixed(3)),
+        title: cluster.title,
+        topic_tags: cluster.keywords.slice(0, 3),
+        updated_at: cluster.updated_at,
+        coverage_breadth: toCoverageBreadth(uniqueOutlets),
+        best_article: {
+          url: best.url,
+          source_domain: best.source_domain,
+          image_url: "",
+          labels: best.labels,
+          trace_summary: `Picked ${best.source_domain} based on reliability and recency among ${cluster.articles.length} related reports.`,
         },
-      },
-    ],
-  }));
-
-  clusters.sort((a, b) => {
-    if (b.rank_score !== a.rank_score) {
-      return b.rank_score - a.rank_score;
-    }
-
-    const updatedDelta = new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime();
-    if (updatedDelta !== 0) {
-      return updatedDelta;
-    }
-
-    return a.title.localeCompare(b.title);
-  });
+        articles: cluster.articles.map((article) => ({
+          url: article.url,
+          title: article.title,
+          source_domain: article.source_domain,
+          timestamp: article.timestamp,
+          snippet: article.snippet,
+          labels: article.labels,
+        })),
+      };
+    })
+    .sort((a, b) => b.rank_score - a.rank_score || new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime() || a.title.localeCompare(b.title))
+    .slice(0, MAX_STORIES)
+    .map((cluster, index, arr) => ({
+      ...cluster,
+      priority: index < Math.ceil(arr.length * 0.3) ? "top" : index < Math.ceil(arr.length * 0.7) ? "scan" : "low",
+    }));
 
   return {
     date: new Date().toISOString().slice(0, 10),
     generated_at: new Date().toISOString(),
-    clusters,
+    clusters: ranked,
   };
 }
 
-function validateTodayJson(payload) {
-  if (!payload || typeof payload !== "object") throw new Error("today.json must be an object.");
-  if (typeof payload.date !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(payload.date)) {
-    throw new Error("today.json date is missing or not in YYYY-MM-DD format.");
-  }
-  if (typeof payload.generated_at !== "string" || Number.isNaN(Date.parse(payload.generated_at))) {
-    throw new Error("today.json generated_at is missing or invalid.");
-  }
-  if (!Array.isArray(payload.clusters)) {
-    throw new Error("today.json clusters must be an array.");
-  }
-
+function validateToday(payload) {
+  if (!payload?.date || !/^\d{4}-\d{2}-\d{2}$/.test(payload.date)) throw new Error("Invalid date in today.json");
+  if (!payload?.generated_at || Number.isNaN(Date.parse(payload.generated_at))) throw new Error("Invalid generated_at in today.json");
+  if (!Array.isArray(payload.clusters)) throw new Error("clusters must be an array");
   payload.clusters.forEach((cluster, index) => {
-    if (!cluster?.cluster_id) throw new Error(`clusters[${index}].cluster_id is required.`);
-    if (!cluster?.best_article?.url) throw new Error(`clusters[${index}].best_article.url is required.`);
-    if (!Array.isArray(cluster.articles)) throw new Error(`clusters[${index}].articles must be an array.`);
-    cluster.articles.forEach((article, articleIndex) => {
-      if (!article?.url) throw new Error(`clusters[${index}].articles[${articleIndex}].url is required.`);
-      if (!article?.title) throw new Error(`clusters[${index}].articles[${articleIndex}].title is required.`);
-    });
+    if (!cluster.cluster_id) throw new Error(`clusters[${index}].cluster_id missing`);
+    if (!cluster.best_article?.url) throw new Error(`clusters[${index}].best_article.url missing`);
+    if (!Array.isArray(cluster.articles)) throw new Error(`clusters[${index}].articles missing`);
   });
 }
 
-function validateSourceMetadata(sources) {
-  if (!Array.isArray(sources)) {
-    throw new Error("config/sources.json must be an array.");
+async function writeArchive(todayPayload) {
+  const archiveDir = new URL(`../public/data/${todayPayload.date}/`, import.meta.url);
+  await mkdir(archiveDir, { recursive: true });
+  await writeFile(new URL("today.json", archiveDir), `${JSON.stringify(todayPayload, null, 2)}\n`, "utf8");
+
+  let existingDates = [];
+  try {
+    const parsed = JSON.parse(await readFile(INDEX_OUTPUT_PATH, "utf8"));
+    existingDates = Array.isArray(parsed.dates) ? parsed.dates : [];
+  } catch {
+    existingDates = [];
   }
 
-  sources.forEach((source, index) => {
-    if (!source.domain) throw new Error(`sources[${index}].domain is required.`);
-    if (typeof source.reliability_score !== "number") {
-      throw new Error(`sources[${index}].reliability_score must be a number.`);
-    }
-  });
+  const dates = Array.from(new Set([todayPayload.date, ...existingDates])).sort((a, b) => (a < b ? 1 : -1));
+  await writeFile(INDEX_OUTPUT_PATH, `${JSON.stringify({ dates }, null, 2)}\n`, "utf8");
 }
 
 async function main() {
   const feeds = JSON.parse(await readFile(FEEDS_PATH, "utf8"));
   const sources = JSON.parse(await readFile(SOURCES_PATH, "utf8"));
-  validateSourceMetadata(sources);
-  const sourceMetaByDomain = new Map(sources.map((source) => [source.domain, source]));
+  const sourcesByDomain = new Map(sources.map((source) => [source.domain, source]));
 
-  const successes = [];
+  const allItems = [];
   const failures = [];
 
   for (const feed of feeds) {
     try {
-      const items = await fetchFeedItems(feed, sourceMetaByDomain);
-      successes.push(...items);
-      console.log(`Fetched ${items.length} items from ${feed.name}`);
+      const xml = await fetchXml(feed);
+      const parsedItems = parseItems(xml)
+        .map((item) => parseRssItem(item, feed, sourcesByDomain))
+        .filter(Boolean);
+      allItems.push(...parsedItems);
+      console.log(`Fetched ${parsedItems.length} items from ${feed.name}`);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       failures.push(`${feed.name} (${feed.url}): ${message}`);
@@ -323,18 +274,22 @@ async function main() {
     }
   }
 
-  if (successes.length === 0) {
+  if (allItems.length === 0) {
     throw new Error(`All feeds failed. ${failures.join(" | ")}`);
   }
 
-  const payload = toTodayJson(successes);
-  validateTodayJson(payload);
-  await writeFile(OUTPUT_PATH, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
+  const payload = toTodayJson(allItems);
+  validateToday(payload);
 
-  console.log(`Wrote ${payload.clusters.length} clusters to public/data/today.json`);
-  if (failures.length > 0) {
-    console.warn(`Build continued with partial feed failures: ${failures.join(" | ")}`);
-  }
+  await mkdir(PUBLIC_DATA_DIR, { recursive: true });
+  await writeFile(OUTPUT_PATH, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
+  await writeFile(SOURCES_OUTPUT_PATH, `${JSON.stringify(sources, null, 2)}\n`, "utf8");
+  await writeArchive(payload);
+
+  console.log(`Fetched feeds: ${feeds.length - failures.length}/${feeds.length}`);
+  console.log(`Items total: ${allItems.length}`);
+  console.log(`Clusters generated: ${payload.clusters.length}`);
+  if (failures.length > 0) console.warn(`Build continued with partial failures: ${failures.join(" | ")}`);
 }
 
 main().catch((error) => {

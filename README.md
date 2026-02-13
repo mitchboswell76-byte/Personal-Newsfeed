@@ -1,50 +1,55 @@
 # BriefBoard (Personal News Feed)
 
 ## Version
-- Current version: **MVP-2**
-- Last update: **Added settings-driven ranking and best-source selection, plus stronger MVP-1 data pipeline metadata/deduplication hardening.**
+- Current version: **MVP-2 (complete pass)**
+- Last update: **Added full MVP-2 controls (ranking, source presets, archive browser, accessibility shortcuts), expanded source/feed metadata, stronger clustering/dedup build pipeline, archive/index generation, and daily workflow.**
 
-This repo is a Vite + React + TypeScript app for a personal daily brief.
+## What the app does now (plain English)
+BriefBoard gives you one daily reading list of clustered stories, picks one recommended source per story based on your settings, and lets you audit coverage/headlines/selection logic.
 
-## What MVP-2 adds
+## What was completed up to MVP-2
+- Daily Brief with top/scan/low sections
+- Read + bookmark persistence
+- Story details tabs (Coverage, Why this link, Assessment placeholder)
+- Source controls (hide/normal/boost)
+- Ranking controls (stories/day, split counts, reliability, paywall, keyword mutes, topic boosts, region weights)
+- Archive date browsing using generated `public/data/index.json`
+- Keyboard shortcuts: `B` Brief, `S` Sources, `A` Archive, `T` Settings, `Esc` closes story detail
+- Accessibility additions: skip link, clearer section indicator, improved responsive layout
 
-MVP-2 introduces settings-driven ranking and source selection on top of MVP-1 data generation:
-
-- Feed ranking now reacts to settings like stories/day, top/scan split, keyword mutes, and topic boosts.
-- Best Source selection now reacts to settings like minimum reliability, paywall handling, and per-source hide/normal/boost.
-- Settings persist in localStorage so the feed stays personalized after refresh.
-
-## MVP-1 data pipeline (still in place)
-
-- Feed list: `config/rss-feeds.json`
-- Source metadata: `config/sources.json` (reliability, region, tags)
+## Data pipeline (MVP-1 + MVP-2 hardening)
+- RSS feed list: `config/rss-feeds.json`
+- Source metadata: `config/sources.json`
 - Build script: `scripts/build-today-json.mjs`
-- Output: `public/data/today.json`
-- Daily CI deploy workflow: `.github/workflows/deploy.yml`
+- Output files:
+  - `public/data/today.json`
+  - `public/data/<YYYY-MM-DD>/today.json` (archive)
+  - `public/data/index.json` (archive dates)
+  - `public/data/sources.json` (for Sources tab metadata)
 
-## Local development
+## Environment variables
+Create `.env` from `.env.example` if you want to override defaults.
 
+- `RSS_FEEDS_PATH` (default `../config/rss-feeds.json`)
+- `SOURCES_PATH` (default `../config/sources.json`)
+- `RSS_TIMEOUT_MS` (default `12000`)
+- `MAX_STORIES` (default `40`)
+- `USE_MOCK_RSS` (`1` for mock XML mode, `0` for live RSS)
+- `MOCK_FEEDS_DIR` (default `../scripts/mock-feeds`)
+
+## Commands
 ```bash
 npm install
 npm run dev
-```
-
-## Build commands
-
-```bash
-# Build data file from RSS feeds only
 npm run build:data
-
-# Build frontend app only
 npm run build
-
-# MVP-1 full build: data + app
-npm run build:mvp1
+npm run serve
+npm run lint
+npm run docs
+npm run test
 ```
 
-## Notes
-
-- `public/data/today.json` is what the UI reads.
-- If one feed fails, the script logs the feed and continues with the others.
-- If all feeds fail, the build script exits with an error.
-- Output is validated before write and fails fast with readable messages if required fields are missing.
+## CI/Deploy
+- Daily workflow: `.github/workflows/build-daily.yml` (8:00 UTC)
+- Existing deploy workflow: `.github/workflows/deploy.yml`
+- Both run the data build before front-end deploy.

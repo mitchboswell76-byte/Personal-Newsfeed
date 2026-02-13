@@ -1,14 +1,74 @@
 <rss version="2.0"><channel>
   <item>
-    <title>AP sample: Lawmakers debate transport funding extension</title>
-    <link>https://apnews.com/article/sample-transport-funding</link>
-    <pubDate>Tue, 10 Feb 2026 04:35:00 GMT</pubDate>
-    <description>Congressional leaders are negotiating a short-term package.</description>
+    <title>Lawmakers debate transport funding extension as talks continue</title>
+    <link>https://example.com/ap-top-news/story-1</link>
+    <pubDate>Tue, 10 Feb 2026 23:00:00 GMT</pubDate>
+    <description>Lawmakers debate transport funding extension as talks continue with additional context and follow-up details for the daily brief.</description>
   </item>
   <item>
-    <title>AP sample: State health agency publishes winter advisory</title>
-    <link>https://apnews.com/article/sample-health-advisory</link>
-    <pubDate>Tue, 10 Feb 2026 02:25:00 GMT</pubDate>
-    <description>Officials encouraged vulnerable residents to take precautions.</description>
+    <title>State health agency publishes new winter safety advisory</title>
+    <link>https://example.com/ap-top-news/story-2</link>
+    <pubDate>Tue, 10 Feb 2026 22:00:00 GMT</pubDate>
+    <description>State health agency publishes new winter safety advisory with additional context and follow-up details for the daily brief.</description>
+  </item>
+  <item>
+    <title>School districts announce updates to remote learning plans</title>
+    <link>https://example.com/ap-top-news/story-3</link>
+    <pubDate>Tue, 10 Feb 2026 21:00:00 GMT</pubDate>
+    <description>School districts announce updates to remote learning plans with additional context and follow-up details for the daily brief.</description>
+  </item>
+  <item>
+    <title>City councils approve housing incentive pilot programs</title>
+    <link>https://example.com/ap-top-news/story-4</link>
+    <pubDate>Tue, 10 Feb 2026 20:00:00 GMT</pubDate>
+    <description>City councils approve housing incentive pilot programs with additional context and follow-up details for the daily brief.</description>
+  </item>
+  <item>
+    <title>Farmers report mixed yields after dry summer months</title>
+    <link>https://example.com/ap-top-news/story-5</link>
+    <pubDate>Tue, 10 Feb 2026 19:00:00 GMT</pubDate>
+    <description>Farmers report mixed yields after dry summer months with additional context and follow-up details for the daily brief.</description>
+  </item>
+  <item>
+    <title>Coast guard responds to severe storm damage along shoreline</title>
+    <link>https://example.com/ap-top-news/story-6</link>
+    <pubDate>Tue, 10 Feb 2026 18:00:00 GMT</pubDate>
+    <description>Coast guard responds to severe storm damage along shoreline with additional context and follow-up details for the daily brief.</description>
+  </item>
+  <item>
+    <title>Judges hear arguments in high-profile voting rights case</title>
+    <link>https://example.com/ap-top-news/story-7</link>
+    <pubDate>Tue, 10 Feb 2026 17:00:00 GMT</pubDate>
+    <description>Judges hear arguments in high-profile voting rights case with additional context and follow-up details for the daily brief.</description>
+  </item>
+  <item>
+    <title>Officials expand grants for small business recovery</title>
+    <link>https://example.com/ap-top-news/story-8</link>
+    <pubDate>Tue, 10 Feb 2026 16:00:00 GMT</pubDate>
+    <description>Officials expand grants for small business recovery with additional context and follow-up details for the daily brief.</description>
+  </item>
+  <item>
+    <title>Police departments launch regional data-sharing initiative</title>
+    <link>https://example.com/ap-top-news/story-9</link>
+    <pubDate>Tue, 10 Feb 2026 15:00:00 GMT</pubDate>
+    <description>Police departments launch regional data-sharing initiative with additional context and follow-up details for the daily brief.</description>
+  </item>
+  <item>
+    <title>Utility regulators examine surge pricing complaints</title>
+    <link>https://example.com/ap-top-news/story-10</link>
+    <pubDate>Tue, 10 Feb 2026 14:00:00 GMT</pubDate>
+    <description>Utility regulators examine surge pricing complaints with additional context and follow-up details for the daily brief.</description>
+  </item>
+  <item>
+    <title>Water authorities issue conservation guidance ahead of heatwave</title>
+    <link>https://example.com/ap-top-news/story-11</link>
+    <pubDate>Tue, 10 Feb 2026 13:00:00 GMT</pubDate>
+    <description>Water authorities issue conservation guidance ahead of heatwave with additional context and follow-up details for the daily brief.</description>
+  </item>
+  <item>
+    <title>Senate committee advances ethics transparency package</title>
+    <link>https://example.com/ap-top-news/story-12</link>
+    <pubDate>Tue, 10 Feb 2026 12:00:00 GMT</pubDate>
+    <description>Senate committee advances ethics transparency package with additional context and follow-up details for the daily brief.</description>
   </item>
 </channel></rss>

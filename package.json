@@ -9,7 +9,10 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "build:data": "node scripts/build-today-json.mjs",
-    "build:mvp1": "npm run build:data && npm run build"
+    "build:mvp1": "npm run build:data && npm run build",
+    "serve": "vite preview --host 0.0.0.0 --port 4173",
+    "test": "echo \"No automated tests yet\"",
+    "docs": "node scripts/print-docs.mjs"
   },
   "dependencies": {
     "react": "^19.2.0",
