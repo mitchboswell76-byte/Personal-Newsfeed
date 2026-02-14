@@ -69,6 +69,8 @@ export type Assessment = {
   what_to_watch: { decision_point: string; deadline: string };
   stakeholders: string[];
   open_questions: string[];
+  timeline?: Array<{ at: string; event: string }>;
+  source_links?: string[];
 };
 
 export type FeedSettings = {

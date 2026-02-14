@@ -95,6 +95,7 @@
 
 .source-card { border: 1px solid #cbd5e1; border-radius: 8px; padding: 0.65rem; background: #f8fafc; }
 .archive-controls { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+.archive-meta { margin-top: 0.4rem; color: #475569; }
 
 .error { color: #991b1b; border: 1px solid #fecaca; background: #fef2f2; padding: 0.75rem; border-radius: 8px; }
 .loading,

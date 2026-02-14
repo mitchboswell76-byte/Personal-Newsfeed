@@ -49,330 +49,6 @@ const PRESETS: Record<string, Partial<FeedSettings>> = {
   "challenge-me": { minReliability: "Med", paywallMode: "allow" },
 };
 
-function readStorage<T>(key: string, fallback: T): T {
-  if (typeof window === "undefined") return fallback;
-  try {
-    const raw = localStorage.getItem(key);
-    return raw ? (JSON.parse(raw) as T) : fallback;
-  } catch {
-    return fallback;
-  }
-}
-
-function reliabilityValue(value: Labels["reliability"]) {
-  if (value === "High") return 3;
-  if (value === "Med") return 2;
-  return 1;
-}
-
-function sourceWeightValue(weight: SourceWeight) {
-  if (weight === "boost") return 1;
-  if (weight === "hide") return -3;
-  return 0;
-}
-
-function relativeTime(iso: string) {
-  const deltaMs = Date.now() - new Date(iso).getTime();
-  const mins = Math.max(1, Math.floor(deltaMs / 60000));
-  if (mins < 60) return `${mins}m ago`;
-  const hours = Math.floor(mins / 60);
-  if (hours < 48) return `${hours}h ago`;
-  return `${Math.floor(hours / 24)}d ago`;
-}
-
-function faviconUrl(domain: string) {
-  return `https://www.google.com/s2/favicons?sz=64&domain_url=https://${domain}`;
-}
-
-function sensationalismPenalty(title: string) {
-  let penalty = 0;
-  if (/\b(SHOCKING|EXPLOSIVE|STUNNING|BOMBSHELL|EXCLUSIVE)\b/i.test(title)) penalty += 0.3;
-  if ((title.match(/!/g) || []).length > 1) penalty += 0.2;
-  if (/^[A-Z\s]{18,}$/.test(title)) penalty += 0.3;
-  return penalty;
-}
-
-function chooseBestArticle(cluster: Cluster, settings: FeedSettings): { best: Article; trace: string; alternatives: Alternative[] } {
-  const scored = cluster.articles.map((article) => {
-    const sourceWeight = settings.sourceWeights[article.source_domain] ?? "normal";
-    const reliability = reliabilityValue(article.labels.reliability);
-    const freshness = Math.max(0, 48 - (Date.now() - new Date(article.timestamp).getTime()) / 3_600_000) / 24;
-    const sensational = sensationalismPenalty(article.title);
-    const paywallPenalty = settings.paywallMode === "hide" && article.labels.paywall === "Yes"
-      ? -100
-      : settings.paywallMode === "downrank" && article.labels.paywall === "Yes"
-        ? -1
-        : 0;
-
-    const blocked =
-      reliability < reliabilityValue(settings.minReliability) ||
-      sourceWeight === "hide" ||
-      (settings.paywallMode === "hide" && article.labels.paywall === "Yes");
-
-    const regionBoost = settings.regionWeights[article.labels.region ?? "Global"] ?? 1;
-
-    return {
-      article,
-      blocked,
-      score: reliability * 3 + sourceWeightValue(sourceWeight) + freshness + regionBoost - sensational + paywallPenalty,
-    };
-  }).sort((a, b) => b.score - a.score);
-
-  const bestEntry = scored.find((entry) => !entry.blocked) ?? scored[0];
-  const alternatives = scored
-    .filter((entry) => entry.article.url !== bestEntry.article.url)
-    .slice(0, 3)
-    .map((entry) => ({
-      article: entry.article,
-      reason: entry.blocked
-        ? "Blocked by current settings (reliability/paywall/source weight)."
-        : "Scored lower due to freshness, source preference, or headline quality.",
-    }));
-
-  const trace = bestEntry.blocked
-    ? "Fallback pick: nothing passed your settings, so highest available reliability was selected."
-    : `Best Source: ${bestEntry.article.source_domain} (reliability ${bestEntry.article.labels.reliability}, paywall ${bestEntry.article.labels.paywall}, paywall mode ${settings.paywallMode}).`;
-
-  return { best: bestEntry.article, trace, alternatives };
-}
-
-function deriveClusters(data: Today, settings: FeedSettings) {
-  const mutes = settings.keywordMutes.map((k) => k.toLowerCase());
-  const boosts = settings.topicBoosts.map((k) => k.toLowerCase());
-
-  return data.clusters
-    .map((cluster) => {
-      const { best, trace, alternatives } = chooseBestArticle(cluster, settings);
-      const recencyScore = Math.max(0, 72 - (Date.now() - new Date(cluster.updated_at).getTime()) / 3_600_000);
-      const outletCount = new Set(cluster.articles.map((a) => a.source_domain)).size;
-      const regionSet = new Set(cluster.articles.map((a) => a.labels.region ?? "Global"));
-      const regionBoost = Array.from(regionSet).reduce((sum, region) => sum + (settings.regionWeights[region] ?? 0.7), 0) / regionSet.size;
-      const topicBoost = cluster.topic_tags.some((tag) => boosts.includes(tag.toLowerCase())) ? 0.4 : 0;
-      const muted = mutes.some((word) => cluster.title.toLowerCase().includes(word));
-      const rank =
-        (recencyScore / 72) * 0.3 +
-        (outletCount * 0.2) * 0.25 +
-        regionBoost * 0.2 +
-        topicBoost * 0.15 +
-        (muted ? -0.8 : 0) * 0.1;
-
-      return {
-        ...cluster,
-        rank_score: Number(rank.toFixed(3)),
-        best_article: {
-          ...cluster.best_article,
-          url: best.url,
-          source_domain: best.source_domain,
-          labels: best.labels,
-          trace_summary: trace,
-        },
-        _alternatives: alternatives,
-      };
-    })
-    .sort((a, b) => b.rank_score - a.rank_score)
-    .slice(0, settings.storiesPerDay)
-    .map((cluster, index) => ({
-      ...cluster,
-      priority: index < settings.topCount ? "top" : index < settings.topCount + settings.scanCount ? "scan" : "low",
-    }));
-}
-
-function applyTheme(theme: ThemeMode) {
-  if (typeof window === "undefined") return;
-  const root = document.documentElement;
-  root.dataset.theme = theme;
-}
-
-const PRESETS: Record<string, Partial<FeedSettings>> = {
-  "neutral-first": { minReliability: "High", paywallMode: "downrank" },
-  "best-reporting": { minReliability: "High", paywallMode: "hide" },
-  "international-first": { regionWeights: { US: 0.8, Europe: 1.2, Asia: 1.2, Global: 1.3 } },
-  "challenge-me": { minReliability: "Med", paywallMode: "allow" },
-};
-
-function readStorage<T>(key: string, fallback: T): T {
-  if (typeof window === "undefined") return fallback;
-  try {
-    const raw = localStorage.getItem(key);
-    return raw ? (JSON.parse(raw) as T) : fallback;
-  } catch {
-    return fallback;
-  }
-}
-
-function reliabilityValue(value: Labels["reliability"]) {
-  if (value === "High") return 3;
-  if (value === "Med") return 2;
-  return 1;
-}
-
-function sourceWeightValue(weight: SourceWeight) {
-  if (weight === "boost") return 1;
-  if (weight === "hide") return -3;
-  return 0;
-}
-
-function relativeTime(iso: string) {
-  const deltaMs = Date.now() - new Date(iso).getTime();
-  const mins = Math.max(1, Math.floor(deltaMs / 60000));
-  if (mins < 60) return `${mins}m ago`;
-  const hours = Math.floor(mins / 60);
-  if (hours < 48) return `${hours}h ago`;
-  return `${Math.floor(hours / 24)}d ago`;
-}
-
-function faviconUrl(domain: string) {
-  return `https://www.google.com/s2/favicons?sz=64&domain_url=https://${domain}`;
-}
-
-function sensationalismPenalty(title: string) {
-  let penalty = 0;
-  if (/\b(SHOCKING|EXPLOSIVE|STUNNING|BOMBSHELL|EXCLUSIVE)\b/i.test(title)) penalty += 0.3;
-  if ((title.match(/!/g) || []).length > 1) penalty += 0.2;
-  if (/^[A-Z\s]{18,}$/.test(title)) penalty += 0.3;
-  return penalty;
-}
-
-function chooseBestArticle(cluster: Cluster, settings: FeedSettings): { best: Article; trace: string; alternatives: Alternative[] } {
-  const scored = cluster.articles.map((article) => {
-    const sourceWeight = settings.sourceWeights[article.source_domain] ?? "normal";
-    const reliability = reliabilityValue(article.labels.reliability);
-    const freshness = Math.max(0, 48 - (Date.now() - new Date(article.timestamp).getTime()) / 3_600_000) / 24;
-    const sensational = sensationalismPenalty(article.title);
-    const paywallPenalty = settings.paywallMode === "hide" && article.labels.paywall === "Yes"
-      ? -100
-      : settings.paywallMode === "downrank" && article.labels.paywall === "Yes"
-        ? -1
-        : 0;
-
-    const blocked =
-      reliability < reliabilityValue(settings.minReliability) ||
-      sourceWeight === "hide" ||
-      (settings.paywallMode === "hide" && article.labels.paywall === "Yes");
-
-    const regionBoost = settings.regionWeights[article.labels.region ?? "Global"] ?? 1;
-
-    return {
-      article,
-      blocked,
-      score: reliability * 3 + sourceWeightValue(sourceWeight) + freshness + regionBoost - sensational + paywallPenalty,
-    };
-  }).sort((a, b) => b.score - a.score);
-
-  const bestEntry = scored.find((entry) => !entry.blocked) ?? scored[0];
-  const alternatives = scored
-    .filter((entry) => entry.article.url !== bestEntry.article.url)
-    .slice(0, 3)
-    .map((entry) => ({
-      article: entry.article,
-      reason: entry.blocked
-        ? "Blocked by current settings (reliability/paywall/source weight)."
-        : "Scored lower due to freshness, source preference, or headline quality.",
-    }));
-
-  const trace = bestEntry.blocked
-    ? "Fallback pick: nothing passed your settings, so highest available reliability was selected."
-    : `Best Source: ${bestEntry.article.source_domain} (reliability ${bestEntry.article.labels.reliability}, paywall ${bestEntry.article.labels.paywall}, paywall mode ${settings.paywallMode}).`;
-
-  return { best: bestEntry.article, trace, alternatives };
-}
-
-function deriveClusters(data: Today, settings: FeedSettings) {
-  const mutes = settings.keywordMutes.map((k) => k.toLowerCase());
-  const boosts = settings.topicBoosts.map((k) => k.toLowerCase());
-
-  return data.clusters
-    .map((cluster) => {
-      const { best, trace, alternatives } = chooseBestArticle(cluster, settings);
-      const recencyScore = Math.max(0, 72 - (Date.now() - new Date(cluster.updated_at).getTime()) / 3_600_000);
-      const outletCount = new Set(cluster.articles.map((a) => a.source_domain)).size;
-      const regionSet = new Set(cluster.articles.map((a) => a.labels.region ?? "Global"));
-      const regionBoost = Array.from(regionSet).reduce((sum, region) => sum + (settings.regionWeights[region] ?? 0.7), 0) / regionSet.size;
-      const topicBoost = cluster.topic_tags.some((tag) => boosts.includes(tag.toLowerCase())) ? 0.4 : 0;
-      const muted = mutes.some((word) => cluster.title.toLowerCase().includes(word));
-      const rank =
-        (recencyScore / 72) * 0.3 +
-        (outletCount * 0.2) * 0.25 +
-        regionBoost * 0.2 +
-        topicBoost * 0.15 +
-        (muted ? -0.8 : 0) * 0.1;
-
-      return {
-        ...cluster,
-        rank_score: Number(rank.toFixed(3)),
-        best_article: {
-          ...cluster.best_article,
-          url: best.url,
-          source_domain: best.source_domain,
-          labels: best.labels,
-          trace_summary: trace,
-        },
-        _alternatives: alternatives,
-      };
-    })
-    .sort((a, b) => b.rank_score - a.rank_score)
-    .slice(0, settings.storiesPerDay)
-    .map((cluster, index) => ({
-      ...cluster,
-      priority: index < settings.topCount ? "top" : index < settings.topCount + settings.scanCount ? "scan" : "low",
-    }));
-}
-
-function applyTheme(theme: ThemeMode) {
-  if (typeof window === "undefined") return;
-  const root = document.documentElement;
-  root.dataset.theme = theme;
-}
-
-const PRESETS: Record<string, Partial<FeedSettings>> = {
-  "neutral-first": { minReliability: "High", paywallMode: "downrank" },
-  "best-reporting": { minReliability: "High", paywallMode: "hide" },
-  "international-first": { regionWeights: { US: 0.8, Europe: 1.2, Asia: 1.2, Global: 1.3 } },
-  "challenge-me": { minReliability: "Med", paywallMode: "allow" },
-};
-
-type FeedSettings = {
-  storiesPerDay: number;
-  topCount: number;
-  scanCount: number;
-  minReliability: Labels["reliability"];
-  paywallMode: PaywallMode;
-  keywordMutes: string[];
-  topicBoosts: string[];
-  sourceWeights: Record<string, SourceWeight>;
-};
-
-const TAB_LABELS: Record<TabKey, string> = {
-  brief: "Daily Brief",
-  sources: "Sources",
-  archive: "Archive",
-  settings: "Settings",
-};
-
-const DETAIL_TAB_LABELS: Record<StoryDetailTab, string> = {
-  coverage: "Coverage",
-  why: "Why this link",
-  assessment: "Assessment",
-};
-
-const READ_IDS_KEY = "pnf.readIds";
-const BOOKMARK_IDS_KEY = "pnf.bookmarkedIds";
-const ACTIVE_TAB_KEY = "pnf.activeTab";
-const DETAIL_TAB_KEY = "pnf.detailTab";
-const DETAIL_STORY_KEY = "pnf.detailStoryId";
-const SETTINGS_KEY = "pnf.settings.v2";
-
-const DEFAULT_SETTINGS: FeedSettings = {
-  storiesPerDay: 20,
-  topCount: 5,
-  scanCount: 10,
-  minReliability: "Med",
-  paywallMode: "downrank",
-  keywordMutes: [],
-  topicBoosts: [],
-  sourceWeights: {},
-};
-
 function readFromStorage<T>(key: string, fallback: T): T {
   if (typeof window === "undefined") {
     return fallback;
@@ -635,6 +311,10 @@ export default function App() {
         "Which major outlets have not covered this yet?",
         "Will the best-source pick change if your settings change?",
       ],
+      timeline: [
+        { at: new Date(selectedCluster.updated_at).toLocaleString(), event: "Latest cluster update recorded." },
+      ],
+      source_links: selectedCluster.articles.slice(0, 5).map((article) => article.url),
     };
   }, [selectedCluster]);
 
@@ -652,13 +332,20 @@ export default function App() {
 
   const baseRenderData = activeTab === "archive" && archiveData ? deriveClusters(archiveData, settings) : clusters;
 
+  const selectedAssessment = assessment ?? assessmentFallback;
+  const selectedArchiveIndex = archiveDate ? archiveIndex.indexOf(archiveDate) : -1;
+  const previousArchiveDate = selectedArchiveIndex > 0 ? archiveIndex[selectedArchiveIndex - 1] : null;
+  const nextArchiveDate = selectedArchiveIndex >= 0 && selectedArchiveIndex < archiveIndex.length - 1
+    ? archiveIndex[selectedArchiveIndex + 1]
+    : null;
+
   return (
     <main className={`app-shell ${settings.compactMode ? "compact" : ""}`} style={{ fontSize: `${settings.fontSize}px` }}>
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <header className="app-header">
-        <p className="eyebrow">BriefBoard · MVP-3</p>
+        <p className="eyebrow">BriefBoard · MVP-4</p>
         <h1>Personal News Feed</h1>
-        <p className="subtitle">Story details, coverage analysis, source controls, and archive are now fully wired for MVP-3.</p>
+        <p className="subtitle">Assessment quality, archive navigation, and data controls are now polished for MVP-4.</p>
         <p className="breadcrumb">Current section: {sectionIndicator}</p>
       </header>
 
@@ -804,20 +491,40 @@ export default function App() {
 
                 {activeDetailTab === "assessment" ? (
                   <div className="detail-content">
-                    {(assessment ?? assessmentFallback) ? (
+                    {selectedAssessment ? (
                       <>
                         <h4>What happened</h4>
-                        <ul>{(assessment ?? assessmentFallback)?.what_happened.map((item) => <li key={item}>{item}</li>)}</ul>
+                        <ul>{selectedAssessment.what_happened.map((item) => <li key={item}>{item}</li>)}</ul>
                         <h4>Why it matters</h4>
-                        <ul>{(assessment ?? assessmentFallback)?.why_it_matters.map((item) => <li key={item}>{item}</li>)}</ul>
-                        <p><strong>Watch next:</strong> {(assessment ?? assessmentFallback)?.what_to_watch.decision_point} ({(assessment ?? assessmentFallback)?.what_to_watch.deadline})</p>
+                        <ul>{selectedAssessment.why_it_matters.map((item) => <li key={item}>{item}</li>)}</ul>
+                        <p><strong>Watch next:</strong> {selectedAssessment.what_to_watch.decision_point} ({selectedAssessment.what_to_watch.deadline})</p>
                         <h4>Stakeholders</h4>
-                        <ul>{(assessment ?? assessmentFallback)?.stakeholders.map((item) => <li key={item}>{item}</li>)}</ul>
+                        <ul>{selectedAssessment.stakeholders.map((item) => <li key={item}>{item}</li>)}</ul>
                         <h4>Open questions</h4>
-                        <ul>{(assessment ?? assessmentFallback)?.open_questions.map((item) => <li key={item}>{item}</li>)}</ul>
+                        <ul>{selectedAssessment.open_questions.map((item) => <li key={item}>{item}</li>)}</ul>
+                        {selectedAssessment.timeline?.length ? (
+                          <>
+                            <h4>Timeline</h4>
+                            <ul>
+                              {selectedAssessment.timeline.map((entry) => (
+                                <li key={`${entry.at}-${entry.event}`}><strong>{entry.at}</strong> — {entry.event}</li>
+                              ))}
+                            </ul>
+                          </>
+                        ) : null}
+                        {selectedAssessment.source_links?.length ? (
+                          <>
+                            <h4>Assessment source links</h4>
+                            <ul>
+                              {selectedAssessment.source_links.map((url) => (
+                                <li key={url}><a href={url} target="_blank" rel="noreferrer">{url}</a></li>
+                              ))}
+                            </ul>
+                          </>
+                        ) : null}
                       </>
                     ) : (
-                      <p>Assessment not yet available for this story. Placeholder mode is active in MVP-3.</p>
+                      <p>Assessment not yet available for this story. MVP-4 fallback content appears when no manual assessment exists.</p>
                     )}
                   </div>
                 ) : null}
@@ -868,13 +575,16 @@ export default function App() {
           <div className="placeholder">
             <h2>Archive</h2>
             <div className="archive-controls">
+              <button type="button" disabled={!previousArchiveDate} onClick={() => previousArchiveDate && setArchiveDate(previousArchiveDate)}>Previous day</button>
               <button type="button" onClick={() => setArchiveDate(todayData?.date ?? null)}>Jump to today</button>
+              <button type="button" disabled={!nextArchiveDate} onClick={() => nextArchiveDate && setArchiveDate(nextArchiveDate)}>Next day</button>
               <select value={archiveDate ?? ""} onChange={(event) => setArchiveDate(event.target.value || null)}>
                 <option value="">Choose date</option>
                 {archiveIndex.map((date) => <option key={date} value={date}>{date}</option>)}
               </select>
             </div>
             <p>{archiveDate ? `Viewing archive for ${archiveDate}` : "Select a date to browse past briefs."}</p>
+            <p className="archive-meta">Available archive days: {archiveIndex.length}</p>
           </div>
         ) : null}
 

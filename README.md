@@ -1,8 +1,8 @@
 # BriefBoard (Personal News Feed)
 
 ## Version
-- Current version: **MVP-3.1**
-- Last update: **Cleaned and organized the MVP-3 codebase: moved core types/scoring/ranking/storage/validation helpers into separate files, added data schema checks on load, and removed duplicated PRD content.**
+- Current version: **MVP-4**
+- Last update: **Completed MVP-4 polish: improved Assessment with timeline/source links support, added archive previous/next day navigation, and improved practical testing guidance.**
 
 ## What the app does now (plain English)
 BriefBoard gives you one daily reading list of clustered stories, picks one recommended source per story based on your settings, and lets you audit coverage/headlines/selection logic.
@@ -16,6 +16,20 @@ BriefBoard gives you one daily reading list of clustered stories, picks one reco
 - Archive date browsing using generated `public/data/index.json`
 - Keyboard shortcuts: `B` Brief, `S` Sources, `A` Archive, `T` Settings, `Esc` closes story detail
 - Accessibility additions: skip link, clearer section indicator, improved responsive layout
+
+
+## Simple MVP-4 check list (what to check it for)
+1. Run:
+   ```bash
+   npm install
+   USE_MOCK_RSS=1 npm run build:data
+   npm run dev
+   ```
+2. Open the app in Codespaces Ports (port 5173).
+3. Check Daily Brief: mark stories read/bookmarked and open Coverage/Why/Assessment.
+4. Check Assessment tab: confirms What happened/Why it matters/Watch next plus timeline/source links when available.
+5. Check Archive tab: try Previous day, Next day, Jump to today, and date picker.
+6. Check Settings + Sources: adjust values and verify story ranking/picks change.
 
 ## Data pipeline (MVP-1 + MVP-2 hardening)
 - RSS feed list: `config/rss-feeds.json`
