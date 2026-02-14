@@ -82,10 +82,6 @@ function formatTimestamp(timestamp: string): string {
   return new Date(timestamp).toLocaleString();
 }
 
-function faviconUrl(domain: string): string {
-  return `https://www.google.com/s2/favicons?sz=64&domain_url=https://${domain}`;
-}
-
 function chooseBestArticle(cluster: Cluster, settings: FeedSettings) {
   const scored = cluster.articles
     .map((article) => {
