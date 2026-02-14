@@ -1,39 +1,65 @@
 {
   "date": "2026-02-14",
-  "generated_at": "2026-02-14T06:36:47.933Z",
+  "generated_at": "2026-02-14T09:02:22.024Z",
   "clusters": [
     {
-      "cluster_id": "cluster-zt3p2fc",
-      "rank_score": 0.3,
-      "title": "EU ministers seek breakthrough on asylum reform package",
+      "cluster_id": "cluster-s3curkc",
+      "rank_score": 1.513,
+      "title": "ICE agents may have lied about shooting of migrant in Minneapolis, officials say",
       "topic_tags": [
-        "ministers",
-        "seek",
-        "breakthrough"
+        "agents",
+        "have",
+        "lied"
       ],
-      "updated_at": "2026-02-10T23:00:00.000Z",
-      "coverage_breadth": "Narrow",
+      "updated_at": "2026-02-14T00:08:23.000Z",
+      "coverage_breadth": "Medium",
       "best_article": {
-        "url": "https://example.com/guardian-world/story-1",
-        "source_domain": "example.com",
+        "url": "https://www.theguardian.com/us-news/2026/feb/13/ice-officers-minneapolis",
+        "source_domain": "theguardian.com",
         "image_url": "",
         "labels": {
-          "reliability": "Med",
+          "reliability": "High",
           "region": "Europe",
           "paywall": "No",
           "bias_label": "Center-Left"
         },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
+        "trace_summary": "Picked theguardian.com based on reliability and recency among 3 related reports."
       },
       "articles": [
         {
-          "url": "https://example.com/guardian-world/story-1",
-          "title": "EU ministers seek breakthrough on asylum reform package",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T23:00:00.000Z",
-          "snippet": "EU ministers seek breakthrough on asylum reform package with additional context and follow-up details for the daily brief.",
+          "url": "https://www.bbc.com/news/articles/cy8l9jp1z3yo?at_medium=RSS&at_campaign=rss",
+          "title": "ICE agents may have lied about shooting of migrant in Minneapolis, officials say",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-13T22:32:02.000Z",
+          "snippet": "ICE chief Todd Lyons says the two officers were immediately placed on administrative leave.",
           "labels": {
-            "reliability": "Med",
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        },
+        {
+          "url": "https://www.npr.org/2026/02/13/nx-s1-5713947/immigration-agents-lie-minnesota",
+          "title": "DHS says immigration agents appear to have lied about shooting in Minnesota",
+          "source_domain": "npr.org",
+          "timestamp": "2026-02-13T22:04:51.000Z",
+          "snippet": "Julio Cesar Sosa-Celis was shot in the leg during the incident. Another Venezuelan man was also accused of attacking an immigration officer.",
+          "labels": {
+            "reliability": "High",
+            "region": "US",
+            "paywall": "No",
+            "bias_label": "Center-Left"
+          }
+        },
+        {
+          "url": "https://www.theguardian.com/us-news/2026/feb/13/ice-officers-minneapolis",
+          "title": "US officials investigate whether ICE agents lied about Minneapolis shooting",
+          "source_domain": "theguardian.com",
+          "timestamp": "2026-02-14T00:08:23.000Z",
+          "snippet": "<p>Charges dropped against two Venezuelan men over January shooting as investigation opened into agents’ conduct</p><p>Federal authorities have opened a criminal investigation into whether two immigration officers lied under oath about a shooting in Minneapolis last month, as all charges were dropped against two Venezuelan men.</p><p>ICE director Todd Lyons said on Friday that his agency opened a joint investigation with the justice department after video evidence revealed “sworn testimony provided by two separate officers appears to have made untruthful statements” about the shooting of one of the Venezuelan men during the Trump administration’s immigration crackdown across the Minneapolis area.</p> <a href=\"https://www.theguardian.com/us-news/2026/feb/13/ice-officers-minneapolis\">Continue reading...</a>",
+          "labels": {
+            "reliability": "High",
             "region": "Europe",
             "paywall": "No",
             "bias_label": "Center-Left"
@@ -43,317 +69,37 @@
       "priority": "top"
     },
     {
-      "cluster_id": "cluster-f5s08s4",
-      "rank_score": 0.3,
-      "title": "Federal agencies release updated climate resilience guidance",
+      "cluster_id": "cluster-eo2jw4i",
+      "rank_score": 0.998,
+      "title": "Munich security conference live: Rubio criticises mass migration, west’s postwar ‘delusion’, US and Europe’s mistakes",
       "topic_tags": [
-        "federal",
-        "agencies",
-        "release"
+        "munich",
+        "security",
+        "conference"
       ],
-      "updated_at": "2026-02-10T23:00:00.000Z",
+      "updated_at": "2026-02-14T08:49:34.000Z",
       "coverage_breadth": "Narrow",
       "best_article": {
-        "url": "https://example.com/npr-news/story-1",
-        "source_domain": "example.com",
+        "url": "https://www.theguardian.com/world/live/2026/feb/14/munich-security-conference-live-marco-rubio-keir-starmer-eu-europe-ukraine-russia-latest-news-updates",
+        "source_domain": "theguardian.com",
         "image_url": "",
         "labels": {
-          "reliability": "Med",
-          "region": "US",
-          "paywall": "No",
-          "bias_label": "Center-Left"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/npr-news/story-1",
-          "title": "Federal agencies release updated climate resilience guidance",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T23:00:00.000Z",
-          "snippet": "Federal agencies release updated climate resilience guidance with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "US",
-            "paywall": "No",
-            "bias_label": "Center-Left"
-          }
-        }
-      ],
-      "priority": "top"
-    },
-    {
-      "cluster_id": "cluster-3d5fne5",
-      "rank_score": 0.3,
-      "title": "Government reaches late budget compromise ahead of deadline",
-      "topic_tags": [
-        "government",
-        "reaches",
-        "late"
-      ],
-      "updated_at": "2026-02-10T23:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/reuters-world-news/story-1",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "Global",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/reuters-world-news/story-1",
-          "title": "Government reaches late budget compromise ahead of deadline",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T23:00:00.000Z",
-          "snippet": "Government reaches late budget compromise ahead of deadline with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "Global",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ],
-      "priority": "top"
-    },
-    {
-      "cluster_id": "cluster-jmvdnti",
-      "rank_score": 0.3,
-      "title": "Lawmakers debate transport funding extension as talks continue",
-      "topic_tags": [
-        "lawmakers",
-        "debate",
-        "transport"
-      ],
-      "updated_at": "2026-02-10T23:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/ap-top-news/story-1",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "US",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/ap-top-news/story-1",
-          "title": "Lawmakers debate transport funding extension as talks continue",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T23:00:00.000Z",
-          "snippet": "Lawmakers debate transport funding extension as talks continue with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "US",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ],
-      "priority": "top"
-    },
-    {
-      "cluster_id": "cluster-rnwi8ni",
-      "rank_score": 0.3,
-      "title": "Trade ministers schedule emergency consultation on tariff tensions",
-      "topic_tags": [
-        "trade",
-        "ministers",
-        "schedule"
-      ],
-      "updated_at": "2026-02-10T23:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/bbc-world/story-1",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "Global",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/bbc-world/story-1",
-          "title": "Trade ministers schedule emergency consultation on tariff tensions",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T23:00:00.000Z",
-          "snippet": "Trade ministers schedule emergency consultation on tariff tensions with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "Global",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ],
-      "priority": "top"
-    },
-    {
-      "cluster_id": "cluster-274rnet",
-      "rank_score": 0.3,
-      "title": "Arctic research mission reports accelerated sea-ice movement",
-      "topic_tags": [
-        "arctic",
-        "research",
-        "mission"
-      ],
-      "updated_at": "2026-02-10T22:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/bbc-world/story-2",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "Global",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/bbc-world/story-2",
-          "title": "Arctic research mission reports accelerated sea-ice movement",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T22:00:00.000Z",
-          "snippet": "Arctic research mission reports accelerated sea-ice movement with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "Global",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ],
-      "priority": "top"
-    },
-    {
-      "cluster_id": "cluster-ex7q34f",
-      "rank_score": 0.3,
-      "title": "Central bank signals pause as inflation cools in major economies",
-      "topic_tags": [
-        "central",
-        "bank",
-        "signals"
-      ],
-      "updated_at": "2026-02-10T22:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/reuters-world-news/story-2",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "Global",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/reuters-world-news/story-2",
-          "title": "Central bank signals pause as inflation cools in major economies",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T22:00:00.000Z",
-          "snippet": "Central bank signals pause as inflation cools in major economies with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "Global",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ],
-      "priority": "top"
-    },
-    {
-      "cluster_id": "cluster-l5jhjf8",
-      "rank_score": 0.3,
-      "title": "New poll finds voters split on healthcare expansion plan",
-      "topic_tags": [
-        "poll",
-        "finds",
-        "voters"
-      ],
-      "updated_at": "2026-02-10T22:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/npr-news/story-2",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "US",
-          "paywall": "No",
-          "bias_label": "Center-Left"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/npr-news/story-2",
-          "title": "New poll finds voters split on healthcare expansion plan",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T22:00:00.000Z",
-          "snippet": "New poll finds voters split on healthcare expansion plan with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "US",
-            "paywall": "No",
-            "bias_label": "Center-Left"
-          }
-        }
-      ],
-      "priority": "top"
-    },
-    {
-      "cluster_id": "cluster-je2hf26",
-      "rank_score": 0.3,
-      "title": "Researchers warn of accelerating glacier retreat in alpine regions",
-      "topic_tags": [
-        "researchers",
-        "warn",
-        "accelerating"
-      ],
-      "updated_at": "2026-02-10T22:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/guardian-world/story-2",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
+          "reliability": "High",
           "region": "Europe",
           "paywall": "No",
           "bias_label": "Center-Left"
         },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
+        "trace_summary": "Picked theguardian.com based on reliability and recency among 1 related reports."
       },
       "articles": [
         {
-          "url": "https://example.com/guardian-world/story-2",
-          "title": "Researchers warn of accelerating glacier retreat in alpine regions",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T22:00:00.000Z",
-          "snippet": "Researchers warn of accelerating glacier retreat in alpine regions with additional context and follow-up details for the daily brief.",
+          "url": "https://www.theguardian.com/world/live/2026/feb/14/munich-security-conference-live-marco-rubio-keir-starmer-eu-europe-ukraine-russia-latest-news-updates",
+          "title": "Munich security conference live: Rubio criticises mass migration, west’s postwar ‘delusion’, US and Europe’s mistakes",
+          "source_domain": "theguardian.com",
+          "timestamp": "2026-02-14T08:49:34.000Z",
+          "snippet": "<p>US secretary of state<strong> </strong>warns against idea that everyone is ‘a citizen of the world’</p><p><strong>Rubio </strong>insists that the US “do not seek to separate, but to revitalise an old friendship.”</p><p>He says “we do not want allies to rationalise the broken status quo rather than reckon with what is necessary to fix it.”</p><p><em>“We do not want our allies to be weak, because that makes us weaker. </em></p><p><em>We want allies who can defend themselves, so that no adversary will ever be tempted to test our collective strength. This is why we do not want our allies to be shackled by guilt and shame. </em></p> <a href=\"https://www.theguardian.com/world/live/2026/feb/14/munich-security-conference-live-marco-rubio-keir-starmer-eu-europe-ukraine-russia-latest-news-updates\">Continue reading...</a>",
           "labels": {
-            "reliability": "Med",
+            "reliability": "High",
             "region": "Europe",
             "paywall": "No",
             "bias_label": "Center-Left"
@@ -363,77 +109,37 @@
       "priority": "top"
     },
     {
-      "cluster_id": "cluster-ksjl6w2",
-      "rank_score": 0.3,
-      "title": "State health agency publishes new winter safety advisory",
+      "cluster_id": "cluster-07ltakk",
+      "rank_score": 0.992,
+      "title": "Police activity under way near Nancy Guthrie's home",
       "topic_tags": [
-        "state",
-        "health",
-        "agency"
+        "police",
+        "activity",
+        "under"
       ],
-      "updated_at": "2026-02-10T22:00:00.000Z",
+      "updated_at": "2026-02-14T08:12:09.000Z",
       "coverage_breadth": "Narrow",
       "best_article": {
-        "url": "https://example.com/ap-top-news/story-2",
-        "source_domain": "example.com",
+        "url": "https://www.bbc.com/news/articles/cly8j19rql7o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
         "image_url": "",
         "labels": {
-          "reliability": "Med",
-          "region": "US",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/ap-top-news/story-2",
-          "title": "State health agency publishes new winter safety advisory",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T22:00:00.000Z",
-          "snippet": "State health agency publishes new winter safety advisory with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "US",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ],
-      "priority": "top"
-    },
-    {
-      "cluster_id": "cluster-qcxl64h",
-      "rank_score": 0.3,
-      "title": "European leaders discuss coordinated migration framework",
-      "topic_tags": [
-        "european",
-        "leaders",
-        "discuss"
-      ],
-      "updated_at": "2026-02-10T21:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/bbc-world/story-3",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
+          "reliability": "High",
           "region": "Global",
           "paywall": "No",
           "bias_label": "Center"
         },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
+        "trace_summary": "Picked bbc.com based on reliability and recency among 1 related reports."
       },
       "articles": [
         {
-          "url": "https://example.com/bbc-world/story-3",
-          "title": "European leaders discuss coordinated migration framework",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T21:00:00.000Z",
-          "snippet": "European leaders discuss coordinated migration framework with additional context and follow-up details for the daily brief.",
+          "url": "https://www.bbc.com/news/articles/cly8j19rql7o?at_medium=RSS&at_campaign=rss",
+          "title": "Police activity under way near Nancy Guthrie's home",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-14T08:12:09.000Z",
+          "snippet": "A search has been carried out in Tuscon, Arizona, close to where the 84-year-old was abducted from nearly two weeks ago.",
           "labels": {
-            "reliability": "Med",
+            "reliability": "High",
             "region": "Global",
             "paywall": "No",
             "bias_label": "Center"
@@ -443,38 +149,38 @@
       "priority": "top"
     },
     {
-      "cluster_id": "cluster-vk0pdif",
-      "rank_score": 0.3,
-      "title": "Researchers test battery recycling method for EV supply chains",
+      "cluster_id": "cluster-80aakqq",
+      "rank_score": 0.98,
+      "title": "Pension annuity sales hit record as average pot exceeds £80,000",
       "topic_tags": [
-        "researchers",
-        "test",
-        "battery"
+        "pension",
+        "annuity",
+        "sales"
       ],
-      "updated_at": "2026-02-10T21:00:00.000Z",
+      "updated_at": "2026-02-14T07:00:48.000Z",
       "coverage_breadth": "Narrow",
       "best_article": {
-        "url": "https://example.com/npr-news/story-3",
-        "source_domain": "example.com",
+        "url": "https://www.theguardian.com/money/2026/feb/14/uk-pension-annuities-sales-rachel-reeves-inheritance-tax-invest",
+        "source_domain": "theguardian.com",
         "image_url": "",
         "labels": {
-          "reliability": "Med",
-          "region": "US",
+          "reliability": "High",
+          "region": "Europe",
           "paywall": "No",
           "bias_label": "Center-Left"
         },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
+        "trace_summary": "Picked theguardian.com based on reliability and recency among 1 related reports."
       },
       "articles": [
         {
-          "url": "https://example.com/npr-news/story-3",
-          "title": "Researchers test battery recycling method for EV supply chains",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T21:00:00.000Z",
-          "snippet": "Researchers test battery recycling method for EV supply chains with additional context and follow-up details for the daily brief.",
+          "url": "https://www.theguardian.com/money/2026/feb/14/uk-pension-annuities-sales-rachel-reeves-inheritance-tax-invest",
+          "title": "Pension annuity sales hit record as average pot exceeds £80,000",
+          "source_domain": "theguardian.com",
+          "timestamp": "2026-02-14T07:00:48.000Z",
+          "snippet": "<p>Rachel Reeves’s inheritance tax changes encourage more people to invest in previously unloved product </p><p>The government’s “inheritance tax raid” on pensions has helped drive sales of retirement annuities to new&nbsp;highs.</p><p><a href=\"https://www.abi.org.uk/news/news-articles/2026/2/2026-annuity-data/\">Industry data this week</a> revealed they enjoyed a “record-breaking” 2025, with sales growing by 4% to £7.4bn and the average amount invested in an annuity surpassing £80,000 for the first time.</p> <a href=\"https://www.theguardian.com/money/2026/feb/14/uk-pension-annuities-sales-rachel-reeves-inheritance-tax-invest\">Continue reading...</a>",
           "labels": {
-            "reliability": "Med",
-            "region": "US",
+            "reliability": "High",
+            "region": "Europe",
             "paywall": "No",
             "bias_label": "Center-Left"
           }
@@ -483,37 +189,397 @@
       "priority": "top"
     },
     {
-      "cluster_id": "cluster-e2b93u2",
-      "rank_score": 0.3,
-      "title": "Rights groups call for safeguards in protest policing reforms",
+      "cluster_id": "cluster-jkej1zu",
+      "rank_score": 0.98,
+      "title": "Andrew aide advised Epstein to omit conviction on China visa form, files suggest",
       "topic_tags": [
-        "rights",
-        "groups",
-        "call"
+        "andrew",
+        "aide",
+        "advised"
       ],
-      "updated_at": "2026-02-10T21:00:00.000Z",
+      "updated_at": "2026-02-14T07:00:47.000Z",
       "coverage_breadth": "Narrow",
       "best_article": {
-        "url": "https://example.com/guardian-world/story-3",
-        "source_domain": "example.com",
+        "url": "https://www.theguardian.com/us-news/2026/feb/14/david-stern-jeffrey-epstein-hide-conviction-china-visa",
+        "source_domain": "theguardian.com",
         "image_url": "",
         "labels": {
-          "reliability": "Med",
+          "reliability": "High",
           "region": "Europe",
           "paywall": "No",
           "bias_label": "Center-Left"
         },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
+        "trace_summary": "Picked theguardian.com based on reliability and recency among 1 related reports."
       },
       "articles": [
         {
-          "url": "https://example.com/guardian-world/story-3",
-          "title": "Rights groups call for safeguards in protest policing reforms",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T21:00:00.000Z",
-          "snippet": "Rights groups call for safeguards in protest policing reforms with additional context and follow-up details for the daily brief.",
+          "url": "https://www.theguardian.com/us-news/2026/feb/14/david-stern-jeffrey-epstein-hide-conviction-china-visa",
+          "title": "Andrew aide advised Epstein to omit conviction on China visa form, files suggest",
+          "source_domain": "theguardian.com",
+          "timestamp": "2026-02-14T07:00:47.000Z",
+          "snippet": "<p>Epstein files release shows David Stern advised against mentioning ‘being denied previously or criminal charges’</p><p>An aide to Andrew Mountbatten-Windsor advised Jeffrey Epstein to illegally hide his child sexual abuse conviction to obtain a visa to China, according to the latest Epstein files release.</p><p>David Stern, who was a <a href=\"https://www.theguardian.com/us-news/2026/feb/06/david-stern-prince-andrew-aide-epstein\">close associate of both Epstein and the then prince</a>, was asked for his help after the disgraced financier’s initial application for a visa was rejected.</p> <a href=\"https://www.theguardian.com/us-news/2026/feb/14/david-stern-jeffrey-epstein-hide-conviction-china-visa\">Continue reading...</a>",
           "labels": {
-            "reliability": "Med",
+            "reliability": "High",
+            "region": "Europe",
+            "paywall": "No",
+            "bias_label": "Center-Left"
+          }
+        }
+      ],
+      "priority": "top"
+    },
+    {
+      "cluster_id": "cluster-q08zfca",
+      "rank_score": 0.98,
+      "title": "Peta calls for pork-free menus as Peppa Pig show rolls into Grimsby",
+      "topic_tags": [
+        "peta",
+        "calls",
+        "pork"
+      ],
+      "updated_at": "2026-02-14T07:00:47.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.theguardian.com/stage/2026/feb/14/peta-pork-free-menus-peppa-pig-big-family-show-grimsby",
+        "source_domain": "theguardian.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "Europe",
+          "paywall": "No",
+          "bias_label": "Center-Left"
+        },
+        "trace_summary": "Picked theguardian.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.theguardian.com/stage/2026/feb/14/peta-pork-free-menus-peppa-pig-big-family-show-grimsby",
+          "title": "Peta calls for pork-free menus as Peppa Pig show rolls into Grimsby",
+          "source_domain": "theguardian.com",
+          "timestamp": "2026-02-14T07:00:47.000Z",
+          "snippet": "<p>Auditorium to remove bacon and sausages from cafe during stage run after request from campaign group</p><p>Campaigners are calling on theatre bosses to stop serving bacon, sausages and ham in their cafes – at least while Peppa Pig and her family are performing in the same building.</p><p><a href=\"https://grimsbyauditorium.org.uk/\">Grimsby Auditorium</a> in Lincolnshire said this week it would remove pork from the menu when <a href=\"https://peppapiglive.com/big-family-show/\">Peppa Pig’s Big Family Show</a> opens next month, after a request from <a href=\"https://www.peta.org.uk/\">People for the Ethical Treatment of Animals (Peta UK)</a>. The campaign group is sending the venue vegan ham as an alternative.</p> <a href=\"https://www.theguardian.com/stage/2026/feb/14/peta-pork-free-menus-peppa-pig-big-family-show-grimsby\">Continue reading...</a>",
+          "labels": {
+            "reliability": "High",
+            "region": "Europe",
+            "paywall": "No",
+            "bias_label": "Center-Left"
+          }
+        }
+      ],
+      "priority": "top"
+    },
+    {
+      "cluster_id": "cluster-1tjtgsf",
+      "rank_score": 0.971,
+      "title": "‘Police need to investigate’: will Andrew be questioned over his relationship with Epstein?",
+      "topic_tags": [
+        "police",
+        "need",
+        "investigate"
+      ],
+      "updated_at": "2026-02-14T06:00:48.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.theguardian.com/news/ng-interactive/2026/feb/14/will-police-question-andrew-andrew-mountbatten-windsor-epstein-relationship",
+        "source_domain": "theguardian.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "Europe",
+          "paywall": "No",
+          "bias_label": "Center-Left"
+        },
+        "trace_summary": "Picked theguardian.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.theguardian.com/news/ng-interactive/2026/feb/14/will-police-question-andrew-andrew-mountbatten-windsor-epstein-relationship",
+          "title": "‘Police need to investigate’: will Andrew be questioned over his relationship with Epstein?",
+          "source_domain": "theguardian.com",
+          "timestamp": "2026-02-14T06:00:48.000Z",
+          "snippet": "<p>As calls for the former prince to cooperate with police become deafening, this may be the reckoning Andrew cannot outrun</p><p>Gordon Brown is a man who gets into the detail.</p><p>In office, and since then, he has applied his forensic mind to the matters that concern him. Lately, he has been focused on the Epstein files.</p> <a href=\"https://www.theguardian.com/news/ng-interactive/2026/feb/14/will-police-question-andrew-andrew-mountbatten-windsor-epstein-relationship\">Continue reading...</a>",
+          "labels": {
+            "reliability": "High",
+            "region": "Europe",
+            "paywall": "No",
+            "bias_label": "Center-Left"
+          }
+        }
+      ],
+      "priority": "top"
+    },
+    {
+      "cluster_id": "cluster-3zs2t8f",
+      "rank_score": 0.971,
+      "title": "‘A whole lost culture’: the Irishman reviving the forgotten sport of stone lifting",
+      "topic_tags": [
+        "whole",
+        "lost",
+        "culture"
+      ],
+      "updated_at": "2026-02-14T06:00:47.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.theguardian.com/world/2026/feb/14/stone-lifting-sport-irish-culture-indiana-stones",
+        "source_domain": "theguardian.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "Europe",
+          "paywall": "No",
+          "bias_label": "Center-Left"
+        },
+        "trace_summary": "Picked theguardian.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.theguardian.com/world/2026/feb/14/stone-lifting-sport-irish-culture-indiana-stones",
+          "title": "‘A whole lost culture’: the Irishman reviving the forgotten sport of stone lifting",
+          "source_domain": "theguardian.com",
+          "timestamp": "2026-02-14T06:00:47.000Z",
+          "snippet": "<p>For centuries in Ireland lifting huge boulders was a way to test strength and bond communities, says Instagram sensation Indiana Stones</p><p>David Keohan surveyed the County Waterford beach and spotted a familiar mound half-buried in sand: an oval-shaped limestone boulder. It weighed about 115kg.</p><p>He wedged it loose with a crowbar, wiped it dry with a cloth, dusted his hands with chalk and paused to gaze at the Irish Sea, as if summoning strength from the waves pounding ashore.</p> <a href=\"https://www.theguardian.com/world/2026/feb/14/stone-lifting-sport-irish-culture-indiana-stones\">Continue reading...</a>",
+          "labels": {
+            "reliability": "High",
+            "region": "Europe",
+            "paywall": "No",
+            "bias_label": "Center-Left"
+          }
+        }
+      ],
+      "priority": "top"
+    },
+    {
+      "cluster_id": "cluster-egmmlcx",
+      "rank_score": 0.971,
+      "title": "Race to find source of carcinogenic Pfas in Cumbria and Lancashire waters",
+      "topic_tags": [
+        "race",
+        "find",
+        "source"
+      ],
+      "updated_at": "2026-02-14T06:00:46.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.theguardian.com/environment/2026/feb/14/race-to-find-source-of-carcinogenic-chemical-pfos-polluting-cumbria-and-lancashire-waters",
+        "source_domain": "theguardian.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "Europe",
+          "paywall": "No",
+          "bias_label": "Center-Left"
+        },
+        "trace_summary": "Picked theguardian.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.theguardian.com/environment/2026/feb/14/race-to-find-source-of-carcinogenic-chemical-pfos-polluting-cumbria-and-lancashire-waters",
+          "title": "Race to find source of carcinogenic Pfas in Cumbria and Lancashire waters",
+          "source_domain": "theguardian.com",
+          "timestamp": "2026-02-14T06:00:46.000Z",
+          "snippet": "<p>Exclusive: High levels of banned ‘forever chemical’ have been detected in rivers and groundwater at 25 sites</p><p>A string of toxic pollution hotspots has been uncovered across Cumbria and Lancashire, with high levels of the banned cancer-causing “forever chemical” Pfos detected in rivers and groundwater at 25 sites.</p><p>The contamination, spread across a large area, was uncovered by Watershed Investigations and the Guardian after a freedom of information request revealed high concentrations of Pfos in Environment Agency samples taken in January 2025.</p> <a href=\"https://www.theguardian.com/environment/2026/feb/14/race-to-find-source-of-carcinogenic-chemical-pfos-polluting-cumbria-and-lancashire-waters\">Continue reading...</a>",
+          "labels": {
+            "reliability": "High",
+            "region": "Europe",
+            "paywall": "No",
+            "bias_label": "Center-Left"
+          }
+        }
+      ],
+      "priority": "top"
+    },
+    {
+      "cluster_id": "cluster-6v2m6bs",
+      "rank_score": 0.971,
+      "title": "Watch: 'I am a survivor' Gisèle Pelicot tells BBC Newsnight",
+      "topic_tags": [
+        "watch",
+        "survivor",
+        "pelicot"
+      ],
+      "updated_at": "2026-02-14T06:00:21.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/videos/c80jvkem8lro?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "Global",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked bbc.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/videos/c80jvkem8lro?at_medium=RSS&at_campaign=rss",
+          "title": "Watch: 'I am a survivor' Gisèle Pelicot tells BBC Newsnight",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-14T06:00:21.000Z",
+          "snippet": "Ms Pelicot reveals it is \"inconceivable\" that the man she shared her life with \"could have committed these horrors\".",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ],
+      "priority": "top"
+    },
+    {
+      "cluster_id": "cluster-bx9fy6w",
+      "rank_score": 0.97,
+      "title": "Gisèle Pelicot tells BBC: I felt crushed by horror - but I don't feel anger",
+      "topic_tags": [
+        "pelicot",
+        "tells",
+        "felt"
+      ],
+      "updated_at": "2026-02-14T06:00:11.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/c9q5l22ryy4o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "Global",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked bbc.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/c9q5l22ryy4o?at_medium=RSS&at_campaign=rss",
+          "title": "Gisèle Pelicot tells BBC: I felt crushed by horror - but I don't feel anger",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-14T06:00:11.000Z",
+          "snippet": "In an extensive interview with Newsnight, the woman at the heart of France's biggest rape trial speaks about betrayal, healing and choosing the right path.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ],
+      "priority": "top"
+    },
+    {
+      "cluster_id": "cluster-uuvs2q3",
+      "rank_score": 0.964,
+      "title": "'Canadians are with you,' says PM at Tumbler Ridge vigil",
+      "topic_tags": [
+        "canadians",
+        "with",
+        "says"
+      ],
+      "updated_at": "2026-02-14T05:17:27.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/cde4kdr2z6do?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "Global",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked bbc.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/cde4kdr2z6do?at_medium=RSS&at_campaign=rss",
+          "title": "'Canadians are with you,' says PM at Tumbler Ridge vigil",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-14T05:17:27.000Z",
+          "snippet": "The Canadian prime minister attended a vigil with federal leaders and paid tribute to the eight victims.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ],
+      "priority": "top"
+    },
+    {
+      "cluster_id": "cluster-5txrtqo",
+      "rank_score": 0.962,
+      "title": "5 things to know about the shutdown at the Department of Homeland Security",
+      "topic_tags": [
+        "things",
+        "know",
+        "about"
+      ],
+      "updated_at": "2026-02-14T05:07:24.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.npr.org/2026/02/14/nx-s1-5713914/department-of-homeland-security-shutdown",
+        "source_domain": "npr.org",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "US",
+          "paywall": "No",
+          "bias_label": "Center-Left"
+        },
+        "trace_summary": "Picked npr.org based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.npr.org/2026/02/14/nx-s1-5713914/department-of-homeland-security-shutdown",
+          "title": "5 things to know about the shutdown at the Department of Homeland Security",
+          "source_domain": "npr.org",
+          "timestamp": "2026-02-14T05:07:24.000Z",
+          "snippet": "The sprawling agency saw its baseline funding expire after lawmakers left town for a week-long recess, but without a deal to rein in the conduct of federal immigration officers.",
+          "labels": {
+            "reliability": "High",
+            "region": "US",
+            "paywall": "No",
+            "bias_label": "Center-Left"
+          }
+        }
+      ],
+      "priority": "scan"
+    },
+    {
+      "cluster_id": "cluster-7ohb0fr",
+      "rank_score": 0.962,
+      "title": "US homeland security department partially shutdown after lawmakers fail to agree funding",
+      "topic_tags": [
+        "homeland",
+        "security",
+        "department"
+      ],
+      "updated_at": "2026-02-14T05:06:39.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.theguardian.com/us-news/2026/feb/13/us-homeland-security-department-shutdown",
+        "source_domain": "theguardian.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "Europe",
+          "paywall": "No",
+          "bias_label": "Center-Left"
+        },
+        "trace_summary": "Picked theguardian.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.theguardian.com/us-news/2026/feb/13/us-homeland-security-department-shutdown",
+          "title": "US homeland security department partially shutdown after lawmakers fail to agree funding",
+          "source_domain": "theguardian.com",
+          "timestamp": "2026-02-14T05:06:39.000Z",
+          "snippet": "<p>Lawmakers left Washington for a long weekend without resolving an impasse over much-criticized agency’s funding</p><p>The Department of Homeland Security has begun a partial shutdown, after funding for the much-criticized agency expired, with a range of services, including domestic flights and the US Coastguard, now vulnerable to disruption.</p><p>The shutdown was all but confirmed on Thursday, after the Senate failed to clear the 60-vote threshold needed to pass the DHS appropriations bill and lawmakers left Washington for a long weekend without resolving the impasse.</p> <a href=\"https://www.theguardian.com/us-news/2026/feb/13/us-homeland-security-department-shutdown\">Continue reading...</a>",
+          "labels": {
+            "reliability": "High",
             "region": "Europe",
             "paywall": "No",
             "bias_label": "Center-Left"
@@ -523,77 +589,37 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-usp05vb",
-      "rank_score": 0.3,
-      "title": "School districts announce updates to remote learning plans",
+      "cluster_id": "cluster-ytjrns0",
+      "rank_score": 0.961,
+      "title": "US homeland security shutdown could mean airport delays, travel groups say",
       "topic_tags": [
-        "school",
-        "districts",
-        "announce"
+        "homeland",
+        "security",
+        "shutdown"
       ],
-      "updated_at": "2026-02-10T21:00:00.000Z",
+      "updated_at": "2026-02-14T05:04:15.000Z",
       "coverage_breadth": "Narrow",
       "best_article": {
-        "url": "https://example.com/ap-top-news/story-3",
-        "source_domain": "example.com",
+        "url": "https://www.bbc.com/news/articles/cwy8dw5zk7yo?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
         "image_url": "",
         "labels": {
-          "reliability": "Med",
-          "region": "US",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/ap-top-news/story-3",
-          "title": "School districts announce updates to remote learning plans",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T21:00:00.000Z",
-          "snippet": "School districts announce updates to remote learning plans with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "US",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ],
-      "priority": "scan"
-    },
-    {
-      "cluster_id": "cluster-dt63cn7",
-      "rank_score": 0.3,
-      "title": "Wildfire response expands after overnight wind shift",
-      "topic_tags": [
-        "wildfire",
-        "response",
-        "expands"
-      ],
-      "updated_at": "2026-02-10T21:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/reuters-world-news/story-3",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
+          "reliability": "High",
           "region": "Global",
           "paywall": "No",
           "bias_label": "Center"
         },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
+        "trace_summary": "Picked bbc.com based on reliability and recency among 1 related reports."
       },
       "articles": [
         {
-          "url": "https://example.com/reuters-world-news/story-3",
-          "title": "Wildfire response expands after overnight wind shift",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T21:00:00.000Z",
-          "snippet": "Wildfire response expands after overnight wind shift with additional context and follow-up details for the daily brief.",
+          "url": "https://www.bbc.com/news/articles/cwy8dw5zk7yo?at_medium=RSS&at_campaign=rss",
+          "title": "US homeland security shutdown could mean airport delays, travel groups say",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-14T05:04:15.000Z",
+          "snippet": "The shutdown won't affect air traffic controllers but some TSA workers may go without pay.",
           "labels": {
-            "reliability": "Med",
+            "reliability": "High",
             "region": "Global",
             "paywall": "No",
             "bias_label": "Center"
@@ -603,37 +629,37 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-4q32z8g",
-      "rank_score": 0.3,
-      "title": "Cities test fare-free transport weekends to cut emissions",
+      "cluster_id": "cluster-w6fezij",
+      "rank_score": 0.958,
+      "title": "Mark Carney joins hands with Canada opposition leader as he pays tribute to school shooting victims",
       "topic_tags": [
-        "cities",
-        "test",
-        "fare"
+        "mark",
+        "carney",
+        "joins"
       ],
-      "updated_at": "2026-02-10T20:00:00.000Z",
+      "updated_at": "2026-02-14T04:42:11.000Z",
       "coverage_breadth": "Narrow",
       "best_article": {
-        "url": "https://example.com/guardian-world/story-4",
-        "source_domain": "example.com",
+        "url": "https://www.theguardian.com/world/2026/feb/14/mark-carney-joins-hands-with-canada-opposition-leader-as-he-pays-tribute-to-school-shooting-victims",
+        "source_domain": "theguardian.com",
         "image_url": "",
         "labels": {
-          "reliability": "Med",
+          "reliability": "High",
           "region": "Europe",
           "paywall": "No",
           "bias_label": "Center-Left"
         },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
+        "trace_summary": "Picked theguardian.com based on reliability and recency among 1 related reports."
       },
       "articles": [
         {
-          "url": "https://example.com/guardian-world/story-4",
-          "title": "Cities test fare-free transport weekends to cut emissions",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T20:00:00.000Z",
-          "snippet": "Cities test fare-free transport weekends to cut emissions with additional context and follow-up details for the daily brief.",
+          "url": "https://www.theguardian.com/world/2026/feb/14/mark-carney-joins-hands-with-canada-opposition-leader-as-he-pays-tribute-to-school-shooting-victims",
+          "title": "Mark Carney joins hands with Canada opposition leader as he pays tribute to school shooting victims",
+          "source_domain": "theguardian.com",
+          "timestamp": "2026-02-14T04:42:11.000Z",
+          "snippet": "<p>The Canadian prime minister told residents of Tumbler Ridge that the country is ‘with you’</p><p>Canadian prime minister Mark Carney has told residents of Tumbler Ridge that the country is “with you, and we will always be with you”, during a candlelight vigil for the eight victims of a mass shooting that has shattered the small mining town.</p><p>The prime minister, holding hands with opposition leader Pierre Poilievre while flanked by First Nations chiefs and local officials, paid tribute to the families enduring the loss of loved ones, after the shooting at a local school that has become one of the most deadly attacks in Canadian history.</p> <a href=\"https://www.theguardian.com/world/2026/feb/14/mark-carney-joins-hands-with-canada-opposition-leader-as-he-pays-tribute-to-school-shooting-victims\">Continue reading...</a>",
           "labels": {
-            "reliability": "Med",
+            "reliability": "High",
             "region": "Europe",
             "paywall": "No",
             "bias_label": "Center-Left"
@@ -643,77 +669,77 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-ekwvx1t",
-      "rank_score": 0.3,
-      "title": "City councils approve housing incentive pilot programs",
+      "cluster_id": "cluster-07t3vg0",
+      "rank_score": 0.947,
+      "title": "Anthony Albanese taunts new Liberal leaders in first comments since Sussan Ley’s ousting",
       "topic_tags": [
-        "city",
-        "councils",
-        "approve"
+        "anthony",
+        "albanese",
+        "taunts"
       ],
-      "updated_at": "2026-02-10T20:00:00.000Z",
+      "updated_at": "2026-02-14T03:33:21.000Z",
       "coverage_breadth": "Narrow",
       "best_article": {
-        "url": "https://example.com/ap-top-news/story-4",
-        "source_domain": "example.com",
+        "url": "https://www.theguardian.com/australia-news/2026/feb/14/anthony-albanese-souffle-liberal-leaders-angus-taylor-jane-hume",
+        "source_domain": "theguardian.com",
         "image_url": "",
         "labels": {
-          "reliability": "Med",
-          "region": "US",
+          "reliability": "High",
+          "region": "Europe",
           "paywall": "No",
-          "bias_label": "Center"
+          "bias_label": "Center-Left"
         },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
+        "trace_summary": "Picked theguardian.com based on reliability and recency among 1 related reports."
       },
       "articles": [
         {
-          "url": "https://example.com/ap-top-news/story-4",
-          "title": "City councils approve housing incentive pilot programs",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T20:00:00.000Z",
-          "snippet": "City councils approve housing incentive pilot programs with additional context and follow-up details for the daily brief.",
+          "url": "https://www.theguardian.com/australia-news/2026/feb/14/anthony-albanese-souffle-liberal-leaders-angus-taylor-jane-hume",
+          "title": "Anthony Albanese taunts new Liberal leaders in first comments since Sussan Ley’s ousting",
+          "source_domain": "theguardian.com",
+          "timestamp": "2026-02-14T03:33:21.000Z",
+          "snippet": "<p>‘Angus Taylor presents us with a new question: can a soufflé rise once?’ the prime minister said in a speech to a Labor conference</p><p>The prime minister has borrowed from a sharp-tongued predecessor to launch his first attack on the new opposition leader, Angus Taylor, asking: “Can a soufflé rise once?”</p><p>Albanese played on an <a href=\"https://www.abc.net.au/news/2013-11-12/the-collected-insults-of-paul-keating/5071412\">infamous insult</a> from former prime minister Paul Keating, who asked whether a soufflé rises twice when Liberal Andrew Peacock mounted a challenge to regain the party leadership in 1989.</p> <a href=\"https://www.theguardian.com/australia-news/2026/feb/14/anthony-albanese-souffle-liberal-leaders-angus-taylor-jane-hume\">Continue reading...</a>",
           "labels": {
-            "reliability": "Med",
-            "region": "US",
+            "reliability": "High",
+            "region": "Europe",
             "paywall": "No",
-            "bias_label": "Center"
+            "bias_label": "Center-Left"
           }
         }
       ],
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-gzbf2fz",
-      "rank_score": 0.3,
-      "title": "Global shipping group warns of longer transit disruptions",
+      "cluster_id": "cluster-bdo68un",
+      "rank_score": 0.942,
+      "title": "Oil refinery ablaze in Cuba as fuel crisis deepens",
       "topic_tags": [
-        "global",
-        "shipping",
-        "group"
+        "refinery",
+        "ablaze",
+        "cuba"
       ],
-      "updated_at": "2026-02-10T20:00:00.000Z",
+      "updated_at": "2026-02-14T03:03:27.000Z",
       "coverage_breadth": "Narrow",
       "best_article": {
-        "url": "https://example.com/reuters-world-news/story-4",
-        "source_domain": "example.com",
+        "url": "https://www.bbc.com/news/articles/cge89x7re74o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
         "image_url": "",
         "labels": {
-          "reliability": "Med",
+          "reliability": "High",
           "region": "Global",
           "paywall": "No",
           "bias_label": "Center"
         },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
+        "trace_summary": "Picked bbc.com based on reliability and recency among 1 related reports."
       },
       "articles": [
         {
-          "url": "https://example.com/reuters-world-news/story-4",
-          "title": "Global shipping group warns of longer transit disruptions",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T20:00:00.000Z",
-          "snippet": "Global shipping group warns of longer transit disruptions with additional context and follow-up details for the daily brief.",
+          "url": "https://www.bbc.com/news/articles/cge89x7re74o?at_medium=RSS&at_campaign=rss",
+          "title": "Oil refinery ablaze in Cuba as fuel crisis deepens",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-14T03:03:27.000Z",
+          "snippet": "The fire, which Cuban officials say was contained quickly, comes as electricity and fuel supplies dwindle.",
           "labels": {
-            "reliability": "Med",
+            "reliability": "High",
             "region": "Global",
             "paywall": "No",
             "bias_label": "Center"
@@ -723,37 +749,117 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-q4lepcm",
-      "rank_score": 0.3,
-      "title": "Rail workers vote on updated national pay proposal",
+      "cluster_id": "cluster-ffi1u9e",
+      "rank_score": 0.942,
+      "title": "Trump says regime change in Iran ‘would be the best thing’ as US military reportedly plans for operation – as it happened",
       "topic_tags": [
-        "rail",
-        "workers",
-        "vote"
+        "trump",
+        "says",
+        "regime"
       ],
-      "updated_at": "2026-02-10T20:00:00.000Z",
+      "updated_at": "2026-02-14T03:01:25.000Z",
       "coverage_breadth": "Narrow",
       "best_article": {
-        "url": "https://example.com/bbc-world/story-4",
-        "source_domain": "example.com",
+        "url": "https://www.theguardian.com/us-news/live/2026/feb/13/trump-climate-epa-repeal-pollution-john-kerry-us-politics-latest-news-updates",
+        "source_domain": "theguardian.com",
         "image_url": "",
         "labels": {
-          "reliability": "Med",
+          "reliability": "High",
+          "region": "Europe",
+          "paywall": "No",
+          "bias_label": "Center-Left"
+        },
+        "trace_summary": "Picked theguardian.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.theguardian.com/us-news/live/2026/feb/13/trump-climate-epa-repeal-pollution-john-kerry-us-politics-latest-news-updates",
+          "title": "Trump says regime change in Iran ‘would be the best thing’ as US military reportedly plans for operation – as it happened",
+          "source_domain": "theguardian.com",
+          "timestamp": "2026-02-14T03:01:25.000Z",
+          "snippet": "<p>This live blog is now closed.</p><p>The annual rate of US inflation eased in January, according to the latest data consumer price index report from the Bureau of Labor Statistics (BLS). Over the last 12 months, the cost of goods has increased by 2.4% –&nbsp;down from 2.7% in last month’s report.</p><p>Lawmakers in the House and Senate left Washington on Thursday as the Department of Homeland Security (DHS) heads for another shutdown, when stopgap funding lapses tonight. Nearly all Democrats blocked a second attempt to pass the annual DHS appropriations bill as negotiations for guardrails on federal immigration enforcement have stalled. Senator <strong>John Fetterman</strong> was the only lawmaker to break ranks with the party.</p> <a href=\"https://www.theguardian.com/us-news/live/2026/feb/13/trump-climate-epa-repeal-pollution-john-kerry-us-politics-latest-news-updates\">Continue reading...</a>",
+          "labels": {
+            "reliability": "High",
+            "region": "Europe",
+            "paywall": "No",
+            "bias_label": "Center-Left"
+          }
+        }
+      ],
+      "priority": "scan"
+    },
+    {
+      "cluster_id": "cluster-k83ffz9",
+      "rank_score": 0.938,
+      "title": "US strikes second alleged drug boat in a week, bringing death toll to 133",
+      "topic_tags": [
+        "strikes",
+        "second",
+        "alleged"
+      ],
+      "updated_at": "2026-02-14T02:40:08.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.theguardian.com/us-news/2026/feb/13/us-boat-strike-caribbean-drugs",
+        "source_domain": "theguardian.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "Europe",
+          "paywall": "No",
+          "bias_label": "Center-Left"
+        },
+        "trace_summary": "Picked theguardian.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.theguardian.com/us-news/2026/feb/13/us-boat-strike-caribbean-drugs",
+          "title": "US strikes second alleged drug boat in a week, bringing death toll to 133",
+          "source_domain": "theguardian.com",
+          "timestamp": "2026-02-14T02:40:08.000Z",
+          "snippet": "<p>Strike appears to be first in Caribbean since November, with vast majority of recent strikes happening in the Pacific</p><p>The US military’s Southern Command, which oversees operations in Latin America and the Caribbean, said it had carried out its second deadly boat strike this week. The command said the latest strike killed three suspected drug smugglers in the Caribbean on Friday.</p><p>“Intelligence confirmed the vessel was transiting along known narco-trafficking routes in the Caribbean and was engaged in narco-trafficking operations,” the Southern Command said in a <a href=\"https://www.southcom.mil/News/PressReleases/Article/4406922/lethal-kinetic-strike-feb-13-2026/\">statement</a>. The command included a video of the strike with its announcement, which shows a boat traveling through the water as it explodes into flames after being hit with what looks like a missile.</p> <a href=\"https://www.theguardian.com/us-news/2026/feb/13/us-boat-strike-caribbean-drugs\">Continue reading...</a>",
+          "labels": {
+            "reliability": "High",
+            "region": "Europe",
+            "paywall": "No",
+            "bias_label": "Center-Left"
+          }
+        }
+      ],
+      "priority": "scan"
+    },
+    {
+      "cluster_id": "cluster-plrfwz8",
+      "rank_score": 0.929,
+      "title": "Why writer Arundhati Roy's cult classic film is still relevant in India",
+      "topic_tags": [
+        "writer",
+        "arundhati",
+        "cult"
+      ],
+      "updated_at": "2026-02-14T01:45:02.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/cn9exzl254xo?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
           "region": "Global",
           "paywall": "No",
           "bias_label": "Center"
         },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
+        "trace_summary": "Picked bbc.com based on reliability and recency among 1 related reports."
       },
       "articles": [
         {
-          "url": "https://example.com/bbc-world/story-4",
-          "title": "Rail workers vote on updated national pay proposal",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T20:00:00.000Z",
-          "snippet": "Rail workers vote on updated national pay proposal with additional context and follow-up details for the daily brief.",
+          "url": "https://www.bbc.com/news/articles/cn9exzl254xo?at_medium=RSS&at_campaign=rss",
+          "title": "Why writer Arundhati Roy's cult classic film is still relevant in India",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-14T01:45:02.000Z",
+          "snippet": "Nearly 40 years on, the Booker prize-winning writer's debut campus satire is set to be screened in Berlin.",
           "labels": {
-            "reliability": "Med",
+            "reliability": "High",
             "region": "Global",
             "paywall": "No",
             "bias_label": "Center"
@@ -763,37 +869,277 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-j7oq222",
-      "rank_score": 0.3,
-      "title": "Transit advocates push for regional bus lane funding",
+      "cluster_id": "cluster-c8kppzp",
+      "rank_score": 0.914,
+      "title": "Gasps and disbelief in US as 'Quad God's' Olympic dream crumbles",
       "topic_tags": [
-        "transit",
-        "advocates",
-        "push"
+        "gasps",
+        "disbelief",
+        "quad"
       ],
-      "updated_at": "2026-02-10T20:00:00.000Z",
+      "updated_at": "2026-02-14T00:13:01.000Z",
       "coverage_breadth": "Narrow",
       "best_article": {
-        "url": "https://example.com/npr-news/story-4",
-        "source_domain": "example.com",
+        "url": "https://www.bbc.com/news/videos/c93wgxnk351o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
         "image_url": "",
         "labels": {
-          "reliability": "Med",
+          "reliability": "High",
+          "region": "Global",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked bbc.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/videos/c93wgxnk351o?at_medium=RSS&at_campaign=rss",
+          "title": "Gasps and disbelief in US as 'Quad God's' Olympic dream crumbles",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-14T00:13:01.000Z",
+          "snippet": "The BBC visited the skating rink in Virginia where the ‘Quad God’ trains, as his closest friends and teammates expected to watch him win gold.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ],
+      "priority": "scan"
+    },
+    {
+      "cluster_id": "cluster-h3ees6u",
+      "rank_score": 0.913,
+      "title": "Can Bangladesh's new leader bring change after election landslide?",
+      "topic_tags": [
+        "bangladesh",
+        "leader",
+        "bring"
+      ],
+      "updated_at": "2026-02-14T00:03:33.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/cn0ex5d4g6xo?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "Global",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked bbc.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/cn0ex5d4g6xo?at_medium=RSS&at_campaign=rss",
+          "title": "Can Bangladesh's new leader bring change after election landslide?",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-14T00:03:33.000Z",
+          "snippet": "Tarique Rahman is set to be Bangladesh's next prime minister, 18 months after mass protests ousted its longest-serving leader.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ],
+      "priority": "scan"
+    },
+    {
+      "cluster_id": "cluster-9mdkcy7",
+      "rank_score": 0.913,
+      "title": "He was once a teen 'superstar'. Why did James Van Der Beek need help to pay his medical bills?",
+      "topic_tags": [
+        "once",
+        "teen",
+        "superstar"
+      ],
+      "updated_at": "2026-02-14T00:03:22.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/cx2dw01p7k8o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "Global",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked bbc.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/cx2dw01p7k8o?at_medium=RSS&at_campaign=rss",
+          "title": "He was once a teen 'superstar'. Why did James Van Der Beek need help to pay his medical bills?",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-14T00:03:22.000Z",
+          "snippet": "A fundraiser was setup to help the actor's family after expensive cancer treatments devastated their finances.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ],
+      "priority": "scan"
+    },
+    {
+      "cluster_id": "cluster-dylxuhf",
+      "rank_score": 0.912,
+      "title": "Kenyans drop flowers for Valentine's bouquets of cash. Not everyone is impressed",
+      "topic_tags": [
+        "kenyans",
+        "drop",
+        "flowers"
+      ],
+      "updated_at": "2026-02-14T00:02:04.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/cn87g2v73jno?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "Global",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked bbc.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/cn87g2v73jno?at_medium=RSS&at_campaign=rss",
+          "title": "Kenyans drop flowers for Valentine's bouquets of cash. Not everyone is impressed",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-14T00:02:04.000Z",
+          "snippet": "Bouquets of cash have been blooming in popularity in Kenya but recent warnings may slow the trend.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ],
+      "priority": "scan"
+    },
+    {
+      "cluster_id": "cluster-68hqiaw",
+      "rank_score": 0.912,
+      "title": "Ocasio-Cortez says US military aid to Israel ‘enabled a genocide in Gaza’",
+      "topic_tags": [
+        "ocasio",
+        "cortez",
+        "says"
+      ],
+      "updated_at": "2026-02-14T00:00:21.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.theguardian.com/us-news/2026/feb/13/alexandria-ocasio-cortez-israel-military-aid",
+        "source_domain": "theguardian.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "Europe",
+          "paywall": "No",
+          "bias_label": "Center-Left"
+        },
+        "trace_summary": "Picked theguardian.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.theguardian.com/us-news/2026/feb/13/alexandria-ocasio-cortez-israel-military-aid",
+          "title": "Ocasio-Cortez says US military aid to Israel ‘enabled a genocide in Gaza’",
+          "source_domain": "theguardian.com",
+          "timestamp": "2026-02-14T00:00:21.000Z",
+          "snippet": "<p>New York congresswoman criticizes ‘unconditional’ US aid and calls for enforcement of Leahy laws</p><p>Alexandria Ocasio-Cortez said during a Munich security conference panel on Friday on the future of foreign policy that the Democratic party’s next presidential nominee should reconsider the country’s military aid to Israel.</p><p>Hagar Shezaf of the Israeli newspaper Haaretz asked the US congresswoman if she thought “the Democratic presidential candidate in the 2028 elections should re-evaluate military aid to Israel”.</p> <a href=\"https://www.theguardian.com/us-news/2026/feb/13/alexandria-ocasio-cortez-israel-military-aid\">Continue reading...</a>",
+          "labels": {
+            "reliability": "High",
+            "region": "Europe",
+            "paywall": "No",
+            "bias_label": "Center-Left"
+          }
+        }
+      ],
+      "priority": "scan"
+    },
+    {
+      "cluster_id": "cluster-xsgv1bv",
+      "rank_score": 0.903,
+      "title": "The two Chinese-American Olympians competing for rival superpowers",
+      "topic_tags": [
+        "chinese",
+        "american",
+        "olympians"
+      ],
+      "updated_at": "2026-02-13T23:05:07.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/czr07r0vengo?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "Global",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked bbc.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/czr07r0vengo?at_medium=RSS&at_campaign=rss",
+          "title": "The two Chinese-American Olympians competing for rival superpowers",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-13T23:05:07.000Z",
+          "snippet": "Eileen Guo and Alysa Liu have been thrust into a debate that goes far beyond sports.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ],
+      "priority": "scan"
+    },
+    {
+      "cluster_id": "cluster-9wjjthh",
+      "rank_score": 0.901,
+      "title": "Ilia Malinin, U.S. figure skater favored for gold, finishes 8th",
+      "topic_tags": [
+        "ilia",
+        "malinin",
+        "figure"
+      ],
+      "updated_at": "2026-02-13T22:50:47.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.npr.org/2026/02/13/nx-s1-5713991/ilia-malinin-mikhail-shaidorov-figure-skating-olympics",
+        "source_domain": "npr.org",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
           "region": "US",
           "paywall": "No",
           "bias_label": "Center-Left"
         },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
+        "trace_summary": "Picked npr.org based on reliability and recency among 1 related reports."
       },
       "articles": [
         {
-          "url": "https://example.com/npr-news/story-4",
-          "title": "Transit advocates push for regional bus lane funding",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T20:00:00.000Z",
-          "snippet": "Transit advocates push for regional bus lane funding with additional context and follow-up details for the daily brief.",
+          "url": "https://www.npr.org/2026/02/13/nx-s1-5713991/ilia-malinin-mikhail-shaidorov-figure-skating-olympics",
+          "title": "Ilia Malinin, U.S. figure skater favored for gold, finishes 8th",
+          "source_domain": "npr.org",
+          "timestamp": "2026-02-13T22:50:47.000Z",
+          "snippet": "Malinin, undefeated since 2023, stumbled and fell multiple times, landing far off the podium. Mikhail Shaidorov of Kazakhstan won gold in an upset that shocked even himself.",
           "labels": {
-            "reliability": "Med",
+            "reliability": "High",
             "region": "US",
             "paywall": "No",
             "bias_label": "Center-Left"
@@ -803,397 +1149,433 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-bizq91b",
-      "rank_score": 0.3,
-      "title": "Community clinics prepare for expanded vaccination campaign",
+      "cluster_id": "cluster-65nta9o",
+      "rank_score": 0.898,
+      "title": "France probes baby formula producers over contamination recalls",
       "topic_tags": [
-        "community",
-        "clinics",
-        "prepare"
+        "france",
+        "probes",
+        "baby"
       ],
-      "updated_at": "2026-02-10T19:00:00.000Z",
+      "updated_at": "2026-02-13T22:30:17.000Z",
       "coverage_breadth": "Narrow",
       "best_article": {
-        "url": "https://example.com/npr-news/story-5",
-        "source_domain": "example.com",
+        "url": "https://www.bbc.com/news/articles/cq8gqeq8yv0o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
         "image_url": "",
         "labels": {
-          "reliability": "Med",
+          "reliability": "High",
+          "region": "Global",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked bbc.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/cq8gqeq8yv0o?at_medium=RSS&at_campaign=rss",
+          "title": "France probes baby formula producers over contamination recalls",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-13T22:30:17.000Z",
+          "snippet": "Paris prosecutors will investigate whether five firms are culpable for distributing batches that may have contained a toxin.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ],
+      "priority": "low"
+    },
+    {
+      "cluster_id": "cluster-nr2ysal",
+      "rank_score": 0.895,
+      "title": "Trump sends second aircraft carrier to Middle East in effort to increase pressure on Iran",
+      "topic_tags": [
+        "trump",
+        "sends",
+        "second"
+      ],
+      "updated_at": "2026-02-13T22:15:27.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.theguardian.com/world/2026/feb/13/trump-sends-second-aircraft-carrier-middle-east-iran",
+        "source_domain": "theguardian.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "Europe",
+          "paywall": "No",
+          "bias_label": "Center-Left"
+        },
+        "trace_summary": "Picked theguardian.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.theguardian.com/world/2026/feb/13/trump-sends-second-aircraft-carrier-middle-east-iran",
+          "title": "Trump sends second aircraft carrier to Middle East in effort to increase pressure on Iran",
+          "source_domain": "theguardian.com",
+          "timestamp": "2026-02-13T22:15:27.000Z",
+          "snippet": "<p>USS Gerald R Ford will take about three weeks to sail to region, amid push for Iran to curb its nuclear ambitions</p><p>Donald Trump has ordered the world’s largest aircraft carrier to sail from the Caribbean Sea to the Middle East in an effort to increase pressure on Iran amid discussions over curbing its nuclear and ballistic missile programmes.</p><p>The USS Gerald R Ford and its supporting warships should take about three weeks to return to the region, where they will join the USS Abraham Lincoln, dramatically increasing the military firepower available to the US leader.</p> <a href=\"https://www.theguardian.com/world/2026/feb/13/trump-sends-second-aircraft-carrier-middle-east-iran\">Continue reading...</a>",
+          "labels": {
+            "reliability": "High",
+            "region": "Europe",
+            "paywall": "No",
+            "bias_label": "Center-Left"
+          }
+        }
+      ],
+      "priority": "low"
+    },
+    {
+      "cluster_id": "cluster-m6y6zhx",
+      "rank_score": 0.895,
+      "title": "'We are not protected' says Hebron mayor as Israel expands West Bank control",
+      "topic_tags": [
+        "protected",
+        "says",
+        "hebron"
+      ],
+      "updated_at": "2026-02-13T22:12:03.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/crl4ne5er5zo?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "Global",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked bbc.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/crl4ne5er5zo?at_medium=RSS&at_campaign=rss",
+          "title": "'We are not protected' says Hebron mayor as Israel expands West Bank control",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-13T22:12:03.000Z",
+          "snippet": "Palestinians say an Israeli power grab shuts them out of decisions on planning and development in West Bank.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ],
+      "priority": "low"
+    },
+    {
+      "cluster_id": "cluster-83af950",
+      "rank_score": 0.892,
+      "title": "Venezuela debates sweeping amnesty for political prisoners",
+      "topic_tags": [
+        "venezuela",
+        "debates",
+        "sweeping"
+      ],
+      "updated_at": "2026-02-13T21:54:47.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.npr.org/2026/02/13/nx-s1-5709050/venezuela-debates-sweeping-amnesty-for-political-prisoners",
+        "source_domain": "npr.org",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
           "region": "US",
           "paywall": "No",
           "bias_label": "Center-Left"
         },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
+        "trace_summary": "Picked npr.org based on reliability and recency among 1 related reports."
       },
       "articles": [
         {
-          "url": "https://example.com/npr-news/story-5",
-          "title": "Community clinics prepare for expanded vaccination campaign",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T19:00:00.000Z",
-          "snippet": "Community clinics prepare for expanded vaccination campaign with additional context and follow-up details for the daily brief.",
+          "url": "https://www.npr.org/2026/02/13/nx-s1-5709050/venezuela-debates-sweeping-amnesty-for-political-prisoners",
+          "title": "Venezuela debates sweeping amnesty for political prisoners",
+          "source_domain": "npr.org",
+          "timestamp": "2026-02-13T21:54:47.000Z",
+          "snippet": "After the fall of Nicolás Maduro, the Venezuelan regime promise amnesty and reconciliation — but for hundreds still jailed and thousands facing charges, justice remains uncertain.",
           "labels": {
-            "reliability": "Med",
+            "reliability": "High",
             "region": "US",
             "paywall": "No",
             "bias_label": "Center-Left"
           }
         }
       ],
-      "priority": "scan"
+      "priority": "low"
     },
     {
-      "cluster_id": "cluster-pw544x9",
-      "rank_score": 0.3,
-      "title": "Court reviews legality of expanded surveillance contracts",
+      "cluster_id": "cluster-2ino7ap",
+      "rank_score": 0.888,
+      "title": "It&apos;s been five years since catastrophic Texas blackouts. How much has changed?",
       "topic_tags": [
+        "apos",
+        "been",
+        "five"
+      ],
+      "updated_at": "2026-02-13T21:34:02.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.npr.org/2026/02/13/nx-s1-5699421/texas-ice-storm-outages-power-electricity",
+        "source_domain": "npr.org",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "US",
+          "paywall": "No",
+          "bias_label": "Center-Left"
+        },
+        "trace_summary": "Picked npr.org based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.npr.org/2026/02/13/nx-s1-5699421/texas-ice-storm-outages-power-electricity",
+          "title": "It&apos;s been five years since catastrophic Texas blackouts. How much has changed?",
+          "source_domain": "npr.org",
+          "timestamp": "2026-02-13T21:34:02.000Z",
+          "snippet": "Power companies say they&apos;re better prepared for extreme weather, but challenges remain to electricity production as the state&apos;s demand grows",
+          "labels": {
+            "reliability": "High",
+            "region": "US",
+            "paywall": "No",
+            "bias_label": "Center-Left"
+          }
+        }
+      ],
+      "priority": "low"
+    },
+    {
+      "cluster_id": "cluster-rcve0xc",
+      "rank_score": 0.882,
+      "title": "Ex-CNN host Don Lemon pleads not guilty in Minnesota church protest case",
+      "topic_tags": [],
+      "updated_at": "2026-02-13T20:53:59.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.bbc.com/news/articles/cge89r1e158o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "Global",
+          "paywall": "No",
+          "bias_label": "Center"
+        },
+        "trace_summary": "Picked bbc.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.bbc.com/news/articles/cge89r1e158o?at_medium=RSS&at_campaign=rss",
+          "title": "Ex-CNN host Don Lemon pleads not guilty in Minnesota church protest case",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-13T20:53:59.000Z",
+          "snippet": "The former CNN host and eight others have been charged for interrupting a church service to protest immigration raids in the state.",
+          "labels": {
+            "reliability": "High",
+            "region": "Global",
+            "paywall": "No",
+            "bias_label": "Center"
+          }
+        }
+      ],
+      "priority": "low"
+    },
+    {
+      "cluster_id": "cluster-xprv5wh",
+      "rank_score": 0.882,
+      "title": "FBI releases description of suspect, increases reward in Nancy Guthrie case",
+      "topic_tags": [
+        "releases",
+        "description",
+        "suspect"
+      ],
+      "updated_at": "2026-02-13T20:52:17.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.npr.org/2026/02/13/nx-s1-5713551/nancy-guthrie-case-fbi-suspect-reward",
+        "source_domain": "npr.org",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "US",
+          "paywall": "No",
+          "bias_label": "Center-Left"
+        },
+        "trace_summary": "Picked npr.org based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.npr.org/2026/02/13/nx-s1-5713551/nancy-guthrie-case-fbi-suspect-reward",
+          "title": "FBI releases description of suspect, increases reward in Nancy Guthrie case",
+          "source_domain": "npr.org",
+          "timestamp": "2026-02-13T20:52:17.000Z",
+          "snippet": "The FBI describes the armed man caught on Nancy Guthrie&apos;s camera as 5-foot-9-inches to 5-foot-10 and of average build. The 84-year-old mother of Savannah Guthrie has been missing since Feb. 1.",
+          "labels": {
+            "reliability": "High",
+            "region": "US",
+            "paywall": "No",
+            "bias_label": "Center-Left"
+          }
+        }
+      ],
+      "priority": "low"
+    },
+    {
+      "cluster_id": "cluster-w6gzhft",
+      "rank_score": 0.881,
+      "title": "Macron swipes at Trump tariffs and Greenland threats; Zelenskyy has strong words for Russia – as it happened",
+      "topic_tags": [
+        "macron",
+        "swipes",
+        "trump"
+      ],
+      "updated_at": "2026-02-13T20:49:06.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.theguardian.com/world/live/2026/feb/13/munich-security-conference-rubio-flies-in-amid-testing-times-for-us-europe-ties-live",
+        "source_domain": "theguardian.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "Europe",
+          "paywall": "No",
+          "bias_label": "Center-Left"
+        },
+        "trace_summary": "Picked theguardian.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.theguardian.com/world/live/2026/feb/13/munich-security-conference-rubio-flies-in-amid-testing-times-for-us-europe-ties-live",
+          "title": "Macron swipes at Trump tariffs and Greenland threats; Zelenskyy has strong words for Russia – as it happened",
+          "source_domain": "theguardian.com",
+          "timestamp": "2026-02-13T20:49:06.000Z",
+          "snippet": "<p>This live blog is now closed.</p><p><strong>If you need a primer on what’s on the agenda for the next three days,</strong> I spoke with the MSC’s head of policy <strong>Nicole Koenig, </strong>the author of <a href=\"https://securityconference.org/en/publications/munich-security-report/2026/\">the European part of their security report</a> published ahead of the meeting.</p><p>I asked her <strong>what is most likely to be the focus</strong> of this year’s forum, <strong>will Rubio deliver a “JD Vance 2.0” speech</strong> or say something more (nomen omen) diplomatic, and <strong>what other topics are likely to come up.</strong></p><p><em>“We have had years, decades of complaints by the US about the fact that in Europe, we were not spending enough on defence. That has changed since the summit in The Hague. </em></p><p><em>The shift in mindset is that yesterday in the room, what <strong>we felt, all of us, there was a clear coming together of vision and of unity. </strong></em></p><p><em>“<strong>They want [us] to perceive the Russians as a mighty bear, but you could argue they are moving through Ukraine at the stilted speed of a garden snail,</strong> so let’s not fall the trap of the Russian propaganda.”</em></p> <a href=\"https://www.theguardian.com/world/live/2026/feb/13/munich-security-conference-rubio-flies-in-amid-testing-times-for-us-europe-ties-live\">Continue reading...</a>",
+          "labels": {
+            "reliability": "High",
+            "region": "Europe",
+            "paywall": "No",
+            "bias_label": "Center-Left"
+          }
+        }
+      ],
+      "priority": "low"
+    },
+    {
+      "cluster_id": "cluster-oscg0v6",
+      "rank_score": 0.873,
+      "title": "Two Britons among three dead after avalanche in French Alps",
+      "topic_tags": [
+        "britons",
+        "among",
+        "three"
+      ],
+      "updated_at": "2026-02-13T19:55:54.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.theguardian.com/world/2026/feb/13/two-britons-among-three-dead-after-avalanche-in-french-alps",
+        "source_domain": "theguardian.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "Europe",
+          "paywall": "No",
+          "bias_label": "Center-Left"
+        },
+        "trace_summary": "Picked theguardian.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.theguardian.com/world/2026/feb/13/two-britons-among-three-dead-after-avalanche-in-french-alps",
+          "title": "Two Britons among three dead after avalanche in French Alps",
+          "source_domain": "theguardian.com",
+          "timestamp": "2026-02-13T19:55:54.000Z",
+          "snippet": "<p>A skier from France is also killed with manslaughter investigation to be carried out by mountain rescue police</p><p>Two Britons are among three skiers to have been killed in an avalanche in the French Alps.</p><p>The pair were part of a group of five people, accompanied by an instructor, off-piste skiing in Val d’Isère, in south-east France. A French national, who was skiing alone, was also killed.</p> <a href=\"https://www.theguardian.com/world/2026/feb/13/two-britons-among-three-dead-after-avalanche-in-french-alps\">Continue reading...</a>",
+          "labels": {
+            "reliability": "High",
+            "region": "Europe",
+            "paywall": "No",
+            "bias_label": "Center-Left"
+          }
+        }
+      ],
+      "priority": "low"
+    },
+    {
+      "cluster_id": "cluster-er4m7ne",
+      "rank_score": 0.871,
+      "title": "US ‘not powerful enough to go it alone’, Merz tells Munich conference",
+      "topic_tags": [
+        "powerful",
+        "enough",
+        "alone"
+      ],
+      "updated_at": "2026-02-13T19:47:04.000Z",
+      "coverage_breadth": "Narrow",
+      "best_article": {
+        "url": "https://www.theguardian.com/world/2026/feb/13/us-not-powerful-enough-to-go-it-alone-merz-tells-munich-conference",
+        "source_domain": "theguardian.com",
+        "image_url": "",
+        "labels": {
+          "reliability": "High",
+          "region": "Europe",
+          "paywall": "No",
+          "bias_label": "Center-Left"
+        },
+        "trace_summary": "Picked theguardian.com based on reliability and recency among 1 related reports."
+      },
+      "articles": [
+        {
+          "url": "https://www.theguardian.com/world/2026/feb/13/us-not-powerful-enough-to-go-it-alone-merz-tells-munich-conference",
+          "title": "US ‘not powerful enough to go it alone’, Merz tells Munich conference",
+          "source_domain": "theguardian.com",
+          "timestamp": "2026-02-13T19:47:04.000Z",
+          "snippet": "<p>German chancellor rebuts idea of American unilateralism and says ‘democracies have partners and allies’</p><p>The US acting alone has reached the limits of its power and may already have lost its role as global leader, Friedrich Merz, the German chancellor, warned Donald Trump at the opening of the Munich Security Conference.</p><p>Merz also disclosed he had held initial talks with the French president, Emmanuel Macron, over the possibility of joining France’s nuclear umbrella, underlining his call for Europe to develop a stronger self-standing security strategy.</p> <a href=\"https://www.theguardian.com/world/2026/feb/13/us-not-powerful-enough-to-go-it-alone-merz-tells-munich-conference\">Continue reading...</a>",
+          "labels": {
+            "reliability": "High",
+            "region": "Europe",
+            "paywall": "No",
+            "bias_label": "Center-Left"
+          }
+        }
+      ],
+      "priority": "low"
+    },
+    {
+      "cluster_id": "cluster-gav3591",
+      "rank_score": 0.868,
+      "title": "Virginia court allows Democrats&apos; redistricting vote in their plan to counter to Trump",
+      "topic_tags": [
+        "virginia",
         "court",
-        "reviews",
-        "legality"
+        "allows"
       ],
-      "updated_at": "2026-02-10T19:00:00.000Z",
+      "updated_at": "2026-02-13T19:27:35.000Z",
       "coverage_breadth": "Narrow",
       "best_article": {
-        "url": "https://example.com/guardian-world/story-5",
-        "source_domain": "example.com",
+        "url": "https://www.npr.org/2026/02/13/nx-s1-5711630/virginia-court-allows-democrats-redistricting-vote-in-their-plan-to-counter-to-trump",
+        "source_domain": "npr.org",
         "image_url": "",
         "labels": {
-          "reliability": "Med",
-          "region": "Europe",
-          "paywall": "No",
-          "bias_label": "Center-Left"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/guardian-world/story-5",
-          "title": "Court reviews legality of expanded surveillance contracts",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T19:00:00.000Z",
-          "snippet": "Court reviews legality of expanded surveillance contracts with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "Europe",
-            "paywall": "No",
-            "bias_label": "Center-Left"
-          }
-        }
-      ],
-      "priority": "scan"
-    },
-    {
-      "cluster_id": "cluster-79m7uft",
-      "rank_score": 0.3,
-      "title": "Election commission confirms recount schedule in two regions",
-      "topic_tags": [
-        "election",
-        "commission",
-        "confirms"
-      ],
-      "updated_at": "2026-02-10T19:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/reuters-world-news/story-5",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "Global",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/reuters-world-news/story-5",
-          "title": "Election commission confirms recount schedule in two regions",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T19:00:00.000Z",
-          "snippet": "Election commission confirms recount schedule in two regions with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "Global",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ],
-      "priority": "scan"
-    },
-    {
-      "cluster_id": "cluster-ucl1jnd",
-      "rank_score": 0.3,
-      "title": "Farmers report mixed yields after dry summer months",
-      "topic_tags": [
-        "farmers",
-        "report",
-        "mixed"
-      ],
-      "updated_at": "2026-02-10T19:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/ap-top-news/story-5",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "US",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/ap-top-news/story-5",
-          "title": "Farmers report mixed yields after dry summer months",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T19:00:00.000Z",
-          "snippet": "Farmers report mixed yields after dry summer months with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "US",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ],
-      "priority": "scan"
-    },
-    {
-      "cluster_id": "cluster-z9wv9fh",
-      "rank_score": 0.3,
-      "title": "Scientists publish findings on coral recovery hotspots",
-      "topic_tags": [
-        "scientists",
-        "publish",
-        "findings"
-      ],
-      "updated_at": "2026-02-10T19:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/bbc-world/story-5",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "Global",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/bbc-world/story-5",
-          "title": "Scientists publish findings on coral recovery hotspots",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T19:00:00.000Z",
-          "snippet": "Scientists publish findings on coral recovery hotspots with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "Global",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ],
-      "priority": "scan"
-    },
-    {
-      "cluster_id": "cluster-26fcwbz",
-      "rank_score": 0.3,
-      "title": "Aid convoys reach isolated communities after flooding",
-      "topic_tags": [
-        "convoys",
-        "reach",
-        "isolated"
-      ],
-      "updated_at": "2026-02-10T18:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/bbc-world/story-6",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "Global",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/bbc-world/story-6",
-          "title": "Aid convoys reach isolated communities after flooding",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T18:00:00.000Z",
-          "snippet": "Aid convoys reach isolated communities after flooding with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "Global",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ],
-      "priority": "scan"
-    },
-    {
-      "cluster_id": "cluster-d4o7o7w",
-      "rank_score": 0.3,
-      "title": "Aid organizations report gaps in refugee housing capacity",
-      "topic_tags": [
-        "organizations",
-        "report",
-        "gaps"
-      ],
-      "updated_at": "2026-02-10T18:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/guardian-world/story-6",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "Europe",
-          "paywall": "No",
-          "bias_label": "Center-Left"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/guardian-world/story-6",
-          "title": "Aid organizations report gaps in refugee housing capacity",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T18:00:00.000Z",
-          "snippet": "Aid organizations report gaps in refugee housing capacity with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "Europe",
-            "paywall": "No",
-            "bias_label": "Center-Left"
-          }
-        }
-      ],
-      "priority": "scan"
-    },
-    {
-      "cluster_id": "cluster-mapgz6a",
-      "rank_score": 0.3,
-      "title": "Coast guard responds to severe storm damage along shoreline",
-      "topic_tags": [
-        "coast",
-        "guard",
-        "responds"
-      ],
-      "updated_at": "2026-02-10T18:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/ap-top-news/story-6",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "US",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/ap-top-news/story-6",
-          "title": "Coast guard responds to severe storm damage along shoreline",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T18:00:00.000Z",
-          "snippet": "Coast guard responds to severe storm damage along shoreline with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "US",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ],
-      "priority": "scan"
-    },
-    {
-      "cluster_id": "cluster-m745ggn",
-      "rank_score": 0.3,
-      "title": "Energy ministers agree temporary supply coordination pact",
-      "topic_tags": [
-        "energy",
-        "ministers",
-        "agree"
-      ],
-      "updated_at": "2026-02-10T18:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/reuters-world-news/story-6",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "Global",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/reuters-world-news/story-6",
-          "title": "Energy ministers agree temporary supply coordination pact",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T18:00:00.000Z",
-          "snippet": "Energy ministers agree temporary supply coordination pact with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "Global",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ],
-      "priority": "low"
-    },
-    {
-      "cluster_id": "cluster-7gv4e3b",
-      "rank_score": 0.3,
-      "title": "Judicial nominees face questions on digital rights precedent",
-      "topic_tags": [
-        "judicial",
-        "nominees",
-        "face"
-      ],
-      "updated_at": "2026-02-10T18:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/npr-news/story-6",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
+          "reliability": "High",
           "region": "US",
           "paywall": "No",
           "bias_label": "Center-Left"
         },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
+        "trace_summary": "Picked npr.org based on reliability and recency among 1 related reports."
       },
       "articles": [
         {
-          "url": "https://example.com/npr-news/story-6",
-          "title": "Judicial nominees face questions on digital rights precedent",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T18:00:00.000Z",
-          "snippet": "Judicial nominees face questions on digital rights precedent with additional context and follow-up details for the daily brief.",
+          "url": "https://www.npr.org/2026/02/13/nx-s1-5711630/virginia-court-allows-democrats-redistricting-vote-in-their-plan-to-counter-to-trump",
+          "title": "Virginia court allows Democrats&apos; redistricting vote in their plan to counter to Trump",
+          "source_domain": "npr.org",
+          "timestamp": "2026-02-13T19:27:35.000Z",
+          "snippet": "The ruling allows an April election where voters can let the legislature draw a new congressional map. It could help Democrats win more House seats. Republicans might still fight it in court.",
           "labels": {
-            "reliability": "Med",
+            "reliability": "High",
             "region": "US",
             "paywall": "No",
             "bias_label": "Center-Left"
@@ -1203,397 +1585,37 @@
       "priority": "low"
     },
     {
-      "cluster_id": "cluster-vr02k8i",
-      "rank_score": 0.3,
-      "title": "Developers pledge new standards for carbon-neutral housing",
+      "cluster_id": "cluster-pkzu3xi",
+      "rank_score": 0.865,
+      "title": "Six possible effects of Trump's climate policy change",
       "topic_tags": [
-        "developers",
-        "pledge",
-        "standards"
+        "possible",
+        "effects",
+        "trump"
       ],
-      "updated_at": "2026-02-10T17:00:00.000Z",
+      "updated_at": "2026-02-13T19:08:07.000Z",
       "coverage_breadth": "Narrow",
       "best_article": {
-        "url": "https://example.com/guardian-world/story-7",
-        "source_domain": "example.com",
+        "url": "https://www.bbc.com/news/articles/cd03ee39945o?at_medium=RSS&at_campaign=rss",
+        "source_domain": "bbc.com",
         "image_url": "",
         "labels": {
-          "reliability": "Med",
-          "region": "Europe",
-          "paywall": "No",
-          "bias_label": "Center-Left"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/guardian-world/story-7",
-          "title": "Developers pledge new standards for carbon-neutral housing",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T17:00:00.000Z",
-          "snippet": "Developers pledge new standards for carbon-neutral housing with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "Europe",
-            "paywall": "No",
-            "bias_label": "Center-Left"
-          }
-        }
-      ],
-      "priority": "low"
-    },
-    {
-      "cluster_id": "cluster-8zmlcjh",
-      "rank_score": 0.3,
-      "title": "Judges hear arguments in high-profile voting rights case",
-      "topic_tags": [
-        "judges",
-        "hear",
-        "arguments"
-      ],
-      "updated_at": "2026-02-10T17:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/ap-top-news/story-7",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "US",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/ap-top-news/story-7",
-          "title": "Judges hear arguments in high-profile voting rights case",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T17:00:00.000Z",
-          "snippet": "Judges hear arguments in high-profile voting rights case with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "US",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ],
-      "priority": "low"
-    },
-    {
-      "cluster_id": "cluster-hkqgng2",
-      "rank_score": 0.3,
-      "title": "Major airlines suspend selected routes after safety review",
-      "topic_tags": [
-        "major",
-        "airlines",
-        "suspend"
-      ],
-      "updated_at": "2026-02-10T17:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/reuters-world-news/story-7",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
+          "reliability": "High",
           "region": "Global",
           "paywall": "No",
           "bias_label": "Center"
         },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
+        "trace_summary": "Picked bbc.com based on reliability and recency among 1 related reports."
       },
       "articles": [
         {
-          "url": "https://example.com/reuters-world-news/story-7",
-          "title": "Major airlines suspend selected routes after safety review",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T17:00:00.000Z",
-          "snippet": "Major airlines suspend selected routes after safety review with additional context and follow-up details for the daily brief.",
+          "url": "https://www.bbc.com/news/articles/cd03ee39945o?at_medium=RSS&at_campaign=rss",
+          "title": "Six possible effects of Trump's climate policy change",
+          "source_domain": "bbc.com",
+          "timestamp": "2026-02-13T19:08:07.000Z",
+          "snippet": "The announcement on Thursday removes the legal bedrock for much of US environmental legislation.",
           "labels": {
-            "reliability": "Med",
-            "region": "Global",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ],
-      "priority": "low"
-    },
-    {
-      "cluster_id": "cluster-98oqxeh",
-      "rank_score": 0.3,
-      "title": "Public radio stations collaborate on election coverage project",
-      "topic_tags": [
-        "public",
-        "radio",
-        "stations"
-      ],
-      "updated_at": "2026-02-10T17:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/npr-news/story-7",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "US",
-          "paywall": "No",
-          "bias_label": "Center-Left"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/npr-news/story-7",
-          "title": "Public radio stations collaborate on election coverage project",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T17:00:00.000Z",
-          "snippet": "Public radio stations collaborate on election coverage project with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "US",
-            "paywall": "No",
-            "bias_label": "Center-Left"
-          }
-        }
-      ],
-      "priority": "low"
-    },
-    {
-      "cluster_id": "cluster-oxf98rs",
-      "rank_score": 0.3,
-      "title": "Tech regulators review AI safety disclosure commitments",
-      "topic_tags": [
-        "tech",
-        "regulators",
-        "review"
-      ],
-      "updated_at": "2026-02-10T17:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/bbc-world/story-7",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "Global",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/bbc-world/story-7",
-          "title": "Tech regulators review AI safety disclosure commitments",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T17:00:00.000Z",
-          "snippet": "Tech regulators review AI safety disclosure commitments with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "Global",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ],
-      "priority": "low"
-    },
-    {
-      "cluster_id": "cluster-aqgpakc",
-      "rank_score": 0.3,
-      "title": "Consumer groups challenge telecom pricing increases",
-      "topic_tags": [
-        "consumer",
-        "groups",
-        "challenge"
-      ],
-      "updated_at": "2026-02-10T16:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/guardian-world/story-8",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "Europe",
-          "paywall": "No",
-          "bias_label": "Center-Left"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/guardian-world/story-8",
-          "title": "Consumer groups challenge telecom pricing increases",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T16:00:00.000Z",
-          "snippet": "Consumer groups challenge telecom pricing increases with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "Europe",
-            "paywall": "No",
-            "bias_label": "Center-Left"
-          }
-        }
-      ],
-      "priority": "low"
-    },
-    {
-      "cluster_id": "cluster-i0azht3",
-      "rank_score": 0.3,
-      "title": "Currency volatility prompts central bank intervention talk",
-      "topic_tags": [
-        "currency",
-        "volatility",
-        "prompts"
-      ],
-      "updated_at": "2026-02-10T16:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/bbc-world/story-8",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "Global",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/bbc-world/story-8",
-          "title": "Currency volatility prompts central bank intervention talk",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T16:00:00.000Z",
-          "snippet": "Currency volatility prompts central bank intervention talk with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "Global",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ],
-      "priority": "low"
-    },
-    {
-      "cluster_id": "cluster-uxp00ix",
-      "rank_score": 0.3,
-      "title": "Officials expand grants for small business recovery",
-      "topic_tags": [
-        "officials",
-        "expand",
-        "grants"
-      ],
-      "updated_at": "2026-02-10T16:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/ap-top-news/story-8",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "US",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/ap-top-news/story-8",
-          "title": "Officials expand grants for small business recovery",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T16:00:00.000Z",
-          "snippet": "Officials expand grants for small business recovery with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "US",
-            "paywall": "No",
-            "bias_label": "Center"
-          }
-        }
-      ],
-      "priority": "low"
-    },
-    {
-      "cluster_id": "cluster-9b05bsk",
-      "rank_score": 0.3,
-      "title": "State lawmakers weigh data privacy protections for teens",
-      "topic_tags": [
-        "state",
-        "lawmakers",
-        "weigh"
-      ],
-      "updated_at": "2026-02-10T16:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/npr-news/story-8",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "US",
-          "paywall": "No",
-          "bias_label": "Center-Left"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/npr-news/story-8",
-          "title": "State lawmakers weigh data privacy protections for teens",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T16:00:00.000Z",
-          "snippet": "State lawmakers weigh data privacy protections for teens with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
-            "region": "US",
-            "paywall": "No",
-            "bias_label": "Center-Left"
-          }
-        }
-      ],
-      "priority": "low"
-    },
-    {
-      "cluster_id": "cluster-qxq3cjb",
-      "rank_score": 0.3,
-      "title": "UN aid agencies request emergency funding for drought response",
-      "topic_tags": [
-        "agencies",
-        "request",
-        "emergency"
-      ],
-      "updated_at": "2026-02-10T16:00:00.000Z",
-      "coverage_breadth": "Narrow",
-      "best_article": {
-        "url": "https://example.com/reuters-world-news/story-8",
-        "source_domain": "example.com",
-        "image_url": "",
-        "labels": {
-          "reliability": "Med",
-          "region": "Global",
-          "paywall": "No",
-          "bias_label": "Center"
-        },
-        "trace_summary": "Picked example.com based on reliability and recency among 1 related reports."
-      },
-      "articles": [
-        {
-          "url": "https://example.com/reuters-world-news/story-8",
-          "title": "UN aid agencies request emergency funding for drought response",
-          "source_domain": "example.com",
-          "timestamp": "2026-02-10T16:00:00.000Z",
-          "snippet": "UN aid agencies request emergency funding for drought response with additional context and follow-up details for the daily brief.",
-          "labels": {
-            "reliability": "Med",
+            "reliability": "High",
             "region": "Global",
             "paywall": "No",
             "bias_label": "Center"
