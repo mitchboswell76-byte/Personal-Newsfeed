@@ -1,9 +1,9 @@
 {
   "date": "2026-02-14",
-  "generated_at": "2026-02-14T06:24:36.307Z",
+  "generated_at": "2026-02-14T06:36:47.933Z",
   "clusters": [
     {
-      "cluster_id": "cluster-nvdmpfu",
+      "cluster_id": "cluster-zt3p2fc",
       "rank_score": 0.3,
       "title": "EU ministers seek breakthrough on asylum reform package",
       "topic_tags": [
@@ -43,7 +43,7 @@
       "priority": "top"
     },
     {
-      "cluster_id": "cluster-mbflpm7",
+      "cluster_id": "cluster-f5s08s4",
       "rank_score": 0.3,
       "title": "Federal agencies release updated climate resilience guidance",
       "topic_tags": [
@@ -83,7 +83,7 @@
       "priority": "top"
     },
     {
-      "cluster_id": "cluster-p4nc4ac",
+      "cluster_id": "cluster-3d5fne5",
       "rank_score": 0.3,
       "title": "Government reaches late budget compromise ahead of deadline",
       "topic_tags": [
@@ -123,7 +123,7 @@
       "priority": "top"
     },
     {
-      "cluster_id": "cluster-2lybdag",
+      "cluster_id": "cluster-jmvdnti",
       "rank_score": 0.3,
       "title": "Lawmakers debate transport funding extension as talks continue",
       "topic_tags": [
@@ -163,7 +163,7 @@
       "priority": "top"
     },
     {
-      "cluster_id": "cluster-5n30imv",
+      "cluster_id": "cluster-rnwi8ni",
       "rank_score": 0.3,
       "title": "Trade ministers schedule emergency consultation on tariff tensions",
       "topic_tags": [
@@ -203,7 +203,7 @@
       "priority": "top"
     },
     {
-      "cluster_id": "cluster-17sug7w",
+      "cluster_id": "cluster-274rnet",
       "rank_score": 0.3,
       "title": "Arctic research mission reports accelerated sea-ice movement",
       "topic_tags": [
@@ -243,7 +243,7 @@
       "priority": "top"
     },
     {
-      "cluster_id": "cluster-pqyo03u",
+      "cluster_id": "cluster-ex7q34f",
       "rank_score": 0.3,
       "title": "Central bank signals pause as inflation cools in major economies",
       "topic_tags": [
@@ -283,7 +283,7 @@
       "priority": "top"
     },
     {
-      "cluster_id": "cluster-t9clwby",
+      "cluster_id": "cluster-l5jhjf8",
       "rank_score": 0.3,
       "title": "New poll finds voters split on healthcare expansion plan",
       "topic_tags": [
@@ -323,7 +323,7 @@
       "priority": "top"
     },
     {
-      "cluster_id": "cluster-d0j8c9b",
+      "cluster_id": "cluster-je2hf26",
       "rank_score": 0.3,
       "title": "Researchers warn of accelerating glacier retreat in alpine regions",
       "topic_tags": [
@@ -363,7 +363,7 @@
       "priority": "top"
     },
     {
-      "cluster_id": "cluster-3az5ni3",
+      "cluster_id": "cluster-ksjl6w2",
       "rank_score": 0.3,
       "title": "State health agency publishes new winter safety advisory",
       "topic_tags": [
@@ -403,7 +403,7 @@
       "priority": "top"
     },
     {
-      "cluster_id": "cluster-mapba68",
+      "cluster_id": "cluster-qcxl64h",
       "rank_score": 0.3,
       "title": "European leaders discuss coordinated migration framework",
       "topic_tags": [
@@ -443,7 +443,7 @@
       "priority": "top"
     },
     {
-      "cluster_id": "cluster-o805err",
+      "cluster_id": "cluster-vk0pdif",
       "rank_score": 0.3,
       "title": "Researchers test battery recycling method for EV supply chains",
       "topic_tags": [
@@ -483,7 +483,7 @@
       "priority": "top"
     },
     {
-      "cluster_id": "cluster-vn3env2",
+      "cluster_id": "cluster-e2b93u2",
       "rank_score": 0.3,
       "title": "Rights groups call for safeguards in protest policing reforms",
       "topic_tags": [
@@ -523,7 +523,7 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-zqciabm",
+      "cluster_id": "cluster-usp05vb",
       "rank_score": 0.3,
       "title": "School districts announce updates to remote learning plans",
       "topic_tags": [
@@ -563,7 +563,7 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-dsd98ij",
+      "cluster_id": "cluster-dt63cn7",
       "rank_score": 0.3,
       "title": "Wildfire response expands after overnight wind shift",
       "topic_tags": [
@@ -603,7 +603,7 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-aryih8d",
+      "cluster_id": "cluster-4q32z8g",
       "rank_score": 0.3,
       "title": "Cities test fare-free transport weekends to cut emissions",
       "topic_tags": [
@@ -643,7 +643,7 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-7rjsllh",
+      "cluster_id": "cluster-ekwvx1t",
       "rank_score": 0.3,
       "title": "City councils approve housing incentive pilot programs",
       "topic_tags": [
@@ -683,7 +683,7 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-5aio9vz",
+      "cluster_id": "cluster-gzbf2fz",
       "rank_score": 0.3,
       "title": "Global shipping group warns of longer transit disruptions",
       "topic_tags": [
@@ -723,7 +723,7 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-9i99nk2",
+      "cluster_id": "cluster-q4lepcm",
       "rank_score": 0.3,
       "title": "Rail workers vote on updated national pay proposal",
       "topic_tags": [
@@ -763,7 +763,7 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-e9jwp0i",
+      "cluster_id": "cluster-j7oq222",
       "rank_score": 0.3,
       "title": "Transit advocates push for regional bus lane funding",
       "topic_tags": [
@@ -803,7 +803,7 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-np859ev",
+      "cluster_id": "cluster-bizq91b",
       "rank_score": 0.3,
       "title": "Community clinics prepare for expanded vaccination campaign",
       "topic_tags": [
@@ -843,7 +843,7 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-9fqllbu",
+      "cluster_id": "cluster-pw544x9",
       "rank_score": 0.3,
       "title": "Court reviews legality of expanded surveillance contracts",
       "topic_tags": [
@@ -883,7 +883,7 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-6z1muox",
+      "cluster_id": "cluster-79m7uft",
       "rank_score": 0.3,
       "title": "Election commission confirms recount schedule in two regions",
       "topic_tags": [
@@ -923,7 +923,7 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-qik3zwl",
+      "cluster_id": "cluster-ucl1jnd",
       "rank_score": 0.3,
       "title": "Farmers report mixed yields after dry summer months",
       "topic_tags": [
@@ -963,7 +963,7 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-npar6l0",
+      "cluster_id": "cluster-z9wv9fh",
       "rank_score": 0.3,
       "title": "Scientists publish findings on coral recovery hotspots",
       "topic_tags": [
@@ -1003,7 +1003,7 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-evf4qoq",
+      "cluster_id": "cluster-26fcwbz",
       "rank_score": 0.3,
       "title": "Aid convoys reach isolated communities after flooding",
       "topic_tags": [
@@ -1043,7 +1043,7 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-5fk4opp",
+      "cluster_id": "cluster-d4o7o7w",
       "rank_score": 0.3,
       "title": "Aid organizations report gaps in refugee housing capacity",
       "topic_tags": [
@@ -1083,7 +1083,7 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-0boulg5",
+      "cluster_id": "cluster-mapgz6a",
       "rank_score": 0.3,
       "title": "Coast guard responds to severe storm damage along shoreline",
       "topic_tags": [
@@ -1123,7 +1123,7 @@
       "priority": "scan"
     },
     {
-      "cluster_id": "cluster-f381qte",
+      "cluster_id": "cluster-m745ggn",
       "rank_score": 0.3,
       "title": "Energy ministers agree temporary supply coordination pact",
       "topic_tags": [
@@ -1163,7 +1163,7 @@
       "priority": "low"
     },
     {
-      "cluster_id": "cluster-70d2he7",
+      "cluster_id": "cluster-7gv4e3b",
       "rank_score": 0.3,
       "title": "Judicial nominees face questions on digital rights precedent",
       "topic_tags": [
@@ -1203,7 +1203,7 @@
       "priority": "low"
     },
     {
-      "cluster_id": "cluster-a0o4ffk",
+      "cluster_id": "cluster-vr02k8i",
       "rank_score": 0.3,
       "title": "Developers pledge new standards for carbon-neutral housing",
       "topic_tags": [
@@ -1243,7 +1243,7 @@
       "priority": "low"
     },
     {
-      "cluster_id": "cluster-c3cuyha",
+      "cluster_id": "cluster-8zmlcjh",
       "rank_score": 0.3,
       "title": "Judges hear arguments in high-profile voting rights case",
       "topic_tags": [
@@ -1283,7 +1283,7 @@
       "priority": "low"
     },
     {
-      "cluster_id": "cluster-e3z96cx",
+      "cluster_id": "cluster-hkqgng2",
       "rank_score": 0.3,
       "title": "Major airlines suspend selected routes after safety review",
       "topic_tags": [
@@ -1323,7 +1323,7 @@
       "priority": "low"
     },
     {
-      "cluster_id": "cluster-z90dfcu",
+      "cluster_id": "cluster-98oqxeh",
       "rank_score": 0.3,
       "title": "Public radio stations collaborate on election coverage project",
       "topic_tags": [
@@ -1363,7 +1363,7 @@
       "priority": "low"
     },
     {
-      "cluster_id": "cluster-x5xnn3t",
+      "cluster_id": "cluster-oxf98rs",
       "rank_score": 0.3,
       "title": "Tech regulators review AI safety disclosure commitments",
       "topic_tags": [
@@ -1403,7 +1403,7 @@
       "priority": "low"
     },
     {
-      "cluster_id": "cluster-7n6339x",
+      "cluster_id": "cluster-aqgpakc",
       "rank_score": 0.3,
       "title": "Consumer groups challenge telecom pricing increases",
       "topic_tags": [
@@ -1443,7 +1443,7 @@
       "priority": "low"
     },
     {
-      "cluster_id": "cluster-bji0pm2",
+      "cluster_id": "cluster-i0azht3",
       "rank_score": 0.3,
       "title": "Currency volatility prompts central bank intervention talk",
       "topic_tags": [
@@ -1483,7 +1483,7 @@
       "priority": "low"
     },
     {
-      "cluster_id": "cluster-6i7xntu",
+      "cluster_id": "cluster-uxp00ix",
       "rank_score": 0.3,
       "title": "Officials expand grants for small business recovery",
       "topic_tags": [
@@ -1523,7 +1523,7 @@
       "priority": "low"
     },
     {
-      "cluster_id": "cluster-uklx7eb",
+      "cluster_id": "cluster-9b05bsk",
       "rank_score": 0.3,
       "title": "State lawmakers weigh data privacy protections for teens",
       "topic_tags": [
@@ -1563,7 +1563,7 @@
       "priority": "low"
     },
     {
-      "cluster_id": "cluster-6qx63zk",
+      "cluster_id": "cluster-qxq3cjb",
       "rank_score": 0.3,
       "title": "UN aid agencies request emergency funding for drought response",
       "topic_tags": [
