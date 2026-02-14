@@ -49,6 +49,129 @@ const PRESETS: Record<string, Partial<FeedSettings>> = {
   "challenge-me": { minReliability: "Med", paywallMode: "allow" },
 };
 
+function readFromStorage<T>(key: string, fallback: T): T {
+  if (typeof window === "undefined") {
+    return fallback;
+  }
+
+  try {
+    const value = window.localStorage.getItem(key);
+    if (value === null) {
+      return fallback;
+    }
+
+    return JSON.parse(value) as T;
+  } catch {
+    return fallback;
+  }
+}
+
+function reliabilityValue(reliability: Labels["reliability"]): number {
+  if (reliability === "High") return 3;
+  if (reliability === "Med") return 2;
+  return 1;
+}
+
+function sourceWeightValue(weight: SourceWeight): number {
+  if (weight === "boost") return 1;
+  if (weight === "hide") return -3;
+  return 0;
+}
+
+function formatTimestamp(timestamp: string): string {
+  return new Date(timestamp).toLocaleString();
+}
+
+function faviconUrl(domain: string): string {
+  return `https://www.google.com/s2/favicons?sz=64&domain_url=https://${domain}`;
+}
+
+function chooseBestArticle(cluster: Cluster, settings: FeedSettings) {
+  const scored = cluster.articles
+    .map((article) => {
+      const sourceWeight = settings.sourceWeights[article.source_domain] ?? "normal";
+      const reliability = reliabilityValue(article.labels.reliability);
+      const freshness = Math.max(0, 48 - (Date.now() - new Date(article.timestamp).getTime()) / (1000 * 60 * 60));
+      const paywallPenalty = settings.paywallMode === "hide" && article.labels.paywall === "Yes"
+        ? -100
+        : settings.paywallMode === "downrank" && article.labels.paywall === "Yes"
+          ? -1
+          : 0;
+
+      const blockedByReliability = reliability < reliabilityValue(settings.minReliability);
+      const hiddenBySource = sourceWeight === "hide";
+      const hiddenByPaywall = settings.paywallMode === "hide" && article.labels.paywall === "Yes";
+
+      return {
+        article,
+        score: reliability * 3 + sourceWeightValue(sourceWeight) + freshness / 24 + paywallPenalty,
+        blocked: blockedByReliability || hiddenBySource || hiddenByPaywall,
+      };
+    })
+    .sort((a, b) => b.score - a.score);
+
+  const winner = scored.find((entry) => !entry.blocked);
+  if (winner) {
+    return {
+      article: winner.article,
+      trace: `Picked for reliability, source weight, freshness, and paywall rule (${settings.paywallMode}).`,
+      fallback: false,
+    };
+  }
+
+  const fallback = [...cluster.articles].sort(
+    (a, b) => reliabilityValue(b.labels.reliability) - reliabilityValue(a.labels.reliability),
+  )[0];
+
+  return {
+    article: fallback,
+    trace: "Fallback pick: nothing matched current settings, so highest reliability source was used.",
+    fallback: true,
+  };
+}
+
+function deriveClusters(data: Today, settings: FeedSettings): Cluster[] {
+  const keywordMutes = settings.keywordMutes.map((keyword) => keyword.toLowerCase());
+  const topicBoosts = settings.topicBoosts.map((topic) => topic.toLowerCase());
+
+  return data.clusters
+    .map((cluster) => {
+      const best = chooseBestArticle(cluster, settings);
+      const muted = keywordMutes.some((word) => cluster.title.toLowerCase().includes(word));
+      const boost = cluster.topic_tags.some((tag) => topicBoosts.includes(tag.toLowerCase())) ? 0.4 : 0;
+      const recencyHours = Math.max(0, 72 - (Date.now() - new Date(cluster.updated_at).getTime()) / (1000 * 60 * 60));
+      const outletCount = new Set(cluster.articles.map((article) => article.source_domain)).size;
+
+      return {
+        ...cluster,
+        best_article: {
+          ...cluster.best_article,
+          url: best.article.url,
+          source_domain: best.article.source_domain,
+          labels: {
+            reliability: best.article.labels.reliability,
+            paywall: best.article.labels.paywall,
+            bias_label: best.article.labels.bias_label,
+            region: best.article.labels.region,
+          },
+          trace_summary: best.trace,
+        },
+        rank_score: Number((recencyHours / 72 + outletCount * 0.2 + boost - (muted ? 0.8 : 0)).toFixed(3)),
+      };
+    })
+    .sort((a, b) => {
+      if (b.rank_score !== a.rank_score) {
+        return b.rank_score - a.rank_score;
+      }
+      return a.title.localeCompare(b.title);
+    })
+    .slice(0, settings.storiesPerDay)
+    .map((cluster, index) => ({
+      ...cluster,
+      priority: index < settings.topCount ? "top" : index < settings.topCount + settings.scanCount ? "scan" : "low",
+    }));
+}
+
 export default function App() {
   const [settings, setSettings] = useState<FeedSettings>(() => ({ ...DEFAULT_SETTINGS, ...readStorage(STORAGE_KEYS.settings, DEFAULT_SETTINGS) }));
   const [activeTab, setActiveTab] = useState<TabKey>(() => readStorage(STORAGE_KEYS.activeTab, settings.defaultTab));
